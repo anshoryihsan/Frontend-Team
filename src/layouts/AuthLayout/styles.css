@@ -1,0 +1,19 @@
+.bg-side-auth {
+  background: url(/assets/images/bg-auth.webp);
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+
+.phone-auth-image {
+  height: 28.125rem;
+  position: relative;
+  left: -20px;
+}
+
+@media (min-width: 1440px) {
+  .phone-auth-image {
+    height: 40rem;
+  }
+}

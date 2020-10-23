@@ -1,0 +1,11 @@
+label.borderless {
+  background-color: transparent;
+  width: 100%;
+  transition: 0.2s ease-in-out;
+}
+
+label.borderless > input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}

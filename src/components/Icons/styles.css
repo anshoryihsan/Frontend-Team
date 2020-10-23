@@ -1,0 +1,93 @@
+/* Icon */
+.icon {
+  background-position: center center;
+  background-size: contain;
+  display: inline-block;
+  background-repeat: no-repeat;
+  transition: ease-in-out 0.2s;
+}
+
+.grid {
+  background-image: url(/assets/images/icons/grid-dark.svg);
+}
+.mail {
+  background-image: url(/assets/images/icons/mail.svg);
+}
+.edit {
+  background-image: url(/assets/images/icons/edit-2.svg);
+}
+.user {
+  background-image: url(/assets/images/icons/user.svg);
+}
+.user-50 {
+  background-image: url(/assets/images/icons/user-2.svg);
+}
+.eye-crossed {
+  background-image: url(/assets/images/icons/eye-crossed.svg);
+}
+.lock {
+  background-image: url(/assets/images/icons/lock-2.svg);
+}
+.lock-50 {
+  background-image: url(/assets/images/icons/lock.svg);
+}
+.search {
+  background-image: url(/assets/images/icons/search.svg);
+}
+.plus {
+  background-image: url(/assets/images/icons/plus.svg);
+}
+.arrow-up {
+  background-image: url(/assets/images/icons/arrow-up.svg);
+}
+.arrow-right {
+  background-image: url(/assets/images/icons/arrow-left.svg);
+}
+.trash {
+  background-image: url(/assets/images/icons/trash.svg);
+}
+.phone {
+  background-image: url(/assets/images/icons/phone.svg);
+}
+.log-out {
+  background-image: url(/assets/images/icons/log-out.svg);
+}
+
+.mail.active {
+  background-image: url(/assets/images/icons/mail-active.svg) !important;
+}
+.edit.active {
+  background-image: url(/assets/images/icons/edit-2-active.svg) !important;
+}
+.user.active,
+.user-50.active {
+  background-image: url(/assets/images/icons/user-active.svg) !important;
+}
+.eye-crossed.active {
+  background-image: url(/assets/images/icons/eye-crossed-active.svg) !important;
+}
+.lock.active,
+.lock-50.active {
+  background-image: url(/assets/images/icons/lock-active.svg) !important;
+}
+.search.active {
+  background-image: url(/assets/images/icons/search-active.svg) !important;
+}
+.plus.active {
+  background-image: url(/assets/images/icons/plus-active.svg) !important;
+}
+.grid.active {
+  background-image: url(/assets/images/icons/grid.svg) !important;
+}
+.arrow-up.active {
+  background-image: url(/assets/images/icons/arrow-up-active.svg) !important;
+}
+.arrow-right.active {
+  background-image: url(/assets/images/icons/arrow-left-active.svg);
+}
+.trash.active {
+  background-image: url(/assets/images/icons/trash-active.svg);
+}
+.phone.active {
+  background-image: url(/assets/images/icons/phone-active.svg);
+}

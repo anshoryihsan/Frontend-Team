@@ -1,0 +1,14 @@
+label.bordered-bottom {
+  border-bottom: 2px solid #a9a9a9;
+  width: 100%;
+  transition: 0.2s ease-in-out;
+}
+
+label > input {
+  border: none;
+  outline: none;
+}
+
+label.active {
+  border-color: var(--color-primary);
+}

@@ -1,0 +1,16 @@
+label.bordered-input {
+  background: rgba(58, 61, 66, 0.1);
+  width: 100%;
+  transition: 0.2s ease-in-out;
+  border-bottom: none;
+}
+
+label.bordered-input > input {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+/* label.active {
+  border-color: var(--color-primary);
+} */

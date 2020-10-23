@@ -1,0 +1,28 @@
+.input-bordered-small {
+  height: 65px;
+  width: 53px;
+  font-size: 30px;
+  outline: none;
+  border: 2px solid #a9a9a9;
+  transition: ease-in-out 0.2s;
+  text-align: center;
+}
+
+.input-bordered-small::placeholder {
+  position: relative;
+  bottom: -10px;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 0) and (max-width: 400px) {
+  .input-bordered-small {
+    height: 50px;
+    width: 100%;
+    font-size: 24px;
+  }
+}
+
+.input-bordered-small:hover,
+.input-bordered-small:focus {
+  border-color: var(--color-primary);
+}
