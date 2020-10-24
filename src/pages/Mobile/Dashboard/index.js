@@ -9,7 +9,7 @@ import TransferStatus from "./Main";
 import History from "./Main";
 import Transaction from "./Main";
 import Notification from "./Main";
-import Topup from "./Main";
+import Topup from "./Topup";
 import Profile from "./Main";
 import ProfileInfo from "./Main";
 import ProfileChangePass from "./Main";
