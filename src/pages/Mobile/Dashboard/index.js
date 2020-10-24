@@ -14,7 +14,7 @@ import Profile from "./Main";
 import ProfileInfo from "./Main";
 import ProfileChangePass from "./Main";
 import ProfileManagePhone from "./Main";
-import ProfileAddPhone from "./Main";
+import ProfileAddPhone from "./ProfileAddPhone";
 import ProfileChangePin from "./Main";
 
 export {

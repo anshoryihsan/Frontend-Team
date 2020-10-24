@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTopup } from "../../../redux/actions/user";
 import { Link } from 'react-router-dom'
-import { Row, Col, Button } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 
 function Topup() {
   const [loading, setLoading] = useState(false);

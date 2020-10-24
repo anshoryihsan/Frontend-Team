@@ -40,6 +40,7 @@ function index(props) {
         onChange={onChange}
         onBlur={onBlur}
         placeholder={label}
+        style={{ backgroundColor: "transparent" }}
       />
 
       {iconRight ? (
