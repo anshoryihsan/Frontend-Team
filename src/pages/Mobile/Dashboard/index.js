@@ -5,7 +5,7 @@ import TransferConfirmation from "./TransferConfirm";
 import Transfer from "./Main";
 import TransferProcess from "./Main";
 import TransferPinConfirmation from "./Main";
-import TransferStatus from "./Main";
+import TransferStatus from "./TransferStatus";
 import History from "./Main";
 import Transaction from "./Main";
 import Notification from "./Main";
