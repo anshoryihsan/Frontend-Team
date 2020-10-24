@@ -25,7 +25,7 @@ function index(props) {
           <div className="d-none d-lg-flex align-items-center">
             <img
               alt="profile"
-              src={photo ? photo : `/assets/images/profile-image.png`}
+              src={photo ? photo : `${window.location.origin}/assets/images/profile-image.png`}
               width="52px"
               height="52px"
             />

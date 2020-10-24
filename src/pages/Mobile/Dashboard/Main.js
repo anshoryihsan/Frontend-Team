@@ -24,7 +24,7 @@ function Main() {
         <div className="d-flex align-items-center">
           <img
             alt="profile"
-            src={`/assets/images/profile-image.png`}
+            src={`${window.location.origin}/assets/images/profile-image.png`}
             width="52px"
             height="52px"
           />

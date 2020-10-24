@@ -25,7 +25,7 @@ function SideNavbar(props) {
         <div className="mt-4">
           <img
             alt="profile"
-            src={photo ? photo : `/assets/images/profile-image.png`}
+            src={photo ? photo : `${window.location.origin}/assets/images/profile-image.png`}
             width="70px"
             height="70px"
           />
