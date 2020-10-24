@@ -23,7 +23,7 @@ function Profile() {
           <div className="mx-auto col-lg-7 d-flex align-items-center flex-column">
             <img
               alt="profile"
-              src={userdata.photo ? userdata.photo : "/assets/images/profile-image.png"}
+              src={userdata.photo ? userdata.photo : window.location.origin + "/assets/images/profile-image.png"}
               width="80px"
               height="80px"
               className="rounded-14"

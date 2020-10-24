@@ -16,7 +16,7 @@ function Auth({ child: Child }) {
             </h4>
 
             <img
-              src="/assets/images/phone-auth.webp"
+              src={window.location.origin + "/assets/images/phone-auth.webp"}
               className="phone-auth-image"
               alt="Phone Auth Images"
             />

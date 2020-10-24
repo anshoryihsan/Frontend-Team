@@ -100,7 +100,7 @@ function Dashboard({ child: Child }) {
               <li className="d-flex align-items-center my-4">
                 <img
                   alt="logout"
-                  src="/assets/images/icons/log-out.svg"
+                  src={window.location.origin + "/assets/images/icons/log-out.svg"}
                   height="24px"
                   width="24px"
                 />

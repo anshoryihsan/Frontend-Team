@@ -24,7 +24,7 @@ function Main() {
         <div className="d-flex align-items-center">
           <img
             alt="profile"
-            src={`/assets/images/profile-image.png`}
+            src={`${window.location.origin}/assets/images/profile-image.png`}
             width="52px"
             height="52px"
           />
@@ -38,7 +38,7 @@ function Main() {
         <button className="btn">
           <img
             alt="notification"
-            src="/assets/images/icons/bell.svg"
+            src={window.location.origin + "/assets/images/icons/bell.svg"}
             height="24px"
             width="24px"
           />
@@ -61,7 +61,7 @@ function Main() {
             className="btn d-flex rounded-14 justify-content-center bg-gray py-3 mb-md-2 px-3 text-white d-flex overlay-1 w-100"
           >
             <img
-              src="/assets/images/icons/arrow-up-active.svg"
+              src={window.location.origin + "/assets/images/icons/arrow-up-active.svg"}
               height="24px"
               width="24px"
               alt="plus"
@@ -75,7 +75,7 @@ function Main() {
             className="btn rounded-14 bg-gray d-flex justify-content-center py-3 mb-md-2 px-3 text-white d-flex overlay-1 w-100"
           >
             <img
-              src="/assets/images/icons/plus-active.svg"
+              src={window.location.origin + "/assets/images/icons/plus-active.svg"}
               height="24px"
               width="24px"
               alt="plus"

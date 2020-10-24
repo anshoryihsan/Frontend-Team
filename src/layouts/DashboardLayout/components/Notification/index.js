@@ -12,7 +12,7 @@ function index(props) {
           <button type="button" className="btn p-0" onClick={onClose}>
             <img
               alt="x"
-              src="/assets/images/icons/x.svg"
+              src={window.location.origin + "/assets/images/icons/x.svg"}
               height="28px"
               width="28px"
             />

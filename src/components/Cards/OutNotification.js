@@ -10,7 +10,7 @@ function InNotification(props) {
       <img
         alt="arrow-green"
         className="align-self-start"
-        src="/assets/images/icons/arrow-up-red.svg"
+        src={window.location.origin + "/assets/images/icons/arrow-up-red.svg"}
       />
       <div className="ml-3">
         <div className="small">{label}</div>

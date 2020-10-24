@@ -11,7 +11,7 @@ function Success() {
 
   return (
     <>
-      <img src="/assets/images/icons/success-circle.svg" height="70px" width="70px" alt="images" />
+      <img src={window.location.origin + "/assets/images/icons/success-circle.svg"} height="70px" width="70px" alt="images" />
       <h4 className="font-weight-bold my-3">
         Your PIN Was Successfully Created.
       </h4>

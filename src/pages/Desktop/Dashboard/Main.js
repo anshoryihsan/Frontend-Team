@@ -37,7 +37,7 @@ function Main() {
               className="btn bg-white-outline py-3 mb-md-2 text-white d-flex overlay-1"
             >
               <img
-                src="assets/images/icons/arrow-up-white.svg"
+                src={window.location.origin + "/assets/images/icons/arrow-up-white.svg"}
                 height="24px"
                 width="24px"
                 alt="arrow"
@@ -49,7 +49,7 @@ function Main() {
               className="btn bg-white-outline py-3 mb-md-2 px-3 text-white d-flex overlay-1"
             >
               <img
-                src="assets/images/icons/plus-white.svg"
+                src={window.location.origin + "/assets/images/icons/plus-white.svg"}
                 height="24px"
                 width="24px"
                 alt="plus"
@@ -67,7 +67,7 @@ function Main() {
               <div className="row">
                 <div className="col-6">
                   <img
-                    src="assets/images/icons/arrow-up-green.svg"
+                    src={window.location.origin + "/assets/images/icons/arrow-up-green.svg"}
                     height="24px"
                     width="24px"
                     alt="arrow"
@@ -80,7 +80,7 @@ function Main() {
 
                 <div className="col-6">
                   <img
-                    src="assets/images/icons/arrow-up-red.svg"
+                    src={window.location.origin + "/assets/images/icons/arrow-up-red.svg"}
                     height="24px"
                     width="24px"
                     alt="arrow"

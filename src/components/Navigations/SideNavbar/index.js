@@ -18,14 +18,14 @@ function SideNavbar(props) {
           <h4 className="font-weight-bold text-primary pb-0 mb-0">ZWallet</h4>
 
           <button type="button" className="btn p-0" onClick={onClose}>
-            <img alt="x" src="/assets/images/icons/x.svg" height="28px" width="28px" />
+            <img alt="x" src={window.location.origin + "/assets/images/icons/x.svg"} height="28px" width="28px" />
           </button>
         </div>
 
         <div className="mt-4">
           <img
             alt="profile"
-            src={photo ? photo : `/assets/images/profile-image.png`}
+            src={photo ? photo : `${window.location.origin}/assets/images/profile-image.png`}
             width="70px"
             height="70px"
           />
@@ -39,7 +39,7 @@ function SideNavbar(props) {
             <button className="btn" onClick={notifClick}>
               <img
                 alt="notification"
-                src="/assets/images/icons/bell.svg"
+                src={window.location.origin + "/assets/images/icons/bell.svg"}
                 height="24px"
                 width="24px"
               />
