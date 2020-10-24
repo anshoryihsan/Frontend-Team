@@ -15,7 +15,7 @@ function index(props) {
 
           <button className="btn bg-primary py-2 px-2 d-lg-none" onClick={menuClick}>
             <img
-              src="/assets/images/icons/more-vert.svg"
+              src={window.location.origin + "/assets/images/icons/more-vert.svg"}
               height="24px"
               width="24px"
               alt="More"
@@ -38,7 +38,7 @@ function index(props) {
             <button className="btn" onClick={notifClick}>
               <img
                 alt="notification"
-                src="/assets/images/icons/bell.svg"
+                src={window.location.origin + "/assets/images/icons/bell.svg"}
                 height="24px"
                 width="24px"
               />

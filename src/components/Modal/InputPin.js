@@ -20,7 +20,7 @@ function InputPin(props) {
             onClick={onDismiss}
           >
             <img
-              src="/assets/images/icons/x.svg"
+              src={window.location.origin + "/assets/images/icons/x.svg"}
               height="28px"
               width="28px"
               alt="x"

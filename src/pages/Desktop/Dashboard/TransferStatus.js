@@ -22,7 +22,7 @@ function TransferStatus() {
       <div className="p-4 bg-white rounded-14 shadow-sm vh-85">
         <div className="d-flex align-items-center flex-column my-3">
           <img
-            src="/assets/images/icons/success-circle.svg"
+            src={window.location.origin + "/assets/images/icons/success-circle.svg"}
             height="50px"
             width="50px"
             alt="success"
@@ -71,7 +71,7 @@ function TransferStatus() {
             data-target="#staticBackdrop"
           >
             <img
-              src="/assets/images/icons/share-2.svg"
+              src={window.location.origin + "/assets/images/icons/share-2.svg"}
               height="22px"
               width="22px"
               alt="share"
@@ -84,7 +84,7 @@ function TransferStatus() {
             data-target="#staticBackdrop"
           >
             <img
-              src="/assets/images/icons/download.svg"
+              src={window.location.origin + "/assets/images/icons/download.svg"}
               height="22px"
               width="22px"
               alt="download"
