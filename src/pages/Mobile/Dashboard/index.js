@@ -1,15 +1,15 @@
 import Main from "./Main";
+import TransferConfirmation from "./TransferConfirm";
 
 // Kalian Edit Sendiri ya sesuai nama filenya
 import Transfer from "./Main";
 import TransferProcess from "./Main";
-import TransferConfirmation from "./Main";
 import TransferPinConfirmation from "./Main";
 import TransferStatus from "./TransferStatus";
 import History from "./Main";
 import Transaction from "./Main";
 import Notification from "./Main";
-import Topup from "./Main";
+import Topup from "./Topup";
 import Profile from "./Main";
 import ProfileInfo from "./Main";
 import ProfileChangePass from "./Main";
@@ -33,5 +33,5 @@ export {
   ProfileChangePass,
   ProfileManagePhone,
   ProfileAddPhone,
-  ProfileChangePin
+  ProfileChangePin,
 };
