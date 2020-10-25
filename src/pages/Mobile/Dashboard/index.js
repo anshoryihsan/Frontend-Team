@@ -1,5 +1,6 @@
 import Main from "./Main";
 import TransferConfirmation from "./TransferConfirm";
+import ProfileInfo from "./ProfileInfo";
 
 // Kalian Edit Sendiri ya sesuai nama filenya
 import Transfer from "./Main";
@@ -11,7 +12,6 @@ import Transaction from "./Main";
 import Notification from "./Main";
 import Topup from "./Topup";
 import Profile from "./Main";
-import ProfileInfo from "./Main";
 import ProfileChangePass from "./ProfileChangePass";
 import ProfileManagePhone from "./Main";
 import ProfileAddPhone from "./ProfileAddPhone";
