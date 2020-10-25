@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { HistoryCard } from '../../../components/Cards'
 import { useSelector, useDispatch } from 'react-redux'
 import { currency } from '../../../helpers'
-import { getHistories, UserLoad } from '../../../redux/actions/user'
+import { getHistories } from '../../../redux/actions/user'
 
 function Main() {
   const { token } = useSelector(state => state.Auth)
