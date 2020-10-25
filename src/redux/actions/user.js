@@ -109,8 +109,9 @@ export const getFindId = (token, id) => dispatch => {
     .catch(err => handleError(err, dispatch))
 }
 
-export const balanceTransfer = (token, data, history) => dispatch => {
+export const balanceTransfer = (token, data, history, mobile = false) => dispatch => {
   dispatch(options(SETUSERERROR, ""))
+  const isMobile = mobile ? "/m" : ""
 
   axios.post("/users/transfer", data, {
     headers: {
@@ -120,7 +121,7 @@ export const balanceTransfer = (token, data, history) => dispatch => {
     .then(res => {
       const amount = data.total
       dispatch(options(SETBALANCE, amount))
-      history.push(`/dashboard/transfer/status/${res.data.data.id}`)
+      history.push(`${isMobile}/dashboard/transfer/status/${res.data.data.id}`)
     })
     .catch(err => handleError(err, dispatch))
 }
