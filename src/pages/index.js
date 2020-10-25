@@ -1,5 +1,4 @@
 // Desktop
-
 import {
   Login,
   Register,
@@ -24,7 +23,12 @@ import {
 } from "./Desktop/Dashboard"
 
 // Mobile
-// import { } from './Mobile/Auth'
+import {
+  Login as LoginMobile,
+  Register as RegisterMobile,
+  AddPin as AddPinMobile,
+  Success as SuccessMobile
+} from "./Mobile/Auth"
 import {
   Main as MainMobile,
   Transfer as TransferMobile,
@@ -82,4 +86,8 @@ export {
   NotificationMobile,
   TransferPinConfirmationMobile,
   TransactionMobile,
+  LoginMobile,
+  RegisterMobile,
+  AddPinMobile,
+  SuccessMobile,
 }

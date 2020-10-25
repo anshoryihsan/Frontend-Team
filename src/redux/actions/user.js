@@ -31,8 +31,9 @@ export const UserLoad = (token, history, mobile = false) => dispatch => {
     }
   })
     .then(res => {
-      if (!res.data.data.phone) history.push(`${isMobile}/dashboard/profile/add_phone`)
-      return dispatch(options(SETUSERDATA, res.data.data))
+      dispatch(options(SETUSERDATA, res.data.data))
+      if (!res.data.data.pin) history.push(`${isMobile}/auth/create-pin`)
+      else if (!res.data.data.phone) history.push(`${isMobile}/dashboard/profile/add_phone`)
     })
     .catch(_ => {
       dispatch(options(SETAUTHERROR, "Sesi telah berakhir"))
@@ -153,7 +154,7 @@ export const addPhone = (token, phone, history) => dispatch => {
   })
     .then(res => {
       dispatch(options(SETPHONE, phone))
-      history.push(`/dashboard/profile/info`)
+      history.replace(`/dashboard/profile/info`)
     })
     .catch(err => handleError(err, dispatch))
 }
@@ -168,7 +169,7 @@ export const addPhoneMobile = (token, phone, history) => dispatch => {
   })
     .then(res => {
       dispatch(options(SETPHONE, phone))
-      history.push(`/m/dashboard/profile/info`)
+      history.replace(`/m/dashboard/profile/info`)
     })
     .catch(err => handleError(err, dispatch))
 }

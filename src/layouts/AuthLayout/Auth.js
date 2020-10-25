@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from "react-router-dom"
 
 import "./styles.css"
 
 
 function Auth({ child: Child }) {
+  const history = useHistory()
+
+  useEffect(() => {
+    if (window.innerWidth <= 500) return history.replace("/m/auth")
+  }, [history])
+
   return (
     <Container fluid>
       <Row>

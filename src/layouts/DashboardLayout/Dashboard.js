@@ -41,7 +41,7 @@ function Dashboard({ child: Child }) {
     setLoading(true)
     dispatch(UserLoad(token, history, false))
     setLoading(false)
-  }, [])
+  }, [dispatch, history, token])
 
 
   useEffect(() => {

@@ -18,7 +18,7 @@ function DashboardMobile({ child: Child }) {
     setLoading(true)
     dispatch(UserLoad(token, history, true))
     setLoading(false)
-  }, [])
+  }, [dispatch, history, token])
 
   useEffect(() => {
     if (!modal) setModal(isMobile)

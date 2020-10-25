@@ -1,8 +1,7 @@
 import React from 'react';
 import { useHistory, Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom'
 import { PublicRoute, PrivateRoute } from './components/Router'
-import { Auth, Dashboard, DashboardMobile } from './layouts';
-import { Login, Register } from './pages'
+import { Auth, AuthMobile, Dashboard, DashboardMobile } from './layouts';
 import {
   // Desktop
   Main,
@@ -18,6 +17,8 @@ import {
   ProfileManagePhone,
   ProfileAddPhone,
   ProfileChangePin,
+  Login,
+  Register,
   AddPin,
   Success,
   Logout,
@@ -39,6 +40,10 @@ import {
   NotificationMobile,
   TransferPinConfirmationMobile,
   TransactionMobile,
+  LoginMobile,
+  RegisterMobile,
+  AddPinMobile,
+  SuccessMobile,
 } from "./pages"
 
 import Admin from './pages/Desktop/Dashboard/Admin';
@@ -70,6 +75,10 @@ function App() {
         <PrivateRoute exact path="/admin" component={Admin} />
 
         {/* Mobile */}
+        <PublicRoute restricted={true} exact path="/m/auth/signup" component={AuthMobile} child={RegisterMobile} />
+        <PublicRoute restricted={true} exact path="/m/auth" component={AuthMobile} child={LoginMobile} />
+        <PrivateRoute exact path="/m/auth/create-pin" component={AuthMobile} child={AddPinMobile} />
+        <PrivateRoute exact path="/m/auth/success" component={AuthMobile} child={SuccessMobile} />
         <PrivateRoute exact path="/m/dashboard" component={DashboardMobile} child={MainMobile} />
         <PrivateRoute exact path="/m/dashboard/notification" component={DashboardMobile} child={NotificationMobile} />
         <PrivateRoute exact path="/m/dashboard/transaction" component={DashboardMobile} child={TransactionMobile} />

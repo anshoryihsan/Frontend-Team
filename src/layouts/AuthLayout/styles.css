@@ -12,6 +12,11 @@
   left: -20px;
 }
 
+.radius-top {
+  border-top-left-radius: 75px;
+  border-top-right-radius: 75px;
+}
+
 @media (min-width: 1440px) {
   .phone-auth-image {
     height: 40rem;
