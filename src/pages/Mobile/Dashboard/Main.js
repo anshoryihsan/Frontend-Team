@@ -14,7 +14,6 @@ function Main() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(UserLoad(token, history1))
     dispatch(getHistories(token))
   }, [dispatch, history1, token])
 

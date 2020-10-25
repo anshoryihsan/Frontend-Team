@@ -22,14 +22,16 @@ const handleError = (err, dispatch) => {
   dispatch(options(SETUSERERROR, err.response.data.message))
 }
 
-export const UserLoad = (token, history) => dispatch => {
+export const UserLoad = (token, history, mobile = false) => dispatch => {
+  const isMobile = mobile ? "/m" : ""
+
   axios.get("/users/detail", {
     headers: {
       Authorization: `Bearer ${token}`
     }
   })
     .then(res => {
-      if (!res.data.data.phone) history.push("/dashboard/profile/add_phone")
+      if (!res.data.data.phone) history.push(`${isMobile}/dashboard/profile/add_phone`)
       return dispatch(options(SETUSERDATA, res.data.data))
     })
     .catch(_ => {
@@ -152,6 +154,21 @@ export const addPhone = (token, phone, history) => dispatch => {
     .then(res => {
       dispatch(options(SETPHONE, phone))
       history.push(`/dashboard/profile/info`)
+    })
+    .catch(err => handleError(err, dispatch))
+}
+
+export const addPhoneMobile = (token, phone, history) => dispatch => {
+  dispatch(options(SETUSERERROR, ""))
+
+  axios.patch("/users/phone", { phone }, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+    .then(res => {
+      dispatch(options(SETPHONE, phone))
+      history.push(`/m/dashboard/profile/info`)
     })
     .catch(err => handleError(err, dispatch))
 }

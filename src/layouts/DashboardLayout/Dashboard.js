@@ -39,9 +39,9 @@ function Dashboard({ child: Child }) {
   useEffect(() => {
     if (window.innerWidth <= 500) return history.replace("/m/dashboard")
     setLoading(true)
-    dispatch(UserLoad(token, history))
+    dispatch(UserLoad(token, history, false))
     setLoading(false)
-  }, [dispatch, history, token])
+  }, [])
 
 
   useEffect(() => {

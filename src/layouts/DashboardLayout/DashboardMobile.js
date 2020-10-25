@@ -16,9 +16,9 @@ function DashboardMobile({ child: Child }) {
   useEffect(() => {
     if (window.innerWidth > 500) return history.replace("/dashboard")
     setLoading(true)
-    dispatch(UserLoad(token, history))
+    dispatch(UserLoad(token, history, true))
     setLoading(false)
-  }, [dispatch, history, token])
+  }, [])
 
   useEffect(() => {
     if (!modal) setModal(isMobile)
