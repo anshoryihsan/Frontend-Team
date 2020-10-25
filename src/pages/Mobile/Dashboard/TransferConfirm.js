@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { ReceiverCard } from "../../../components/Cards";
 import { useHistory, useParams } from "react-router-dom";
@@ -7,8 +7,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { getFindId } from "../../../redux/actions/user";
 
 function TransferConfirm() {
-
-
   const history = useHistory();
   const { token } = useSelector((state) => state.Auth);
   const { userdata, findId } = useSelector((state) => state.User);
