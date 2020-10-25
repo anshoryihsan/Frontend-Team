@@ -5,7 +5,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { getHistories } from "../../../redux/actions/user";
 import InfiniteScroll from "react-infinite-scroller";
 
-function History() {
+function Transaction() {
   const [loading, setLoading] = useState(false);
   const [hasMore, setMore] = useState(true);
   const [offset, setOffset] = useState(2);
@@ -143,4 +143,4 @@ function History() {
   );
 }
 
-export default History;
+export default Transaction;
