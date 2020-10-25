@@ -155,6 +155,21 @@ export const addPhone = (token, phone, history) => dispatch => {
     .catch(err => handleError(err, dispatch))
 }
 
+export const addPhoneMobile = (token, phone, history) => dispatch => {
+  dispatch(options(SETUSERERROR, ""))
+
+  axios.patch("/users/phone", { phone }, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+    .then(res => {
+      dispatch(options(SETPHONE, phone))
+      history.push(`/m/dashboard/profile/info`)
+    })
+    .catch(err => handleError(err, dispatch))
+}
+
 export const changePassword = (token, data, history) => dispatch => {
   dispatch(options(SETUSERERROR, ""))
 

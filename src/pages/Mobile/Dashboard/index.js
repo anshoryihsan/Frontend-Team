@@ -5,7 +5,7 @@ import TransferConfirmation from "./TransferConfirm";
 import Transfer from "./Main";
 import TransferProcess from "./Main";
 import TransferPinConfirmation from "./Main";
-import TransferStatus from "./Main";
+import TransferStatus from "./TransferStatus";
 import History from "./Main";
 import Transaction from "./Main";
 import Notification from "./Main";
@@ -14,7 +14,7 @@ import Profile from "./Main";
 import ProfileInfo from "./Main";
 import ProfileChangePass from "./ProfileChangePass";
 import ProfileManagePhone from "./Main";
-import ProfileAddPhone from "./Main";
+import ProfileAddPhone from "./ProfileAddPhone";
 import ProfileChangePin from "./Main";
 
 export {
