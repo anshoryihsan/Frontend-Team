@@ -12,7 +12,7 @@ import Notification from "./Main";
 import Topup from "./Topup";
 import Profile from "./Main";
 import ProfileInfo from "./Main";
-import ProfileChangePass from "./Main";
+import ProfileChangePass from "./ProfileChangePass";
 import ProfileManagePhone from "./Main";
 import ProfileAddPhone from "./Main";
 import ProfileChangePin from "./Main";
