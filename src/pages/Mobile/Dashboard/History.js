@@ -55,7 +55,7 @@ function History() {
           <div className="font-weight-bold ">Transaction</div>
         </div>
       </nav>
-      <div className="bg-primary side-nav-right p-4 shadow-sm rounded-14 mx-2">
+      <div className="bg-primary side-nav-right p-4 shadow-sm rounded-14 mx-2 mt-4">
         <div className="d-md-flex justify-content-between">
           <div className="row">
             <div className="col-6">
