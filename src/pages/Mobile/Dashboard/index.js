@@ -1,14 +1,14 @@
 import Main from "./Main";
 import TransferConfirmation from "./TransferConfirm";
 import ProfileInfo from "./ProfileInfo";
+import Transaction from "./Transaction";
 
 // Kalian Edit Sendiri ya sesuai nama filenya
-import Transfer from "./Transfer";
-import TransferProcess from "./TransferProcess";
-import TransferPinConfirmation from "./TransferPinConfirm";
-import TransferStatus from "./TransferStatus";
 import History from "./Main";
-import Transaction from "./Main";
+import Transfer from "./Main";
+import TransferProcess from "./Main";
+import TransferPinConfirmation from "./Main";
+import TransferStatus from "./TransferStatus";
 import Notification from "./Main";
 import Topup from "./Topup";
 import Profile from "./Main";
