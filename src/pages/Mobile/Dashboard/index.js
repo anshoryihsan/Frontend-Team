@@ -2,9 +2,9 @@ import Main from "./Main";
 import TransferConfirmation from "./TransferConfirm";
 
 // Kalian Edit Sendiri ya sesuai nama filenya
-import Transfer from "./Main";
-import TransferProcess from "./Main";
-import TransferPinConfirmation from "./Main";
+import Transfer from "./Transfer";
+import TransferProcess from "./TransferProcess";
+import TransferPinConfirmation from "./TransferPinConfirm";
 import TransferStatus from "./TransferStatus";
 import History from "./Main";
 import Transaction from "./Main";

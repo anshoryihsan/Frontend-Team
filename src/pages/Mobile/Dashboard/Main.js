@@ -57,9 +57,11 @@ function Main() {
 
       <div className="row mx-2 no-gutters mt-4">
         <div className="col-6 pr-2">
-          <button
+          <Link to="/m/dashboard/transfer"
             className="btn d-flex rounded-14 justify-content-center bg-gray py-3 mb-md-2 px-3 text-white d-flex overlay-1 w-100"
           >
+            
+
             <img
               src={window.location.origin + "/assets/images/icons/arrow-up-active.svg"}
               height="24px"
@@ -67,7 +69,7 @@ function Main() {
               alt="plus"
             />
             <div className="font-weight-bold ml-3 text-dark">Transfer</div>
-          </button>
+          </Link>
         </div>
 
         <div className="col-6 pl-2">
