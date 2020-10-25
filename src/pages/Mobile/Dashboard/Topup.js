@@ -17,8 +17,8 @@ function Topup() {
   return (
     <>
       <div className="bg-secondary">
-        <div className="p-4 rounded-14 shadow-sm">
-          <nav className="mx-2 py-3 px-2 d-flex justify-content-between">
+        <div className="rounded-14 mx-2 ">
+          <nav className="py-3 d-flex justify-content-between">
             <div className="d-flex align-items-center">
               <Link to="/m/dashboard">
                 <img
@@ -32,10 +32,10 @@ function Topup() {
             </div>
           </nav>
 
-          <div className="d-flex bg-white align-items-center justify-content-between shadow-sm rounded-14 pl-3 my-3 p-4">
+          <div className="d-flex bg-white align-items-center justify-content-between shadow-sm rounded-14 pl-3 my-3 p-4" >
             <div className="small col">
-              <Row>
-                <Col xs={3}>
+              <Row className="align-items-center">
+                <button className="btn p-0 shadow-none">
                   <div className="bg-secondary shadow-sm rounded-14 px-2 py-2">
                     <img
                       src="/assets/images/icons/plus-active.svg"
@@ -44,7 +44,7 @@ function Topup() {
                       alt="arrow"
                     />
                   </div>
-                </Col>
+                </button>
                 <Col>
                   <div className="text-black-50">Virtual Account Number</div>
                   <div className="font-weight-bold">111111111111111111111</div>
@@ -54,10 +54,7 @@ function Topup() {
           </div>
 
           <div className="text-center small text-black-50">
-            <p>
-              We provide you virtual account number for top <br /> up via
-              nearest ATM.
-            </p>
+            <p>We provide you virtual account number for top <br /> up via nearest ATM.</p>
           </div>
 
           <div className="d-flex justify-content-between align-items-center">
@@ -67,18 +64,18 @@ function Topup() {
           {loading ? (
             <div className="text-center small py-4">Loading ...</div>
           ) : (
-            topup.map((item, index) => (
-              <div
-                key={index}
-                className="d-flex bg-white align-items-center justify-content-between shadow-sm rounded-14 pl-3 my-3 p-4"
-              >
-                <div className="font-weight-bold text-primary align-self-start">
-                  {index + 1}
+              topup.map((item, index) => (
+                <div
+                  key={index}
+                  className="d-flex bg-white align-items-center justify-content-between shadow-sm rounded-14 pl-3 my-3 p-4"
+                >
+                  <div className="font-weight-bold text-primary align-self-start">
+                    {index + 1}
+                  </div>
+                  <div className="small col">{item.detail}</div>
                 </div>
-                <div className="small col">{item.detail}</div>
-              </div>
-            ))
-          )}
+              ))
+            )}
         </div>
       </div>
     </>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { ReceiverCard } from '../../../components/Cards'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { currency } from '../../../helpers'
 import { getHistoryId } from '../../../redux/actions/user'
@@ -19,7 +19,7 @@ function TransferStatus() {
 
   return (
     <>
-    <div className="bg-secondary vh-100 p-4">
+      <div className="bg-secondary mx-2 vh-100">
         <div className="d-flex align-items-center flex-column my-3 mt-3">
           <img
             src={window.location.origin + "/assets/images/icons/success-circle.svg"}
@@ -68,13 +68,13 @@ function TransferStatus() {
           className="my-2 shadow-sm bg-white"
         />
 
-        <div className="d-flex justify-content-center mt-5">
-          <a
-            href="/dashboard.html"
+        <div className="d-flex justify-content-center my-4">
+          <Link
+            to="/m/dashboard"
             className="py-2 lg-6 px-5 rounded-14 btn btn-primary" width="200px"
           >
             Back to Home
-              </a>
+          </Link>
         </div>
       </div>
     </>

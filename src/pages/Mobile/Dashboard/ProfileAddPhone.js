@@ -26,20 +26,22 @@ function ProfileNewPhone() {
 
   return (
     <>
-      <div className="p-4 bg-secondary rounded-14 shadow-sm vh-100">
-        <nav className="mx-2 py-3 px-2 d-flex justify-content-between">
-          <div className="d-flex align-items-center">
-            <Link to="/m/dashboard/profile">
-              <img
-                src="/assets/images/icons/arrow-left.svg"
-                height="24px"
-                width="24px"
-                alt="arrow"
-              />
-            </Link>
-            <div className="font-weight-bold ml-3">Add Phone Number</div>
-          </div>
-        </nav>
+      <div className="bg-secondary mx-2">
+        <div className="rounded-14 shadow-none">
+          <nav className="py-3 d-flex justify-content-between mb-3">
+            <div className="d-flex align-items-center">
+              <Link to="/m/dashboard/profile">
+                <img
+                  src="/assets/images/icons/arrow-left.svg"
+                  height="24px"
+                  width="24px"
+                  alt="arrow"
+                />
+              </Link>
+              <div className="font-weight-bold ml-3">Add Phone</div>
+            </div>
+          </nav>
+        </div>
 
         <div className="text-center text-black-50">
           Add at least one phone number for the transfer ID so you can start
@@ -60,18 +62,20 @@ function ProfileNewPhone() {
                     onFocus={() => setPhoneFocus(true)}
                     onBlur={() => setPhoneFocus(false)}
                     isFocused={phoneFocus}
-                    value={phone}/>
+                    value={phone} />
                 </div>
 
 
-              <div className="fixed-bottom ml-3" style={{bottom: "15px", 
-              width: "90%"}}>
-                <button
-                  className="w-100 btn bg-primary py-3 mt-3 rounded-14 text-white" disabled={!phone}>
-                  Submit
+                <div className="fixed-bottom ml-3" style={{
+                  bottom: "15px",
+                  width: "90%"
+                }}>
+                  <button
+                    className="w-100 btn bg-primary py-3 mt-3 rounded-14 text-white" disabled={!phone}>
+                    Submit
                 </button>
-              </div>
-              
+                </div>
+
 
               </div>
             </div>

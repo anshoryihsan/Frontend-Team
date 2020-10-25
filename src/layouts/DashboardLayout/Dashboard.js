@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
+import { useMedia } from "use-media"
 import { Link, useLocation, useHistory } from "react-router-dom"
 import { Container, Row } from "react-bootstrap"
 import { useSelector, useDispatch } from 'react-redux'
-
 import { SideNavbar, TopNavbar } from "../../components/Navigations"
 import { Notification } from "./components"
 import { navbarItem } from "../../helpers"
+import { ModalResponsive } from '../../components/Modal'
 import Footer from "../../components/Footer"
 import Icons from "../../components/Icons"
 import "./styles.css"
@@ -13,6 +14,9 @@ import "./styles.css"
 import { UserLoad } from '../../redux/actions/user'
 
 function Dashboard({ child: Child }) {
+  const mobileView = useMedia({ maxWidth: "500px" })
+
+  const [modal, setModal] = useState(false)
   const [menu, setMenu] = useState(false)
   const [notif, setNotif] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -33,13 +37,26 @@ function Dashboard({ child: Child }) {
   }
 
   useEffect(() => {
+    if (window.innerWidth <= 500) return history.replace("/m/dashboard")
     setLoading(true)
-    dispatch(UserLoad(token, history))
+    dispatch(UserLoad(token, history, false))
     setLoading(false)
-  }, [dispatch, history, token])
+  }, [])
+
+
+  useEffect(() => {
+    if (!modal) setModal(mobileView)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mobileView])
 
   return (
     <div className="bg-secondary">
+      <ModalResponsive
+        show={modal}
+        onDismiss={() => setModal(false)}
+        onContinue={() => history.replace("/m/dashboard")}
+      />
+
       <div className={`loading ${loading ? 'active' : null} bg-secondary d-flex justify-content-center align-items-center`}>
         <h1>Loading ...</h1>
       </div>

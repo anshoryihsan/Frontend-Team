@@ -22,14 +22,16 @@ const handleError = (err, dispatch) => {
   dispatch(options(SETUSERERROR, err.response.data.message))
 }
 
-export const UserLoad = (token, history) => dispatch => {
+export const UserLoad = (token, history, mobile = false) => dispatch => {
+  const isMobile = mobile ? "/m" : ""
+
   axios.get("/users/detail", {
     headers: {
       Authorization: `Bearer ${token}`
     }
   })
     .then(res => {
-      if (!res.data.data.phone) history.push("/dashboard/profile/add_phone")
+      if (!res.data.data.phone) history.push(`${isMobile}/dashboard/profile/add_phone`)
       return dispatch(options(SETUSERDATA, res.data.data))
     })
     .catch(_ => {
@@ -109,8 +111,9 @@ export const getFindId = (token, id) => dispatch => {
     .catch(err => handleError(err, dispatch))
 }
 
-export const balanceTransfer = (token, data, history) => dispatch => {
+export const balanceTransfer = (token, data, history, mobile = false) => dispatch => {
   dispatch(options(SETUSERERROR, ""))
+  const isMobile = mobile ? "/m" : ""
 
   axios.post("/users/transfer", data, {
     headers: {
@@ -120,7 +123,7 @@ export const balanceTransfer = (token, data, history) => dispatch => {
     .then(res => {
       const amount = data.total
       dispatch(options(SETBALANCE, amount))
-      history.push(`/dashboard/transfer/status/${res.data.data.id}`)
+      history.push(`${isMobile}/dashboard/transfer/status/${res.data.data.id}`)
     })
     .catch(err => handleError(err, dispatch))
 }
