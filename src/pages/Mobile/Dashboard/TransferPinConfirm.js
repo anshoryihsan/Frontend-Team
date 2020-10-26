@@ -8,6 +8,7 @@ import { balanceTransfer } from "../../../redux/actions/user";
 function ProfileNewPhone() {
   const [pin, setPin] = useState('')
   const { token } = useSelector(state => state.Auth)
+  const { error } = useSelector(state => state.User)
   const dispatch = useDispatch()
   const history = useHistory()
 
@@ -50,6 +51,7 @@ function ProfileNewPhone() {
             <Row className="mt-lg-5 mt-3 mb-3">
               <PinInputBorder className="col-2 px-lg-2 px-1 px-lg-0" length={6} onChange={value => setPin(value)} />
             </Row>
+            {error ? <div className="text-danger small text-center mt-3">{error}</div> : null}
             <button
               className={`w-100 btn  py-3 mt-3 rounded-14 ${pin.length !== 6 ? "bg-gray" : "btn-primary"}`}
               onClick={_onSubmit}
@@ -57,6 +59,7 @@ function ProfileNewPhone() {
             >
               Transfer Now
             </button>
+           
           </div>
         </div>
       </div>
