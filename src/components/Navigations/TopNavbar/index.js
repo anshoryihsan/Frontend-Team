@@ -25,7 +25,8 @@ function index(props) {
           <div className="d-none d-lg-flex align-items-center">
             <img
               alt="profile"
-              src={photo ? photo : `${window.location.origin}/assets/images/profile-image.png`}
+              className="rounded-14 object-cover"
+              src={photo ? photo : "/assets/images/icons/default.svg"}
               width="52px"
               height="52px"
             />

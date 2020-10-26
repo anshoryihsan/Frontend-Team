@@ -8,7 +8,8 @@ function History(props) {
     <div className={`d-flex align-items-center justify-content-between py-3 bg-white rounded-14 ${flat ? '' : 'shadow-sm px-3'} ${className}`}>
       <div className="d-flex align-items-center">
         <img
-          src={src ? src : '/assets/images/1.png'}
+          className="rounded-14 object-cover"
+          src={src ? src : "/assets/images/icons/default.svg"}
           height="56px"
           width="56px"
           alt="images"

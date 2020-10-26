@@ -30,7 +30,7 @@ function TransferConfirm() {
     <>
       <nav className="py-2 d-flex justify-content-between">
         <div className="d-flex align-items-center">
-          <button className="btn pr-4 p-0 shadow-none" onClick={() => history.goBack()}>
+          <button className="btn pr-3 p-0 shadow-none" onClick={() => history.goBack()}>
             <img
               src="/assets/images/icons/arrow-left.svg"
               height="24px"
@@ -85,7 +85,7 @@ function TransferConfirm() {
       <div className="d-flex justify-content-center my-4">
         <Button
           color="primary"
-          className="py-2 px-5"
+          className="py-3 rounded-14 px-5 w-100 "
           onClick={() => history.push({ pathname: `/m/dashboard/transfer/${id}/confirm-pin`, search: window.location.search })}>
           Continue
         </Button>

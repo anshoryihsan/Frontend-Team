@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory, Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom'
 import { PublicRoute, PrivateRoute } from './components/Router'
 import { Auth, AuthMobile, Dashboard, DashboardMobile } from './layouts';
+import { AddPinMobile, Login, LoginMobile, Register, RegisterMobile, SuccessMobile } from './pages'
 import {
   // Desktop
   Main,
@@ -17,8 +18,6 @@ import {
   ProfileManagePhone,
   ProfileAddPhone,
   ProfileChangePin,
-  Login,
-  Register,
   AddPin,
   Success,
   Logout,
@@ -40,10 +39,6 @@ import {
   NotificationMobile,
   TransferPinConfirmationMobile,
   TransactionMobile,
-  LoginMobile,
-  RegisterMobile,
-  AddPinMobile,
-  SuccessMobile,
 } from "./pages"
 
 import Admin from './pages/Desktop/Dashboard/Admin';
@@ -95,7 +90,7 @@ function App() {
         <PrivateRoute exact path="/m/dashboard/profile/manage_phone" component={DashboardMobile} child={ProfileManagePhoneMobile} />
         <PrivateRoute exact path="/m/dashboard/profile/add_phone" component={DashboardMobile} child={ProfileAddPhoneMobile} />
         <PrivateRoute exact path="/m/dashboard/profile/change_pin" component={DashboardMobile} child={ProfileChangePinMobile} />
-        <PrivateRoute path="/*" component={NotFound} />
+        <PublicRoute path="*" component={NotFound} />
       </Switch>
     </Router>
   );

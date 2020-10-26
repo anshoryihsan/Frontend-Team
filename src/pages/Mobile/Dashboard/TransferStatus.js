@@ -71,7 +71,7 @@ function TransferStatus() {
         <div className="d-flex justify-content-center my-4">
           <Link
             to="/m/dashboard"
-            className="py-2 lg-6 px-5 rounded-14 btn btn-primary" width="200px"
+            className="py-3 lg-6 px-5 rounded-14 btn btn-primary w-100" width="200px"
           >
             Back to Home
           </Link>

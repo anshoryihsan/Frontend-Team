@@ -2,17 +2,16 @@ import Main from "./Main";
 import TransferConfirmation from "./TransferConfirm";
 import ProfileInfo from "./ProfileInfo";
 import Transaction from "./Transaction";
-import TransactionDetail from "./TransactionDetail";
 
 // Kalian Edit Sendiri ya sesuai nama filenya
-import History from "./Main";
-import Transfer from "./Main";
-import TransferProcess from "./Main";
-import TransferPinConfirmation from "./Main";
+import History from "./History";
+import Transfer from "./Transfer";
+import TransferProcess from "./TransferProcess";
+import TransferPinConfirmation from "./TransferPinConfirm";
 import TransferStatus from "./TransferStatus";
 import Notification from "./Main";
 import Topup from "./Topup";
-import Profile from "./Main";
+import Profile from "./Profile";
 import ProfileChangePass from "./ProfileChangePass";
 import ProfileManagePhone from "./Main";
 import ProfileAddPhone from "./ProfileAddPhone";
@@ -25,7 +24,6 @@ export {
   History,
   Notification,
   Transaction,
-  TransactionDetail,
   TransferProcess,
   TransferStatus,
   TransferConfirmation,

@@ -8,7 +8,7 @@ import { getHistories } from '../../../redux/actions/user'
 function Main() {
   const { token } = useSelector(state => state.Auth)
   const { userdata, history, error } = useSelector(state => state.User)
-  const { name, balance, phone, email } = userdata
+  const { name, balance, phone, email, photo } = userdata
 
   const history1 = useHistory()
   const dispatch = useDispatch()
@@ -19,20 +19,21 @@ function Main() {
 
   return (
     <div className="bg-secondary vh-100">
-      <nav className="mx-2 py-3 px-2 d-flex justify-content-between">
-        <div className="d-flex align-items-center">
+      <nav className="d-flex justify-content-between">
+        <Link to="/m/dashboard/profile" className="d-flex align-items-center">
           <img
             alt="profile"
-            src={`${window.location.origin}/assets/images/profile-image.png`}
+            className="rounded-14 object-cover"
+            src={photo ? photo : "/assets/images/icons/default.svg"}
             width="52px"
             height="52px"
           />
 
-          <div className="pl-3">
+          <div className="pl-3  text-dark">
             <div className="font-weight-light">Hello,</div>
             <div className="font-weight-bold">{name}</div>
           </div>
-        </div>
+        </Link>
 
         <button className="btn">
           <img
@@ -44,7 +45,7 @@ function Main() {
         </button>
       </nav>
 
-      <div className="bg-primary side-nav-right p-4 shadow-sm rounded-14 mx-2">
+      <div className="bg-primary side-nav-right p-4 shadow-sm rounded-14 my-3">
         <div className="d-md-flex justify-content-between">
           <div>
             <div className="text-white">Balance</div>
@@ -54,13 +55,11 @@ function Main() {
         </div>
       </div>
 
-      <div className="row mx-2 no-gutters mt-4">
+      <div className="row no-gutters">
         <div className="col-6 pr-2">
           <Link to="/m/dashboard/transfer"
             className="btn d-flex rounded-14 justify-content-center bg-gray py-3 mb-md-2 px-3 text-white d-flex overlay-1 w-100"
           >
-            
-
             <img
               src={window.location.origin + "/assets/images/icons/arrow-up-active.svg"}
               height="24px"
@@ -73,6 +72,7 @@ function Main() {
 
         <div className="col-6 pl-2">
           <button
+            onClick={() => history1.push("/m/dashboard/topup")}
             className="btn rounded-14 bg-gray d-flex justify-content-center py-3 mb-md-2 px-3 text-white d-flex overlay-1 w-100"
           >
             <img
@@ -88,25 +88,26 @@ function Main() {
 
       <div className="d-flex justify-content-between my-4 mx-2">
         <div className="font-weight-bold">Transaction History</div>
-        <Link to="#" className="text-primary small">See All</Link>
+        <Link to="/m/dashboard/transaction" className="text-primary small">See All</Link>
 
       </div>
 
       {
         error ? <div className="small text-center py-4">{error}</div> :
-          history.map((item, index) => {
-            return (
-              <div className="my-3" key={index}>
-                <HistoryCard
-                  name={item.from_name}
-                  type="transfer"
-                  amount={item.total}
-                  isIncome={email !== item.from_email}
-                  flat={false}
-                />
-              </div>
-            )
-          })
+          !history.length ? <div className="small text-center py-4">Data is empty</div> :
+            history.map((item, index) => {
+              return (
+                <div className="my-3" key={index}>
+                  <HistoryCard
+                    name={item.from_name}
+                    type="transfer"
+                    amount={item.total}
+                    isIncome={email !== item.from_email}
+                    flat={false}
+                  />
+                </div>
+              )
+            })
       }
     </div>
   )

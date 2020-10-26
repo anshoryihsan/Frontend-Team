@@ -14,3 +14,7 @@ a:hover {
 .bg-grey {
   background-color: rgba(99, 121, 244, 0.15) !important;
 }
+
+.object-cover {
+  object-fit: cover;
+}

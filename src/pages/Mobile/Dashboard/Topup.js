@@ -18,7 +18,7 @@ function Topup() {
     <>
       <div className="bg-secondary">
         <div className="rounded-14 mx-2 ">
-          <nav className="py-3 d-flex justify-content-between">
+          <nav className=" d-flex justify-content-between">
             <div className="d-flex align-items-center">
               <Link to="/m/dashboard">
                 <img

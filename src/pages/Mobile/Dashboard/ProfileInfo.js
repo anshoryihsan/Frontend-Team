@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -49,13 +49,13 @@ function ProfileInfo() {
             </div>
           </>
         ) : (
-          <div className="shadow-sm bg-white rounded-14 pl-3 my-4 py-3 mx-2">
-            <div className="small">Name</div>
-            <div className="font-weight-bold text-dark">
-              {name ? name : null}
+            <div className="shadow-sm bg-white rounded-14 pl-3 my-4 py-3 mx-2">
+              <div className="small">Name</div>
+              <div className="font-weight-bold text-dark">
+                {name ? name : null}
+              </div>
             </div>
-          </div>
-        )
+          )
       ) : null}
 
       <div className="shadow-sm bg-white rounded-14 pl-3 my-4 py-3 mx-2">

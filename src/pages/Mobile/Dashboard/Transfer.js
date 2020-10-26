@@ -43,64 +43,63 @@ function Transfer() {
 
   return (
     <div className="bg-secondary">
-      
-        <div className="d-flex justify-content-between align-items-center mt-4 ">
-          <Link to="/m/dashboard">
-            <img
-              src={
-                window.location.origin +
-                "/assets/images/icons/arrow-left.svg"
-              }
-              height="24px"
-              width="24px"
-              alt="plus"
-              className="mx-3"
-            />
-          </Link>
-
-          <div className="font-weight-bold mr-auto">Find Receiver</div>
-        </div>
-
-        <div className="mt-4 mx-3">
-          <InputBordered
-            iconName="search"
-            label="Search receiver here"
-            onChange={_changeName}
-            onFocus={() => setNameFocus(true)}
-            onBlur={() => setNameFocus(false)}
-            isFocused={nameFocus}
-            value={name}
+      <div className="d-flex justify-content-between align-items-center py-2">
+        <Link to="/m/dashboard">
+          <img
+            src={
+              window.location.origin +
+              "/assets/images/icons/arrow-left.svg"
+            }
+            height="24px"
+            width="24px"
+            alt="plus"
+            className="mr-3"
           />
-        </div>
-      
-      <div className="p-4  rounded-14 shadow-sm vh-85">
+        </Link>
+
+        <div className="font-weight-bold mr-auto">Find Receiver</div>
+      </div>
+
+      <div className="mt-4">
+        <InputBordered
+          iconName="search"
+          label="Search receiver here"
+          onChange={_changeName}
+          onFocus={() => setNameFocus(true)}
+          onBlur={() => setNameFocus(false)}
+          isFocused={nameFocus}
+          value={name}
+        />
+      </div>
+
+      <div className="py-3  rounded-14 shadow-none vh-85">
         {loading ? (
           <div className="small text-center py-4">loading ...</div>
         ) : error ? (
           <div className="small text-center py-4">{error}</div>
         ) : (
-          <InfiniteScroll
-            initialLoad={false}
-            loadMore={loadMore}
-            hasMore={hasMore}
-            loader={
-              <div className="small text-center py-4" key={0}>
-                Loading ...
+              <InfiniteScroll
+                initialLoad={false}
+                loadMore={loadMore}
+                hasMore={hasMore}
+                loader={
+                  <div className="small text-center py-4" key={0}>
+                    Loading ...
               </div>
-            }
-          >
-            {findUser.map((item, index) => (
-              <ReceiverCard
-                key={index}
-                src={item.photo}
-                name={item.name}
-                phone={item.phone ? `+62 ${item.phone}` : "-"}
-                to={`/m/dashboard/transfer/${item.id}`}
-                className="my-2"
-              />
-            ))}
-          </InfiniteScroll>
-        )}
+                }
+              >
+                {findUser.map((item, index) => (
+                  <ReceiverCard
+                    key={index}
+                    src={item.photo}
+                    name={item.name}
+                    phone={item.phone ? `+62 ${item.phone}` : "-"}
+                    to={`/m/dashboard/transfer/${item.id}`}
+                    className="my-2"
+                  />
+                ))}
+              </InfiniteScroll>
+            )}
       </div>
     </div>
   );

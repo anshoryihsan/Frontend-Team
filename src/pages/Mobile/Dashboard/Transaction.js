@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { HistoryCard } from "../../../components/Cards";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { getHistories } from "../../../redux/actions/user";
-import InfiniteScroll from "react-infinite-scroller";
+import BarChart from '../../../components/Charts/BarChart'
 
 function Transaction() {
   const [loading, setLoading] = useState(false);
-  const [hasMore, setMore] = useState(true);
-  const [offset, setOffset] = useState(2);
-  const [isScrolling, setScrolling] = useState(0);
 
   const { token } = useSelector((state) => state.Auth);
   const { userdata, history, error } = useSelector((state) => state.User);
@@ -26,20 +23,9 @@ function Transaction() {
     setLoading(false);
   }, [dispatch, token]);
 
-  const loadMore = () => {
-    if (isScrolling) return false;
-    if (history.length < (offset - 1) * 4) return setMore(false);
-    setScrolling(true);
-    setOffset(offset + 1);
-    setTimeout(() => {
-      dispatch(getHistories(token, offset, false));
-      setScrolling(false);
-      console.log(history.length, offset - 4);
-    }, 1500);
-  };
   return (
     <>
-      <nav className="py-2 d-flex justify-content-between">
+      <nav className="d-flex justify-content-between">
         <div className="d-flex align-items-center">
           <button
             className="btn pr-4 p-0 shadow-none"
@@ -55,7 +41,8 @@ function Transaction() {
           <div className="font-weight-bold ">Transaction</div>
         </div>
       </nav>
-      <div className="bg-primary side-nav-right p-4 shadow-sm rounded-14 mx-2 mt-4">
+
+      <div className="bg-primary side-nav-right p-4 shadow-sm rounded-14 my-3">
         <div className="d-md-flex justify-content-between">
           <div className="row">
             <div className="col-6">
@@ -93,7 +80,7 @@ function Transaction() {
         </div>
       </div>
 
-      <div className="p-2 rounded-14 my-2 mt-4">
+      <div className="rounded-14 mt-2">
         <div className="d-flex justify-content-between align-items-center">
           <div className="font-weight-bold small">In This Week</div>
         </div>
@@ -102,42 +89,32 @@ function Transaction() {
         <div className="bg-white shadow-sm rounded-14 px-4 py-2 text-success font-weight-bold">
           +Rp65.000
         </div>
-        {/* <canvas height="268px" id="canvas" className="w-100"></canvas> */}
+        <BarChart />
       </div>
 
-      <div className="p-2 rounded-14 my-2 mt-3">
+      <div className="rounded-14 my-2 mt-3">
         <div className="d-flex justify-content-between align-items-center">
           <div className="font-weight-bold small">Transaction History</div>
+          <Link to="/m/dashboard/history" className="text-primary small">See All</Link>
         </div>
         {loading ? (
           <div className="small text-center py-4">loading ...</div>
         ) : error ? (
           <div className="small text-center py-4">{error}</div>
-        ) : (
-          <InfiniteScroll
-            initialLoad={false}
-            loadMore={loadMore}
-            hasMore={hasMore}
-            loader={
-              <div className="small text-center py-4" key={0}>
-                Loading ...
-              </div>
-            }
-          >
-            {history.map((item, index) => {
-              return (
-                <div key={index} className="my-3">
-                  <HistoryCard
-                    name={item.from_name}
-                    type="transfer"
-                    amount={item.total}
-                    isIncome={email !== item.from_email}
-                  />
-                </div>
-              );
-            })}
-          </InfiniteScroll>
-        )}
+        ) : !history.length ? <div className="small text-center py-4">Data is empty</div> :
+              history.map((item, index) => {
+                return (
+                  <div key={index} className="my-3">
+                    <HistoryCard
+                      name={item.from_name}
+                      type="transfer"
+                      amount={item.total}
+                      isIncome={email !== item.from_email}
+                    />
+                  </div>
+                );
+              })
+        }
       </div>
     </>
   );

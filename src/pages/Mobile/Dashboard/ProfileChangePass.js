@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { InputBorderedBottom } from "../../../components/Inputs";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { changePassword } from "../../../redux/actions/user";
 
 function ProfileChangePass() {
@@ -38,21 +38,25 @@ function ProfileChangePass() {
 
   return (
     <>
-      <div className="bg-secondary mx-2">
-        <div className="rounded-14 shadow-none vh-100">
-          <nav className="py-3 d-flex justify-content-between mb-3">
-            <div className="d-flex align-items-center">
-              <Link to="/m/dashboard">
-                <img
-                  src="/assets/images/icons/arrow-left.svg"
-                  height="24px"
-                  width="24px"
-                  alt="arrow"
-                />
-              </Link>
-              <div className="font-weight-bold ml-3">Change Password</div>
-            </div>
-          </nav>
+      <div className="bg-secondary">
+        <nav className="py-2 d-flex justify-content-between">
+          <div className="d-flex align-items-center">
+            <button
+              className="btn pr-4 p-0 shadow-none"
+              onClick={() => history.goBack()}
+            >
+              <img
+                src="/assets/images/icons/arrow-left.svg"
+                height="24px"
+                width="24px"
+                alt="arrow"
+              />
+            </button>
+
+            <div className="font-weight-bold">Change PIN</div>
+          </div>
+        </nav>
+        <div className="rounded-14 shadow-none mx-2 my-3">
 
           <div className="small text-black-50">
             <p>
@@ -62,8 +66,8 @@ function ProfileChangePass() {
           </div>
 
           <div className="row">
-            <div className="col-lg-6 m-auto">
-              <div className="mt-4">
+            <div className="col-lg-6">
+              <div>
                 <InputBorderedBottom
                   iconName="lock-50"
                   type={visiblePassword ? "text" : "password"}

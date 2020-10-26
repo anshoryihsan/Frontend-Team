@@ -34,51 +34,51 @@ function TransferProcess() {
 
   return (
     <div className="bg-secondary">
-        <div className="d-flex justify-content-between align-items-center mt-4">
-          <Link to="/m/dashboard/transfer">
-            <img
-              src={
-                window.location.origin +
-                "/assets/images/icons/arrow-left.svg"
-              }
-              height="24px"
-              width="24px"
-              alt="plus"
-              className="mx-3"
-            />
-          </Link>
-
-          <div className="font-weight-bold mr-auto">Transfer</div>
-        </div>
-
-        <div className="mt-4 p-2 ">
-          <ReceiverCard
-            disabled
-            src={findId.photo}
-            name={findId.name}
-            phone={findId.phone ? `+62 ${findId.phone}` : "-"}
-            className="  "
+      <div className="d-flex justify-content-between align-items-center py-2">
+        <Link to="/m/dashboard/transfer">
+          <img
+            src={
+              window.location.origin +
+              "/assets/images/icons/arrow-left.svg"
+            }
+            height="24px"
+            width="24px"
+            alt="plus"
+            className="mr-3"
           />
-        </div>
-      
-      <div className="p-4 rounded-14 shadow-sm vh-85">
+        </Link>
 
-      <div className="text-center font-weight-bold mb-1">
+        <div className="font-weight-bold mr-auto">Transfer</div>
+      </div>
+
+      <div className="mt-4 p-2 ">
+        <ReceiverCard
+          disabled
+          src={findId.photo}
+          name={findId.name}
+          phone={findId.phone ? `+62 ${findId.phone}` : "-"}
+          className="  "
+        />
+      </div>
+
+      <div className="rounded-14 shadow-none vh-85">
+
+        <div className="text-center font-weight-bold mb-1">
           Rp{currency(parseInt(userdata.balance))} Available
         </div>
 
-          <InputBorderless
-            label="0.00"
-            onChange={_changeAmount}
-            onFocus={() => setAmountFocus(true)}
-            onBlur={() => setAmountFocus(false)}
-            isFocused={amountFocus}
-            weight="bold"
-            fontSize={36}
-            fontColor="primary"
-          />
+        <InputBorderless
+          label="0.00"
+          onChange={_changeAmount}
+          onFocus={() => setAmountFocus(true)}
+          onBlur={() => setAmountFocus(false)}
+          isFocused={amountFocus}
+          weight="bold"
+          fontSize={36}
+          fontColor="primary"
+        />
 
-        
+
 
         <div className="d-flex justify-content-center">
           <div className="w-100">
@@ -103,11 +103,10 @@ function TransferProcess() {
             }
             // color="primary"
             // className="py-2 px-4 w-100"
-            className={`w-100 btn  py-3 mt-3 rounded-14  ${
-              userdata.balance === 0 ||
+            className={`w-100 btn  py-3 mt-3 rounded-14  ${userdata.balance === 0 ||
               userdata.balance < amount ||
               amount === "" ||
-              note === "" ? "bg-gray":"btn-primary"}`
+              note === "" ? "bg-gray" : "btn-primary"}`
             }
             disabled={
               userdata.balance === 0 ||
