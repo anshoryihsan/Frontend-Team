@@ -69,7 +69,7 @@ function App() {
         <PrivateRoute exact path="/logout" component={Logout} />
         <PrivateRoute exact path="/admin" component={Admin} />
 
-        {/* Mobile */}
+        {/* Mobile. */}
         <PrivateRoute exact path="/m/dashboard" component={DashboardMobile} child={MainMobile} />
         <PrivateRoute exact path="/m/dashboard/notification" component={DashboardMobile} child={NotificationMobile} />
         <PrivateRoute exact path="/m/dashboard/transaction" component={DashboardMobile} child={TransactionMobile} />
