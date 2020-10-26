@@ -7,7 +7,7 @@ import storage from 'redux-persist/lib/storage'
 const authConfig = {
   key: "auth",
   storage,
-  blacklist: ["error"]
+  whitelist: ["token", "role"]
 }
 
 export default combineReducers({ User, Auth: persistReducer(authConfig, Auth) })

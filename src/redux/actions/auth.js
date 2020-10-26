@@ -22,13 +22,14 @@ export const AuthLogin = (data, history) => (dispatch) => {
     })
 }
 
-export const AuthRegister = (data, history) => (dispatch) => {
+export const AuthRegister = (data, history, mobile = false) => (dispatch) => {
+  // const isMobile = mobile ? "/m/auth/create-pin" : ""
   axios.post("/auth/register", data)
     .then(res => {
       dispatch(options(SETAUTH, res.data.data))
       dispatch(options(SETAUTHERROR, ""))
 
-      setTimeout(() => history.replace("/auth/create-pin"), 500)
+      // setTimeout(() => history.replace(`${isMobile}/auth/create-pin`), 200)
     })
     .catch(err => {
       if (!err.response) return dispatch(options(SETAUTHERROR, "Network Error"))
