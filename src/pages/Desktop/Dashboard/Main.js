@@ -4,6 +4,7 @@ import { HistoryCard } from '../../../components/Cards'
 import { useSelector, useDispatch } from 'react-redux'
 import { currency } from '../../../helpers'
 import { getHistories } from '../../../redux/actions/user'
+import BarChart from '../../../components/Charts/BarChart'
 
 function Main() {
 
@@ -98,7 +99,7 @@ function Main() {
                 >
                   +Rp65.000
                 </div>
-                {/* <canvas height="268px" id="canvas" className="w-100"></canvas> */}
+                <BarChart />
               </div>
             </div>
           </div>

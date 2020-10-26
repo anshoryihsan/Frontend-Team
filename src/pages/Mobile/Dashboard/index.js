@@ -2,6 +2,7 @@ import Main from "./Main";
 import TransferConfirmation from "./TransferConfirm";
 import ProfileInfo from "./ProfileInfo";
 import Transaction from "./Transaction";
+import TransactionDetail from "./TransactionDetail";
 
 // Kalian Edit Sendiri ya sesuai nama filenya
 import History from "./Main";
@@ -24,6 +25,7 @@ export {
   History,
   Notification,
   Transaction,
+  TransactionDetail,
   TransferProcess,
   TransferStatus,
   TransferConfirmation,
