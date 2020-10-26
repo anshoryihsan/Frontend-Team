@@ -27,7 +27,7 @@ function ProfileNewPhone() {
   return (
     <div className="bg-secondary">
     <div className="d-flex justify-content-between align-items-center mt-4">
-          <Link to="/m/dashboard/transfer">
+          <button className="btn shadow-none p-0 pr-3" onClick={()=>history.goBack()} >
             <img
               src={
                 window.location.origin +
@@ -38,7 +38,7 @@ function ProfileNewPhone() {
               alt="plus"
               className="mx-3"
             />
-          </Link>
+          </button>
 
           <div className="font-weight-bold mr-auto">Enter Your PIN</div>
         </div>
