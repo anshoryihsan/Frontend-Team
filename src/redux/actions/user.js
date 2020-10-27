@@ -126,10 +126,11 @@ export const balanceTransfer = (token, data, history, mobile = false) => dispatc
       dispatch(options(SETBALANCE, amount))
       history.push(`${isMobile}/dashboard/transfer/status/${res.data.data.id}`)
     })
-    .catch(err => handleError(err, dispatch))
+    .catch(err => console.log(err))
 }
 
-export const deletePhone = (token, history) => dispatch => {
+export const deletePhone = (token, history, mobile = false) => dispatch => {
+  const isMobile = mobile ? "/m" : ""
   dispatch(options(SETUSERERROR, ""))
 
   axios.delete("/users/phone", {
@@ -139,7 +140,7 @@ export const deletePhone = (token, history) => dispatch => {
   })
     .then(res => {
       dispatch(options(SETPHONE, null))
-      history.push(`/dashboard/profile/add_phone`)
+      history.push(`${isMobile}/dashboard/profile/add_phone`)
     })
     .catch(err => handleError(err, dispatch))
 }

@@ -54,13 +54,10 @@ function History() {
               alt="arrow"
             />
           </button>
-          <div className="font-weight-bold ">History</div>
+          <div className="font-weight-bold ">Notification</div>
         </div>
       </nav>
       <div className="rounded-14 my-2 mt-5">
-        <div className="d-flex justify-content-between align-items-center">
-          <div className="font-weight-bold small">Transaction History</div>
-        </div>
         {loading ? (
           <div className="small text-center py-4">loading ...</div>
         ) : error ? (
@@ -91,30 +88,6 @@ function History() {
             })}
           </InfiniteScroll>
         )}
-      </div>
-
-      <div className="d-flex" style={{ position: "sticky", bottom: 15 }}>
-        <button className="btn p-3 shadow-lg border bg-white rounded-14">
-          <img
-            src="/assets/images/icons/arrow-up-green.svg"
-            height="24px"
-            width="24px"
-            alt="arrow"
-          />
-        </button>
-
-        <button className="btn p-3 shadow-lg border bg-white rounded-14 mx-2">
-          <img
-            src="/assets/images/icons/arrow-up-red.svg"
-            height="24px"
-            width="24px"
-            alt="arrow"
-          />
-        </button>
-
-        <button className="btn p-3 shadow-lg border bg-white rounded-14 w-100 text-primary font-weight-bold">
-          Filter by Date
-        </button>
       </div>
     </>
   );
