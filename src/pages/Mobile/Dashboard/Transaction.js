@@ -106,6 +106,7 @@ function Transaction() {
                 return (
                   <div key={index} className="my-3">
                     <HistoryCard
+                      src={item.from_photo}
                       name={item.from_name}
                       type="transfer"
                       amount={item.total}

@@ -85,7 +85,7 @@ function Register() {
         {error ? <div className="text-danger small text-center mt-3">{error}</div> : null}
 
         <button
-          className="btn btn-primary w-100 py-2 rounded-8 d-block mt-4"
+          className="btn btn-primary w-100 py-3 rounded-14 d-block mt-4"
           disabled={name === '' || email === '' || password === ''}
         >
           Login

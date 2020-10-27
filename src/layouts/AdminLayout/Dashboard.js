@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react"
-import { useMedia } from "use-media"
 import { Link, useLocation, useHistory } from "react-router-dom"
 import { Container, Row } from "react-bootstrap"
 import { useSelector, useDispatch } from 'react-redux'
 import { SideNavbar, TopNavbar } from "../../components/Navigations"
 import { Notification } from "./components"
-import { navbarItem } from "../../helpers"
-import { ModalResponsive } from '../../components/Modal'
+import { navbarAdmin } from "../../helpers"
 import Footer from "../../components/Footer"
 import Icons from "../../components/Icons"
 import "./styles.css"
@@ -14,9 +12,6 @@ import "./styles.css"
 import { UserLoad } from '../../redux/actions/user'
 
 function Dashboard({ child: Child }) {
-  const mobileView = useMedia({ maxWidth: "500px" })
-
-  const [modal, setModal] = useState(false)
   const [menu, setMenu] = useState(false)
   const [notif, setNotif] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -37,26 +32,13 @@ function Dashboard({ child: Child }) {
   }
 
   useEffect(() => {
-    if (window.innerWidth <= 500) return history.replace("/m/dashboard")
     setLoading(true)
     dispatch(UserLoad(token, history, false))
     setLoading(false)
   }, [dispatch, history, token])
 
-
-  useEffect(() => {
-    if (!modal) setModal(mobileView)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mobileView])
-
   return (
     <div className="bg-secondary">
-      <ModalResponsive
-        show={modal}
-        onDismiss={() => setModal(false)}
-        onContinue={() => history.replace("/m/dashboard")}
-      />
-
       <div className={`loading ${loading ? 'active' : null} bg-secondary d-flex justify-content-center align-items-center`}>
         <h1>Loading ...</h1>
       </div>
@@ -76,12 +58,12 @@ function Dashboard({ child: Child }) {
         <Row>
           <div className="col-3 d-lg-flex d-none side-nav-left bg-white flex-column justify-content-between shadow-sm py-4 rounded-14">
             <ul>
-              {navbarItem.slice(0, navbarItem.length - 1).map((item, index) => {
+              {navbarAdmin.slice(0, navbarAdmin.length - 1).map((item, index) => {
                 let routeActive = false
-                if (item.route === "/dashboard") {
+                if (item.route === "/admin") {
                   if (
-                    pathName === "/dashboard" ||
-                    pathName === "/dashboard/history"
+                    pathName === "/admin" ||
+                    pathName === "/admin/history"
                   )
                     routeActive = true
                 } else {
@@ -110,19 +92,6 @@ function Dashboard({ child: Child }) {
                   </li>
                 )
               })}
-              <li className="d-flex align-items-center my-4">
-                <Icons
-                  iconName="user"
-                  iconHeight={24}
-                  iconWidth={24}
-                />
-
-                <Link
-                  to="/admin"
-                >
-                  <h6 className="ml-2 mb-0 text-dark">Admin Panel</h6>
-                </Link>
-              </li>
             </ul>
 
             <ul>

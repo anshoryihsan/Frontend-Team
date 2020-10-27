@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
 import { Link, useHistory } from "react-router-dom"
+import { options, SETAUTHERROR } from '../../redux/constant'
 
 import "./styles.css"
 
 
 function Auth({ child: Child }) {
   const history = useHistory()
-
+  const dispatch = useDispatch()
   useEffect(() => {
+    dispatch(options(SETAUTHERROR, ""))
     if (window.innerWidth <= 500) return history.replace("/m/auth")
-  }, [history])
+  }, [dispatch, history])
 
   return (
     <Container fluid>

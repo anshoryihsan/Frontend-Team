@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory, Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom'
 import { PublicRoute, PrivateRoute } from './components/Router'
-import { Auth, AuthMobile, Dashboard, DashboardMobile } from './layouts';
+import { Auth, AuthMobile, Dashboard, DashboardAdmin, DashboardMobile } from './layouts';
 import { AddPinMobile, Login, LoginMobile, Register, RegisterMobile, SuccessMobile } from './pages'
 import {
   // Desktop
@@ -43,9 +43,18 @@ import {
   TransactionMobile,
   ForgotPasswordMobile,
   NewPasswordMobile,
+
+  // Admin
+  AddTopupAdmin,
+  AddUserAdmin,
+  DetailUserAdmin,
+  EditUserAdmin,
+  MainAdmin,
+  TopupAdmin,
+  UsersAdmin
 } from "./pages"
 
-import Admin from './pages/Desktop/Dashboard/Admin';
+// import Admin from './pages/Desktop/Dashboard/Admin';
 
 function App() {
   return (
@@ -73,7 +82,15 @@ function App() {
         <PrivateRoute exact path="/dashboard/profile/add_phone" component={Dashboard} child={ProfileAddPhone} />
         <PrivateRoute exact path="/dashboard/profile/change_pin" component={Dashboard} child={ProfileChangePin} />
         <PrivateRoute exact path="/logout" component={Logout} />
-        <PrivateRoute exact path="/admin" component={Admin} />
+
+        {/* Admin */}
+        <PrivateRoute exact path="/admin" component={DashboardAdmin} child={MainAdmin} />
+        <PrivateRoute exact path="/admin/users" component={DashboardAdmin} child={UsersAdmin} />
+        <PrivateRoute exact path="/admin/topup" component={DashboardAdmin} child={TopupAdmin} />
+        <PrivateRoute exact path="/admin/topup/add" component={DashboardAdmin} child={AddTopupAdmin} />
+        <PrivateRoute exact path="/admin/users/:id" component={DashboardAdmin} child={DetailUserAdmin} />
+        <PrivateRoute exact path="/admin/users/:id?/edit" component={DashboardAdmin} child={EditUserAdmin} />
+        <PrivateRoute exact path="/admin/users/add" component={DashboardAdmin} child={AddUserAdmin} />
 
         {/* Mobile */}
         <PublicRoute restricted={true} exact path="/m/auth/signup" component={AuthMobile} child={RegisterMobile} />

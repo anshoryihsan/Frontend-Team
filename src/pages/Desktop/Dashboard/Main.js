@@ -115,19 +115,21 @@ function Main() {
               </div>
 
               {
-                error ? <div className="small text-center py-4">{error}</div> :
-                  history.map((item, index) => {
-                    return (
-                      <HistoryCard
-                        key={index}
-                        name={item.from_name}
-                        type="transfer"
-                        amount={item.total}
-                        isIncome={email !== item.from_email}
-                        flat
-                      />
-                    )
-                  })
+                loading ? <div className="small text-center py-4">Loading ...</div> :
+                  error ? <div className="small text-center py-4">{error}</div> :
+                    history.map((item, index) => {
+                      return (
+                        <HistoryCard
+                          src={item.from_photo}
+                          key={index}
+                          name={item.from_name}
+                          type="transfer"
+                          amount={item.total}
+                          isIncome={email !== item.from_email}
+                          flat
+                        />
+                      )
+                    })
               }
             </div>
           </div>

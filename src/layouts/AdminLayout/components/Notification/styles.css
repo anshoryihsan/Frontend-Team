@@ -1,0 +1,20 @@
+.notification {
+  position: absolute;
+  width: 400px;
+  top: 110px;
+  opacity: 0;
+  z-index: -1;
+  transition: ease-in-out 0.4s;
+  animation: hider 0.5s;
+}
+
+@media (min-width: 0) and (max-width: 992px) {
+  .notification {
+    width: 75%;
+  }
+}
+
+.notification.active {
+  z-index: 1;
+  opacity: 1;
+}

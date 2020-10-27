@@ -35,14 +35,15 @@ function Main() {
           </div>
         </Link>
 
-        <button className="btn">
+        <Link to="/m/dashboard/notification" className="btn">
           <img
             alt="notification"
+
             src={window.location.origin + "/assets/images/icons/bell.svg"}
             height="24px"
             width="24px"
           />
-        </button>
+        </Link>
       </nav>
 
       <div className="bg-primary side-nav-right p-4 shadow-sm rounded-14 my-3">
@@ -89,7 +90,6 @@ function Main() {
       <div className="d-flex justify-content-between my-4 mx-2">
         <div className="font-weight-bold">Transaction History</div>
         <Link to="/m/dashboard/transaction" className="text-primary small">See All</Link>
-
       </div>
 
       {
@@ -99,6 +99,7 @@ function Main() {
               return (
                 <div className="my-3" key={index}>
                   <HistoryCard
+                    src={item.from_photo}
                     name={item.from_name}
                     type="transfer"
                     amount={item.total}

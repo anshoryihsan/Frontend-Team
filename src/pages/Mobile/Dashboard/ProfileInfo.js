@@ -73,8 +73,8 @@ function ProfileInfo() {
         <Link
           to={
             phone
-              ? `/dashboard/profile/manage_phone`
-              : `/dashboard/profile/add_phone`
+              ? `/m/dashboard/profile/manage_phone`
+              : `/m/dashboard/profile/add_phone`
           }
         >
           Manage

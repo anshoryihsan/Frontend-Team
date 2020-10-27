@@ -42,7 +42,7 @@ function TransferStatus() {
 
         <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
           <div className="small">Date & Time</div>
-          <div className="font-weight-bold text-dark">{new Date(historyId.created_at).toUTCString().split("T")[0]}</div>
+          <div className="font-weight-bold text-dark">{historyId.created_at?.split("T")[0]}</div>
         </div>
 
         <div className="shadow-sm rounded-14 pl-3 my-4 py-3">

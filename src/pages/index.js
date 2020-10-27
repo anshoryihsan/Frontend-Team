@@ -52,6 +52,17 @@ import {
   Transaction as TransactionMobile,
 } from './Mobile/Dashboard'
 
+// Admin
+import {
+  Main as MainAdmin,
+  Users as UsersAdmin,
+  DetailUser as DetailUserAdmin,
+  EditUser as EditUserAdmin,
+  AddTopup as AddTopupAdmin,
+  AddUser as AddUserAdmin,
+  Topup as TopupAdmin,
+} from "./Admin"
+
 export {
   // Desktop
   Login,
@@ -97,5 +108,14 @@ export {
   AddPinMobile,
   SuccessMobile,
   ForgotPasswordMobile,
-  NewPasswordMobile
+  NewPasswordMobile,
+
+  // Admin
+  MainAdmin,
+  TopupAdmin,
+  AddTopupAdmin,
+  UsersAdmin,
+  AddUserAdmin,
+  DetailUserAdmin,
+  EditUserAdmin,
 }
