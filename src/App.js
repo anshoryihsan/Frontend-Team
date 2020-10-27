@@ -21,6 +21,8 @@ import {
   AddPin,
   Success,
   Logout,
+  ForgotPassword,
+  NewPassword,
 
   // Mobile
   MainMobile,
@@ -39,6 +41,8 @@ import {
   NotificationMobile,
   TransferPinConfirmationMobile,
   TransactionMobile,
+  ForgotPasswordMobile,
+  NewPasswordMobile,
 } from "./pages"
 
 import Admin from './pages/Desktop/Dashboard/Admin';
@@ -51,6 +55,8 @@ function App() {
         <Route exact path="/" render={props => <Redirect to="/auth" {...props} />} />
         <PublicRoute restricted={true} exact path="/auth/signup" component={Auth} child={Register} />
         <PublicRoute restricted={true} exact path="/auth" component={Auth} child={Login} />
+        <PublicRoute restricted={true} exact path="/auth/reset-password" component={Auth} child={ForgotPassword} />
+        <PublicRoute restricted={true} exact path="/auth/reset-password/new-password" component={Auth} child={NewPassword} />
         <PrivateRoute exact path="/auth/create-pin" component={Auth} child={AddPin} />
         <PrivateRoute exact path="/auth/success" component={Auth} child={Success} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} child={Main} />
@@ -72,6 +78,8 @@ function App() {
         {/* Mobile */}
         <PublicRoute restricted={true} exact path="/m/auth/signup" component={AuthMobile} child={RegisterMobile} />
         <PublicRoute restricted={true} exact path="/m/auth" component={AuthMobile} child={LoginMobile} />
+        <PublicRoute restricted={true} exact path="/m/auth/reset-password" component={AuthMobile} child={ForgotPasswordMobile} />
+        <PublicRoute restricted={true} exact path="/m/auth/reset-password/new-password" component={AuthMobile} child={NewPasswordMobile} />
         <PrivateRoute exact path="/m/auth/create-pin" component={AuthMobile} child={AddPinMobile} />
         <PrivateRoute exact path="/m/auth/success" component={AuthMobile} child={SuccessMobile} />
         <PrivateRoute exact path="/m/dashboard" component={DashboardMobile} child={MainMobile} />

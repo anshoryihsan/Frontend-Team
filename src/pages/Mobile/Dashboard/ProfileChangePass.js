@@ -53,7 +53,7 @@ function ProfileChangePass() {
               />
             </button>
 
-            <div className="font-weight-bold">Change PIN</div>
+            <div className="font-weight-bold">Change Password</div>
           </div>
         </nav>
         <div className="rounded-14 shadow-none mx-2 my-3">

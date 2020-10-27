@@ -3,7 +3,9 @@ import {
   Login,
   Register,
   AddPin,
-  Success
+  Success,
+  ForgotPassword,
+  NewPassword,
 } from "./Desktop/Auth"
 import {
   Main,
@@ -27,7 +29,9 @@ import {
   Login as LoginMobile,
   Register as RegisterMobile,
   AddPin as AddPinMobile,
-  Success as SuccessMobile
+  Success as SuccessMobile,
+  ForgotPassword as ForgotPasswordMobile,
+  NewPassword as NewPasswordMobile,
 } from "./Mobile/Auth"
 import {
   Main as MainMobile,
@@ -53,6 +57,8 @@ export {
   Login,
   Register,
   AddPin,
+  ForgotPassword,
+  NewPassword,
   Success,
   Main,
   Transfer,
@@ -90,4 +96,6 @@ export {
   RegisterMobile,
   AddPinMobile,
   SuccessMobile,
+  ForgotPasswordMobile,
+  NewPasswordMobile
 }

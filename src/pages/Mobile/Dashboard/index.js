@@ -16,6 +16,7 @@ import ProfileChangePass from "./ProfileChangePass";
 import ProfileManagePhone from "./Main";
 import ProfileAddPhone from "./ProfileAddPhone";
 import ProfileChangePin from "./ProfileChangePin";
+import ForgotPassword from "../Auth/ForgotPassword";
 
 export {
   Main,
@@ -34,4 +35,5 @@ export {
   ProfileManagePhone,
   ProfileAddPhone,
   ProfileChangePin,
+  ForgotPassword
 };

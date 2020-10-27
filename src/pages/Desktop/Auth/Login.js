@@ -72,7 +72,7 @@ function Login() {
         </div>
 
         <div className="d-flex justify-content-end small">
-          <Link to="#" className="text-black-50">Forgot Password?</Link>
+          <Link to="/auth/reset-password" className="text-black-50">Forgot Password?</Link>
         </div>
 
         <button
