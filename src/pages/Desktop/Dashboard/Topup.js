@@ -3,14 +3,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getTopup } from '../../../redux/actions/user'
 
 function Transfer() {
+  const { token } = useSelector(state => state.Auth)
   const [loading, setLoading] = useState(false)
   const { topup } = useSelector(state => state.User)
   const dispatch = useDispatch()
+
   useEffect(() => {
-    setLoading(true)
-    dispatch(getTopup())
-    setLoading(false)
-  }, [dispatch])
+    setLoading(true);
+    dispatch(getTopup(token));
+    setLoading(false);
+  }, [dispatch]);
 
   return (
     <>

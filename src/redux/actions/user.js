@@ -200,10 +200,14 @@ export const createPin = (token, pin, history, route = "") => dispatch => {
 }
 
 
-export const getTopup = () => dispatch => {
+export const getTopup = (token) => dispatch => {
   dispatch(options(SETUSERERROR, ""))
+  axios.get("/users/guide-topup", {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
 
-  axios.get("/topup")
     .then(res => dispatch(options(SETTOPUPDATA, res.data.data)))
     .catch(err => {
       if (!err.response) return dispatch(options(SETUSERERROR, "Network Error"))
