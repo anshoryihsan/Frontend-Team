@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory, Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom'
 import { PublicRoute, PrivateRoute } from './components/Router'
-import { Auth, AuthMobile, Dashboard, DashboardAdmin, DashboardMobile } from './layouts';
+import { Auth, AuthMobile, Dashboard, DashboardAdmin, DashboardMobile, LandingPage, LandingPageDesktop } from './layouts';
 import { AddPinMobile, Login, LoginMobile, Register, RegisterMobile, SuccessMobile } from './pages'
 import {
   // Desktop
@@ -25,6 +25,7 @@ import {
   NewPassword,
 
   // Mobile
+
   MainMobile,
   TransferMobile,
   HistoryMobile,
@@ -51,7 +52,10 @@ import {
   EditUserAdmin,
   MainAdmin,
   TopupAdmin,
-  UsersAdmin
+  UsersAdmin,
+
+  //landingpage
+  LandingPageMobile
 } from "./pages"
 
 // import Admin from './pages/Desktop/Dashboard/Admin';
@@ -61,7 +65,9 @@ function App() {
     <Router>
       <Switch>
         {/* Desktop */}
-        <Route exact path="/" render={props => <Redirect to="/auth" {...props} />} />
+        {/* <Route exact path="/" render={props => <Redirect to="/auth" {...props} />} /> */}
+        <PublicRoute restricted={true} exact path="/" component={LandingPageDesktop} child={LandingPageDesktop} />
+        <PublicRoute restricted={true} exact path="/auth" component={Auth} child={Login} />
         <PublicRoute restricted={true} exact path="/auth/signup" component={Auth} child={Register} />
         <PublicRoute restricted={true} exact path="/auth" component={Auth} child={Login} />
         <PublicRoute restricted={true} exact path="/auth/reset-password" component={Auth} child={ForgotPassword} />
@@ -93,6 +99,7 @@ function App() {
         <PrivateRoute exact path="/admin/users/add" component={DashboardAdmin} child={AddUserAdmin} />
 
         {/* Mobile */}
+        <PublicRoute restricted={true} exact path="/m" component={LandingPage} child={LandingPageMobile} />
         <PublicRoute restricted={true} exact path="/m/auth/signup" component={AuthMobile} child={RegisterMobile} />
         <PublicRoute restricted={true} exact path="/m/auth" component={AuthMobile} child={LoginMobile} />
         <PublicRoute restricted={true} exact path="/m/auth/reset-password" component={AuthMobile} child={ForgotPasswordMobile} />

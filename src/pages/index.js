@@ -1,4 +1,6 @@
 // Desktop
+import LandingPageDesktop  from "./Desktop/LandingPage/LandingPage"
+
 import {
   Login,
   Register,
@@ -25,6 +27,8 @@ import {
 } from "./Desktop/Dashboard"
 
 // Mobile
+import LandingPageMobile  from "./Mobile/LandingPage/LandingPage"
+
 import {
   Login as LoginMobile,
   Register as RegisterMobile,
@@ -65,6 +69,7 @@ import {
 
 export {
   // Desktop
+  LandingPageDesktop,
   Login,
   Register,
   AddPin,
@@ -87,6 +92,7 @@ export {
   Logout,
 
   // Mobile
+  LandingPageMobile,
   MainMobile,
   TransferMobile,
   HistoryMobile,
