@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom'
 import { Row, Col } from 'react-bootstrap'
 
 function Topup() {
+  const { token } = useSelector(state => state.Auth)
   const [loading, setLoading] = useState(false);
   const { topup } = useSelector((state) => state.User);
   const dispatch = useDispatch();
   useEffect(() => {
     setLoading(true);
-    dispatch(getTopup());
+    dispatch(getTopup(token));
     setLoading(false);
   }, [dispatch]);
 
