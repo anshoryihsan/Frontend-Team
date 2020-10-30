@@ -16,8 +16,8 @@
 .edit {
   background-image: url(/assets/images/icons/edit-2.svg);
 }
-.edit-1 {
-  background-image: url(/assets/images/icons/edit-3.svg);
+.edit-admin {
+  background-image: url(/assets/images/icons/edit.svg);
 }
 .user {
   background-image: url(/assets/images/icons/user.svg);
@@ -51,6 +51,9 @@
 }
 .trash {
   background-image: url(/assets/images/icons/trash.svg);
+}
+.trash-red {
+  background-image: url(/assets/images/icons/trash-red.svg);
 }
 .phone {
   background-image: url(/assets/images/icons/phone.svg);

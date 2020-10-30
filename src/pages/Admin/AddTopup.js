@@ -30,7 +30,7 @@ function AddTopup() {
         <div className="col-lg-6 m-auto">
           <div className="mt-3">
             <InputBorderedBottom
-              iconName="edit-1"
+              iconName="edit-admin"
               type={detail}
               label="Enter how to topup"
               onChange={_addTopup}
