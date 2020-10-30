@@ -16,6 +16,10 @@ export const SETPHOTO = "SETPHOTO"
 export const SETPHONE = "SETPHONE"
 // export const SETPAYMENTTOKEN = "SETPAYMENTTOKEN"
 
+export const SETADMINERROR = "SETADMINERROR"
+export const UPDATEUSER = "UPDATEUSER"
+export const SETALERTDIMISS = "SETALERTDIMISS"
+
 export const options = (constant, payload = null) => ({
   type: constant,
   payload: payload

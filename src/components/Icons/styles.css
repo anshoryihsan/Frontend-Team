@@ -16,6 +16,9 @@
 .edit {
   background-image: url(/assets/images/icons/edit-2.svg);
 }
+.edit-admin {
+  background-image: url(/assets/images/icons/edit.svg);
+}
 .user {
   background-image: url(/assets/images/icons/user.svg);
 }
@@ -37,6 +40,9 @@
 .plus {
   background-image: url(/assets/images/icons/plus.svg);
 }
+.plus-white {
+  background-image: url(/assets/images/icons/plus-white.svg);
+}
 .arrow-up {
   background-image: url(/assets/images/icons/arrow-up.svg);
 }
@@ -45,6 +51,9 @@
 }
 .trash {
   background-image: url(/assets/images/icons/trash.svg);
+}
+.trash-red {
+  background-image: url(/assets/images/icons/trash-red.svg);
 }
 .phone {
   background-image: url(/assets/images/icons/phone.svg);
@@ -90,4 +99,7 @@
 }
 .phone.active {
   background-image: url(/assets/images/icons/phone-active.svg);
+}
+.trash-red {
+  background-image: url(/assets/images/icons/trash-red.svg);
 }
