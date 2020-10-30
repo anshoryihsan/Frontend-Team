@@ -1,9 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Icons from "../Icons";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUser } from "../../redux/actions/admin";
 
 function ListUsers(props) {
-  const { email, phone, name, className, to, src, disabled } = props;
+  const { email, phone, name, className, id, to, src, disabled } = props;
+  const { token } = useSelector((state) => state.Auth);
+
+  const dispatch = useDispatch();
+
+  let actDel = () => {
+    dispatch(deleteUser(token, id));
+  }
+
   return (
     <div className={className}>
       <div
@@ -31,9 +41,11 @@ function ListUsers(props) {
           </div>
         </div>
         <div className="d-flex justify-content-end">
-          <div to={to} className="mr-1">
+          <Link>
+          <div onClick={actDel} className="mr-1">
             <Icons iconName="trash-red " iconHeight={24} iconWidth={28} />
           </div>
+          </Link>
           <Link to={to} className="mr-3">
             <Icons iconName="edit-admin" iconHeight={24} iconWidth={28} />
           </Link>

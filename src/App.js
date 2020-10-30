@@ -92,11 +92,11 @@ function App() {
         {/* Admin */}
         <PrivateRoute exact path="/admin" component={DashboardAdmin} child={MainAdmin} />
         <PrivateRoute exact path="/admin/users" component={DashboardAdmin} child={UsersAdmin} />
+        <PrivateRoute exact path="/admin/users/add" component={DashboardAdmin} child={AddUserAdmin} />
         <PrivateRoute exact path="/admin/topup" component={DashboardAdmin} child={TopupAdmin} />
         <PrivateRoute exact path="/admin/topup/add" component={DashboardAdmin} child={AddTopupAdmin} />
         <PrivateRoute exact path="/admin/users/:id" component={DashboardAdmin} child={DetailUserAdmin} />
         <PrivateRoute exact path="/admin/users/:id?/edit" component={DashboardAdmin} child={EditUserAdmin} />
-        <PrivateRoute exact path="/admin/users/add" component={DashboardAdmin} child={AddUserAdmin} />
 
         {/* Mobile */}
         <PublicRoute restricted={true} exact path="/m" component={LandingPage} child={LandingPageMobile} />
