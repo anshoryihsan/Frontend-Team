@@ -129,13 +129,15 @@ function App() {
 }
 
 function NotFound() {
-  const history = useHistory()
+  const history = useHistory();
 
   return (
     <>
       <div className="d-flex justify-content-center align-items-center flex-column vh-100">
         <h4 className="text-primary font-weight-bold">ZWallet</h4>
-        <h1 className="font-weight-bold d-block text-black-50">404 Not Found</h1>
+        <h1 className="font-weight-bold d-block text-black-50">
+          404 Not Found
+        </h1>
 
         <div className="d-flex align-items-center">
           Your page request may temporary moved or not available
@@ -144,11 +146,11 @@ function NotFound() {
             onClick={() => history.replace("/dashboard")}
           >
             Go Back
-            </button>
+          </button>
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default App;

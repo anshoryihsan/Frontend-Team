@@ -91,3 +91,6 @@
 .phone.active {
   background-image: url(/assets/images/icons/phone-active.svg);
 }
+.trash-red {
+  background-image: url(/assets/images/icons/trash-red.svg);
+}
