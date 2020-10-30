@@ -16,6 +16,9 @@
 .edit {
   background-image: url(/assets/images/icons/edit-2.svg);
 }
+.edit-1 {
+  background-image: url(/assets/images/icons/edit-3.svg);
+}
 .user {
   background-image: url(/assets/images/icons/user.svg);
 }
@@ -36,6 +39,9 @@
 }
 .plus {
   background-image: url(/assets/images/icons/plus.svg);
+}
+.plus-white {
+  background-image: url(/assets/images/icons/plus-white.svg);
 }
 .arrow-up {
   background-image: url(/assets/images/icons/arrow-up.svg);

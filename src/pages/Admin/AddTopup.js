@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {getTopup, deleteTopup, addTopup} from '../../redux/actions/user';
 import {InputBorderedBottom} from '../../components/Inputs';
-import Icons from '../../components/Icons';
+
 
 function AddTopup() {
   const [detail, setDetail] = useState('');
@@ -30,7 +30,7 @@ function AddTopup() {
         <div className="col-lg-6 m-auto">
           <div className="mt-3">
             <InputBorderedBottom
-              iconName="edit-2"
+              iconName="edit-1"
               type={detail}
               label="Enter how to topup"
               onChange={_addTopup}

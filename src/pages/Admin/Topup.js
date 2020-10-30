@@ -25,6 +25,9 @@ function Topup() {
     <div className="p-4 bg-white rounded-14 shadow-sm vh-85">
       <div className="d-flex justify-content-between align-items-center">
         <div className="font-weight-bold">How To Top Up</div>
+        <button className="btn bg-primary text-white" onClick={() => history.push("/admin/topup/add")}>
+            <Icons iconName="plus-white" iconWidth={20} iconHeight={20} /> Add Top Up
+        </button>
       </div>
       {loading ? (
         <div className="text-center small py-4">Loading ...</div>
