@@ -14,7 +14,8 @@ import {
   SETHISTORYIDDATA,
   SETBALANCE,
   SETPHOTO,
-  SETPHONE
+  SETPHONE,
+  // SETPAYMENTTOKEN
 } from '../constant'
 
 const handleError = (err, dispatch) => {
@@ -213,4 +214,16 @@ export const getTopup = (token) => dispatch => {
       if (!err.response) return dispatch(options(SETUSERERROR, "Network Error"))
       dispatch(options(SETUSERERROR, err.response.data.message))
     })
+}
+
+export const getPaymentToken = (token, amount) => {
+  return new Promise((resolve, reject) => {
+    axios.post("/users/get_token", { amount }, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(res => resolve(res.data.data.token))
+      .catch(err => reject(err.message))
+  })
 }

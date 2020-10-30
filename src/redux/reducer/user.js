@@ -11,12 +11,18 @@ import {
   SETHISTORYIDDATA,
   SETPHOTO,
   SETPHONE,
+  // SETPAYMENTTOKEN,
 } from '../constant'
 
 const initState = {
   error: "",
+  paymentToken: "",
   userdata: {},
-  history: [],
+  history: {
+    history: [],
+    income: "",
+    expense: "",
+  },
   historyId: {},
   findUser: [],
   topup: [],
@@ -108,6 +114,12 @@ const authReducer = (state = initState, action) => {
         ...state,
         historyId: payload
       }
+
+    // case SETPAYMENTTOKEN:
+    //   return {
+    //     ...state,
+    //     paymentToken: payload
+    //   }
     default:
       return state
   }

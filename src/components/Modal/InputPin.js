@@ -6,7 +6,6 @@ function InputPin(props) {
   return (
     <Modal
       show={show}
-      backdrop="static"
       keyboard={false}
       animation={false}
       centered

@@ -62,25 +62,27 @@ function Transfer() {
         {
           loading ? <div className="small text-center py-4">loading ...</div> :
             error ? <div className="small text-center py-4">{error}</div> :
-              <InfiniteScroll
-                initialLoad={false}
-                loadMore={loadMore}
-                hasMore={hasMore}
-                loader={(<div className="small text-center py-4" key={0}>Loading ...</div>)}
-              >
-                {
-                  findUser.map((item, index) => (
-                    <ReceiverCard
-                      key={index}
-                      src={item.photo}
-                      name={item.name}
-                      phone={item.phone ? `+62 ${item.phone}` : "-"}
-                      to={`/dashboard/transfer/${item.id}`}
-                      className="my-2"
-                    />
-                  ))
-                }
-              </InfiniteScroll>
+              !findUser.length ? <div className="small text-center py-4"> Contact data is not available </div> :
+
+                <InfiniteScroll
+                  initialLoad={false}
+                  loadMore={loadMore}
+                  hasMore={hasMore}
+                  loader={(<div className="small text-center py-4" key={0}>Loading ...</div>)}
+                >
+                  {
+                    findUser.map((item, index) => (
+                      <ReceiverCard
+                        key={index}
+                        src={item.photo}
+                        name={item.name}
+                        phone={item.phone ? `+62 ${item.phone}` : "-"}
+                        to={`/dashboard/transfer/${item.id}`}
+                        className="my-2"
+                      />
+                    ))
+                  }
+                </InfiniteScroll>
         }
       </div>
     </>

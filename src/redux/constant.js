@@ -14,6 +14,7 @@ export const SETFINDIDDATA = "SETFINDIDDATA"
 export const SETHISTORYIDDATA = "SETHISTORYIDDATA"
 export const SETPHOTO = "SETPHOTO"
 export const SETPHONE = "SETPHONE"
+// export const SETPAYMENTTOKEN = "SETPAYMENTTOKEN"
 
 export const options = (constant, payload = null) => ({
   type: constant,

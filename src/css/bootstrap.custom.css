@@ -131,18 +131,21 @@
 .btn-outline-primary:focus,
 .btn-outline-primary:active {
   background: var(--color-primary) !important;
+  color: white;
 }
 
 .btn-outline-secondary:hover,
 .btn-outline-secondary:focus,
 .btn-outline-secondary:active {
   background: var(--color-secondary) !important;
+  color: white;
 }
 
 .btn-outline-dark:hover,
 .btn-outline-dark:focus,
 .btn-outline-dark:active {
   background: var(--color-dark) !important;
+  color: white;
 }
 
 .btn-outline-light:hover,
@@ -156,6 +159,7 @@
 .btn-outline-danger:focus,
 .btn-outline-danger:active {
   background: var(--color-danger) !important;
+  color: white;
 }
 
 .sticky-top-15 {

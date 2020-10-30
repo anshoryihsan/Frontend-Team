@@ -3,26 +3,53 @@ import { Link } from 'react-router-dom'
 import { HistoryCard } from '../../../components/Cards'
 import { useSelector, useDispatch } from 'react-redux'
 import { currency } from '../../../helpers'
-import { getHistories } from '../../../redux/actions/user'
+import { getHistories, getPaymentToken } from '../../../redux/actions/user'
 import BarChart from '../../../components/Charts/BarChart'
+import Topup from '../../../components/Modal/Topup'
 
 function Main() {
-
   const [loading, setLoading] = useState(true)
+  const [modalTopup, setModalTopup] = useState(false)
 
   const { token } = useSelector(state => state.Auth)
   const { userdata, history, error } = useSelector(state => state.User)
   const { balance, phone, email } = userdata
 
   const dispatch = useDispatch()
+
   useEffect(() => {
+    const midtransSnap = document.createElement("script");
+    midtransSnap.setAttribute(
+      "src",
+      "https://app.sandbox.midtrans.com/snap/snap.js"
+    );
+    midtransSnap.setAttribute(
+      "data-client-key",
+      "SB-Mid-client-So_VRfD27r9md9vU"
+    );
+    document.head.appendChild(midtransSnap);
     setLoading(true)
     dispatch(getHistories(token))
     setLoading(false)
   }, [dispatch, token])
 
+  const _onTopup = async (val) => {
+    const self = this
+    getPaymentToken(token, val)
+      .then(token => {
+        window.snap.show()
+        window.snap.pay(token)
+      })
+  }
+
   return (
     <div className={`vh-85 ${loading ? 'd-none' : null}`}>
+      <Topup
+        onDismiss={() => setModalTopup(false)}
+        onContinue={_onTopup}
+        show={modalTopup}
+      />
+
       <div className="bg-primary side-nav-right p-4 shadow-sm rounded-14">
         <div className="d-md-flex justify-content-between">
           <div>
@@ -48,6 +75,7 @@ function Main() {
 
             <button
               className="btn bg-white-outline py-3 mb-md-2 px-3 text-white d-flex overlay-1"
+              onClick={() => setModalTopup(true)}
             >
               <img
                 src={window.location.origin + "/assets/images/icons/plus-white.svg"}
@@ -76,7 +104,7 @@ function Main() {
 
                   <div className="small my-1">Income</div>
 
-                  <div className="font-weight-bold">Rp2.120.000</div>
+                  <div className="font-weight-bold">Rp{currency(history?.income)}</div>
                 </div>
 
                 <div className="col-6">
@@ -89,7 +117,7 @@ function Main() {
 
                   <div className="small my-1">Expense</div>
 
-                  <div className="font-weight-bold">Rp1.560.000</div>
+                  <div className="font-weight-bold">Rp{currency(history?.expense)}</div>
                 </div>
               </div>
 
@@ -117,19 +145,20 @@ function Main() {
               {
                 loading ? <div className="small text-center py-4">Loading ...</div> :
                   error ? <div className="small text-center py-4">{error}</div> :
-                    history.map((item, index) => {
-                      return (
-                        <HistoryCard
-                          src={item.from_photo}
-                          key={index}
-                          name={item.from_name}
-                          type="transfer"
-                          amount={item.total}
-                          isIncome={email !== item.from_email}
-                          flat
-                        />
-                      )
-                    })
+                    !history.history.length ? <div className="small text-center py-4">You don't have any transactions</div> :
+                      history.history.map((item, index) => {
+                        return (
+                          <HistoryCard
+                            src={item.photo}
+                            key={index}
+                            name={item.name}
+                            type={item.type}
+                            amount={item.type === "transfer" ? item.amount : item.amount_topup}
+                            isIncome={item.is_income}
+                            flat
+                          />
+                        )
+                      })
               }
             </div>
           </div>

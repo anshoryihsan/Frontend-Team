@@ -110,19 +110,22 @@ function Dashboard({ child: Child }) {
                   </li>
                 )
               })}
-              <li className="d-flex align-items-center my-4">
-                <Icons
-                  iconName="user"
-                  iconHeight={24}
-                  iconWidth={24}
-                />
+              {
+                userdata.role !== "admin" ? null :
+                  <li className="d-flex align-items-center my-4">
+                    <Icons
+                      iconName="user"
+                      iconHeight={24}
+                      iconWidth={24}
+                    />
 
-                <Link
-                  to="/admin"
-                >
-                  <h6 className="ml-2 mb-0 text-dark">Admin Panel</h6>
-                </Link>
-              </li>
+                    <Link
+                      to="/admin"
+                    >
+                      <h6 className="ml-2 mb-0 text-dark">Admin Panel</h6>
+                    </Link>
+                  </li>
+              }
             </ul>
 
             <ul>

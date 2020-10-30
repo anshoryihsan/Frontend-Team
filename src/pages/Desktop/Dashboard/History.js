@@ -26,13 +26,12 @@ function History() {
 
   const loadMore = () => {
     if (isScrolling) return false
-    if (history.length < (offset - 1) * 4) return setMore(false)
+    if (history.history.length < (offset - 1) * 4) return setMore(false)
     setScrolling(true)
     setOffset(offset + 1)
     setTimeout(() => {
       dispatch(getHistories(token, offset, false))
       setScrolling(false)
-      console.log(history.length, (offset - 4))
     }, 1500)
   }
 
@@ -46,28 +45,30 @@ function History() {
         {
           loading ? <div className="small text-center py-4">loading ...</div> :
             error ? <div className="small text-center py-4">{error}</div> :
-              <InfiniteScroll
-                initialLoad={false}
-                loadMore={loadMore}
-                hasMore={hasMore}
-                loader={(<div className="small text-center py-4" key={0}>Loading ...</div>)}
-              >
-                {
-                  history.map((item, index) => {
-                    return (
-                      <div key={index} className="my-3">
-                        <HistoryCard
-                          src={item.from_photo}
-                          name={item.from_name}
-                          type="transfer"
-                          amount={item.total}
-                          isIncome={email !== item.from_email}
-                        />
-                      </div>
-                    )
-                  })
-                }
-              </InfiniteScroll>
+              !history.history.length ? <div className="small text-center py-4"> You dont have any transactions </div> :
+                <InfiniteScroll
+                  initialLoad={false}
+                  loadMore={loadMore}
+                  hasMore={hasMore}
+                  loader={(<div className="small text-center py-4" key={0}>Loading ...</div>)}
+                >
+                  {
+                    history.history.map((item, index) => {
+                      return (
+                        <div key={index} className="my-3">
+                          <HistoryCard
+                            src={item.photo}
+                            name={item.name}
+                            type={item.type}
+                            amount={item.type === "transfer" ? item.amount : item.amount_topup}
+                            isIncome={item.is_income}
+                            flat
+                          />
+                        </div>
+                      )
+                    })
+                  }
+                </InfiniteScroll>
         }
       </div>
     </>
