@@ -6,6 +6,4 @@ import AddUser from './Main'
 import Topup from './Main'
 import AddTopup from './Main'
 
-export {
-  Main, Users, EditUser, DetailUser, AddUser, Topup, AddTopup
-}
+export { Main, Users, EditUser, DetailUser, AddUser, Topup, AddTopup };
