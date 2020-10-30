@@ -254,6 +254,7 @@ export const deleteTopup = (token, id, history) => (dispatch) => {
     })
     .then((res) => {
       dispatch(options(SETPHONE, null));
+      alert('Delete Top Up Successfully');
       history.push(`/admin/topup/add`);
     })
     .catch((err) => handleError(err, dispatch));
@@ -272,6 +273,7 @@ export const addTopup = (token, detail, history) => (dispatch) => {
     )
     .then((res) => {
       dispatch(options(SETPHONE, null));
+      alert('Add Top Up Successfully');
       history.replace(`/admin/topup`);
     })
     .catch((err) => handleError(err, dispatch));
