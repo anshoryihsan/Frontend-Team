@@ -1,5 +1,5 @@
 // Desktop
-import LandingPageDesktop  from "./Desktop/LandingPage/LandingPage"
+import LandingPageDesktop from "./Desktop/LandingPage/LandingPage";
 
 import {
   Login,
@@ -8,7 +8,7 @@ import {
   Success,
   ForgotPassword,
   NewPassword,
-} from "./Desktop/Auth"
+} from "./Desktop/Auth";
 import {
   Main,
   Transfer,
@@ -24,10 +24,10 @@ import {
   ProfileAddPhone,
   ProfileChangePin,
   Logout,
-} from "./Desktop/Dashboard"
+} from "./Desktop/Dashboard";
 
 // Mobile
-import LandingPageMobile  from "./Mobile/LandingPage/LandingPage"
+import LandingPageMobile from "./Mobile/LandingPage/LandingPage";
 
 import {
   Login as LoginMobile,
@@ -36,7 +36,7 @@ import {
   Success as SuccessMobile,
   ForgotPassword as ForgotPasswordMobile,
   NewPassword as NewPasswordMobile,
-} from "./Mobile/Auth"
+} from "./Mobile/Auth";
 import {
   Main as MainMobile,
   Transfer as TransferMobile,
@@ -54,7 +54,7 @@ import {
   Notification as NotificationMobile,
   TransferPinConfirmation as TransferPinConfirmationMobile,
   Transaction as TransactionMobile,
-} from './Mobile/Dashboard'
+} from "./Mobile/Dashboard";
 
 // Admin
 import {
@@ -62,10 +62,10 @@ import {
   Users as UsersAdmin,
   DetailUser as DetailUserAdmin,
   EditUser as EditUserAdmin,
-  AddTopup as AddTopupAdmin,
   AddUser as AddUserAdmin,
   Topup as TopupAdmin,
-} from "./Admin"
+  AddTopup as AddTopupAdmin,
+} from "./Admin";
 
 export {
   // Desktop
@@ -90,7 +90,6 @@ export {
   ProfileAddPhone,
   ProfileChangePin,
   Logout,
-
   // Mobile
   LandingPageMobile,
   MainMobile,
@@ -115,7 +114,6 @@ export {
   SuccessMobile,
   ForgotPasswordMobile,
   NewPasswordMobile,
-
   // Admin
   MainAdmin,
   TopupAdmin,
@@ -124,4 +122,4 @@ export {
   AddUserAdmin,
   DetailUserAdmin,
   EditUserAdmin,
-}
+};

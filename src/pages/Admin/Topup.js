@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getTopup, deleteTopup } from "../../redux/actions/user";
 import Icons from "../../components/Icons";
 
-function Main() {
+function Topup() {
   const [loading, setLoading] = useState(true);
 
   const { token } = useSelector((state) => state.Auth);
@@ -51,4 +51,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Topup;

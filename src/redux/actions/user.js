@@ -1,4 +1,4 @@
-import axios from "../../helpers/axios";
+import axios from '../../helpers/axios';
 import {
   options,
   SETUSERDATA,
@@ -15,18 +15,18 @@ import {
   SETBALANCE,
   SETPHOTO,
   SETPHONE,
-} from "../constant";
+} from '../constant';
 
 const handleError = (err, dispatch) => {
-  if (!err.response) return dispatch(options(SETUSERERROR, "Network Error"));
+  if (!err.response) return dispatch(options(SETUSERERROR, 'Network Error'));
   dispatch(options(SETUSERERROR, err.response.data.message));
 };
 
 export const UserLoad = (token, history, mobile = false) => (dispatch) => {
-  const isMobile = mobile ? "/m" : "";
+  const isMobile = mobile ? '/m' : '';
 
   axios
-    .get("/users/detail", {
+    .get('/users/detail', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -38,14 +38,14 @@ export const UserLoad = (token, history, mobile = false) => (dispatch) => {
         history.push(`${isMobile}/dashboard/profile/add_phone`);
     })
     .catch((_) => {
-      dispatch(options(SETAUTHERROR, "Sesi telah berakhir"));
+      dispatch(options(SETAUTHERROR, 'Sesi telah berakhir'));
       dispatch(options(SETAUTHLOGOUT));
-      return history.push("/auth");
+      return history.push('/auth');
     });
 };
 
 export const getHistories = (token, offset = 1, reset = true) => (dispatch) => {
-  dispatch(options(SETUSERERROR, ""));
+  dispatch(options(SETUSERERROR, ''));
 
   axios
     .get(`/users/histories?offset=${offset}&limit=4`, {
@@ -66,7 +66,7 @@ export const resetFindUsers = () => (dispatch) =>
   dispatch(options(SETFINDUSERDATA, []));
 
 export const getHistoryId = (token, id, history) => (dispatch) => {
-  dispatch(options(SETUSERERROR, ""));
+  dispatch(options(SETUSERERROR, ''));
 
   axios
     .get(`/users/history/${id}`, {
@@ -75,13 +75,13 @@ export const getHistoryId = (token, id, history) => (dispatch) => {
       },
     })
     .then((res) => dispatch(options(SETHISTORYIDDATA, res.data.data)))
-    .catch((err) => history.replace("/dashboard"));
+    .catch((err) => history.replace('/dashboard'));
 };
 
 export const getFindUsers = (token, offset = 1, name = null, reset = true) => (
   dispatch
 ) => {
-  dispatch(options(SETUSERERROR, ""));
+  dispatch(options(SETUSERERROR, ''));
 
   axios
     .get(`/users/search?q=${name}&offset=${offset}&limit=4`, {
@@ -97,12 +97,12 @@ export const getFindUsers = (token, offset = 1, name = null, reset = true) => (
 };
 
 export const setPhoto = (token, data) => (dispatch) => {
-  dispatch(options(SETUSERERROR, ""));
+  dispatch(options(SETUSERERROR, ''));
 
   axios
     .post(`/users/photo`, data, {
       headers: {
-        "content-type": "multipart/form-data",
+        'content-type': 'multipart/form-data',
         Authorization: `Bearer ${token}`,
       },
     })
@@ -111,7 +111,7 @@ export const setPhoto = (token, data) => (dispatch) => {
 };
 
 export const getFindId = (token, id) => (dispatch) => {
-  dispatch(options(SETUSERERROR, ""));
+  dispatch(options(SETUSERERROR, ''));
 
   axios
     .get(`/users/${id}`, {
@@ -126,11 +126,11 @@ export const getFindId = (token, id) => (dispatch) => {
 export const balanceTransfer = (token, data, history, mobile = false) => (
   dispatch
 ) => {
-  dispatch(options(SETUSERERROR, ""));
-  const isMobile = mobile ? "/m" : "";
+  dispatch(options(SETUSERERROR, ''));
+  const isMobile = mobile ? '/m' : '';
 
   axios
-    .post("/users/transfer", data, {
+    .post('/users/transfer', data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -144,11 +144,11 @@ export const balanceTransfer = (token, data, history, mobile = false) => (
 };
 
 export const deletePhone = (token, history, mobile = false) => (dispatch) => {
-  const isMobile = mobile ? "/m" : "";
-  dispatch(options(SETUSERERROR, ""));
+  const isMobile = mobile ? '/m' : '';
+  dispatch(options(SETUSERERROR, ''));
 
   axios
-    .delete("/users/phone", {
+    .delete('/users/phone', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -161,12 +161,12 @@ export const deletePhone = (token, history, mobile = false) => (dispatch) => {
 };
 
 export const addPhone = (token, phone, history) => (dispatch) => {
-  dispatch(options(SETUSERERROR, ""));
+  dispatch(options(SETUSERERROR, ''));
 
   axios
     .patch(
-      "/users/phone",
-      { phone },
+      '/users/phone',
+      {phone},
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -181,12 +181,12 @@ export const addPhone = (token, phone, history) => (dispatch) => {
 };
 
 export const addPhoneMobile = (token, phone, history) => (dispatch) => {
-  dispatch(options(SETUSERERROR, ""));
+  dispatch(options(SETUSERERROR, ''));
 
   axios
     .patch(
-      "/users/phone",
-      { phone },
+      '/users/phone',
+      {phone},
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -201,10 +201,10 @@ export const addPhoneMobile = (token, phone, history) => (dispatch) => {
 };
 
 export const changePassword = (token, data, history) => (dispatch) => {
-  dispatch(options(SETUSERERROR, ""));
+  dispatch(options(SETUSERERROR, ''));
 
   axios
-    .patch("/users/password", data, {
+    .patch('/users/password', data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -213,13 +213,13 @@ export const changePassword = (token, data, history) => (dispatch) => {
     .catch((err) => handleError(err, dispatch));
 };
 
-export const createPin = (token, pin, history, route = "") => (dispatch) => {
-  dispatch(options(SETUSERERROR, ""));
+export const createPin = (token, pin, history, route = '') => (dispatch) => {
+  dispatch(options(SETUSERERROR, ''));
 
   axios
     .patch(
-      "/users/create_pin",
-      { pin },
+      '/users/create_pin',
+      {pin},
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -231,9 +231,9 @@ export const createPin = (token, pin, history, route = "") => (dispatch) => {
 };
 
 export const getTopup = (token) => (dispatch) => {
-  dispatch(options(SETUSERERROR, ""));
+  dispatch(options(SETUSERERROR, ''));
   axios
-    .get("/users/guide-topup", {
+    .get('/users/guide-topup', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -242,20 +242,37 @@ export const getTopup = (token) => (dispatch) => {
     .then((res) => dispatch(options(SETTOPUPDATA, res.data.data)))
     .catch((err) => {
       if (!err.response)
-        return dispatch(options(SETUSERERROR, "Network Error"));
+        return dispatch(options(SETUSERERROR, 'Network Error'));
       dispatch(options(SETUSERERROR, err.response.data.message));
     });
 };
 export const deleteTopup = (token, id, history) => (dispatch) => {
-  dispatch(options(SETUSERERROR, ""));
-  console.log(history, "history");
+  dispatch(options(SETUSERERROR, ''));
   axios
     .delete(`/admin/topup/${id}`, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: {Authorization: `Bearer ${token}`},
     })
     .then((res) => {
       dispatch(options(SETPHONE, null));
-      history.push(``);
+      history.push(`/admin/topup/add`);
+    })
+    .catch((err) => handleError(err, dispatch));
+};
+export const addTopup = (token, detail, history) => (dispatch) => {
+  dispatch(options(SETUSERERROR, ''));
+  console.log(detail, 'addtopup');
+  // console.log(history, "history");
+  axios
+    .post(
+      `/admin/topup`,
+      {detail},
+      {
+        headers: {Authorization: `Bearer ${token}`},
+      }
+    )
+    .then((res) => {
+      dispatch(options(SETPHONE, null));
+      history.replace(`/admin/topup`);
     })
     .catch((err) => handleError(err, dispatch));
 };
