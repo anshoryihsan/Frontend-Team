@@ -9,7 +9,6 @@ function Main() {
 
   const { token } = useSelector((state) => state.Auth);
   const { topup } = useSelector((state) => state.User);
-  const [_Id, _setId] = useState(0);
 
   const dispatch = useDispatch((state) => state.User);
   useEffect(() => {

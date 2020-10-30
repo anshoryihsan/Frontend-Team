@@ -4,6 +4,6 @@ import EditUser from "./Main";
 import DetailUser from "./Main";
 import AddUser from "./Main";
 import Topup from "./Topup";
-import AddTopup from "./Main";
+import AddTopup from "./AddTopup";
 
 export { Main, Users, EditUser, DetailUser, AddUser, Topup, AddTopup };
