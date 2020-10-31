@@ -28,13 +28,13 @@ function History() {
 
   const loadMore = () => {
     if (isScrolling) return false;
-    if (history.length < (offset - 1) * 4) return setMore(false);
+    if (history.history.length < (offset - 1) * 4) return setMore(false);
     setScrolling(true);
     setOffset(offset + 1);
     setTimeout(() => {
       dispatch(getHistories(token, offset, false));
       setScrolling(false);
-      console.log(history.length, offset - 4);
+      console.log(history.history.length, offset - 4);
     }, 1500);
   };
 
@@ -61,36 +61,35 @@ function History() {
         <div className="d-flex justify-content-between align-items-center">
           <div className="font-weight-bold small">Transaction History</div>
         </div>
-        {loading ? (
-          <div className="small text-center py-4">loading ...</div>
-        ) : error ? (
-          <div className="small text-center py-4">{error}</div>
-        ) : !history.length ? <div className="small text-center py-4">Data is empty</div> : (
-          <InfiniteScroll
-            initialLoad={false}
-            loadMore={loadMore}
-            hasMore={hasMore}
-            loader={
-              <div className="small text-center py-4" key={0}>
-                Loading ...
+        {loading ? <div className="small text-center py-4">loading ...</div> :
+          error ? <div className="small text-center py-4">{error}</div> :
+            !history.history.length ? <div className="small text-center py-4">Data is empty</div> :
+              <InfiniteScroll
+                initialLoad={false}
+                loadMore={loadMore}
+                hasMore={hasMore}
+                loader={
+                  <div className="small text-center py-4" key={0}>
+                    Loading ...
               </div>
-            }
-          >
-            {history.map((item, index) => {
-              return (
-                <div key={index} className="my-3">
-                  <HistoryCard
-                    src={item.from_photo}
-                    name={item.from_name}
-                    type="transfer"
-                    amount={item.total}
-                    isIncome={email !== item.from_email}
-                  />
-                </div>
-              );
-            })}
-          </InfiniteScroll>
-        )}
+                }
+              >
+                {history.history.map((item, index) => {
+                  return (
+                    <div key={index} className="my-3">
+                      <HistoryCard
+                        src={item.photo}
+                        key={index}
+                        name={item.name}
+                        type={item.type}
+                        amount={item.type === "transfer" ? item.amount : item.amount_topup}
+                        isIncome={item.is_income}
+                      />
+                    </div>
+                  );
+                })}
+              </InfiniteScroll>
+        }
       </div>
 
       <div className="d-flex" style={{ position: "sticky", bottom: 15 }}>

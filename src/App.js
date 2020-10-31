@@ -23,7 +23,7 @@ import {
   Logout,
   ForgotPassword,
   NewPassword,
-
+  TopupStatus,
   // Mobile
 
   MainMobile,
@@ -55,7 +55,7 @@ import {
   UsersAdmin,
 
   //landingpage
-  LandingPageMobile
+  LandingPageMobile,
 } from "./pages"
 
 // import Admin from './pages/Desktop/Dashboard/Admin';
@@ -66,7 +66,7 @@ function App() {
       <Switch>
         {/* Desktop */}
         {/* <Route exact path="/" render={props => <Redirect to="/auth" {...props} />} /> */}
-        <PublicRoute restricted={true} exact path="/" component={LandingPageDesktop} child={LandingPageDesktop} />
+        <PublicRoute restricted={false} exact path="/" component={LandingPageDesktop} />
         <PublicRoute restricted={true} exact path="/auth" component={Auth} child={Login} />
         <PublicRoute restricted={true} exact path="/auth/signup" component={Auth} child={Register} />
         <PublicRoute restricted={true} exact path="/auth" component={Auth} child={Login} />
@@ -78,6 +78,7 @@ function App() {
         <PrivateRoute exact path="/dashboard/transfer" component={Dashboard} child={Transfer} />
         <PrivateRoute exact path="/dashboard/transfer/:id" component={Dashboard} child={TransferProcess} />
         <PrivateRoute exact path="/dashboard/transfer/status/:id?" component={Dashboard} child={TransferStatus} />
+        <PrivateRoute exact path="/dashboard/topup/status" component={Dashboard} child={TopupStatus} />
         <PrivateRoute exact path="/dashboard/transfer/:id?/confirm" component={Dashboard} child={TransferConfirmation} />
         <PrivateRoute exact path="/dashboard/history" component={Dashboard} child={History} />
         <PrivateRoute exact path="/dashboard/topup" component={Dashboard} child={Topup} />

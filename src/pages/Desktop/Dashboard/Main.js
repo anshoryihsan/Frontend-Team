@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { HistoryCard } from '../../../components/Cards'
 import { useSelector, useDispatch } from 'react-redux'
 import { currency } from '../../../helpers'
-import { getHistories, getPaymentToken } from '../../../redux/actions/user'
+import { getHistories, getPaymentToken, processPayment } from '../../../redux/actions/user'
 import BarChart from '../../../components/Charts/BarChart'
 import Topup from '../../../components/Modal/Topup'
 
@@ -11,6 +11,7 @@ function Main() {
   const [loading, setLoading] = useState(true)
   const [modalTopup, setModalTopup] = useState(false)
 
+  const history1 = useHistory()
   const { token } = useSelector(state => state.Auth)
   const { userdata, history, error } = useSelector(state => state.User)
   const { balance, phone, email } = userdata
@@ -34,11 +35,15 @@ function Main() {
   }, [dispatch, token])
 
   const _onTopup = async (val) => {
-    const self = this
+    setModalTopup(false)
     getPaymentToken(token, val)
-      .then(token => {
-        window.snap.show()
-        window.snap.pay(token)
+      .then(tokenPay => {
+        window.snap.pay(tokenPay, {
+          onPending: function (result) {
+            processPayment(token, result)
+              .then(id => history1.push(`/dashboard/topup/status?order_id=${id}`))
+          }
+        })
       })
   }
 
@@ -54,7 +59,7 @@ function Main() {
         <div className="d-md-flex justify-content-between">
           <div>
             <div className="text-white">Balance</div>
-            <h2 className="my-3 text-white font-weight-bold">Rp {currency(parseInt(balance))}</h2>
+            <h2 className="my-3 text-white font-weight-bold">Rp {currency(balance)}</h2>
             <div className="small text-white">{phone ? `+62 ${phone}` : '-'}</div>
           </div>
 
@@ -149,12 +154,14 @@ function Main() {
                       history.history.map((item, index) => {
                         return (
                           <HistoryCard
+                            id={item.type === "topup" ? item.order_id : item.id}
                             src={item.photo}
                             key={index}
                             name={item.name}
                             type={item.type}
                             amount={item.type === "transfer" ? item.amount : item.amount_topup}
                             isIncome={item.is_income}
+                            status={item.status}
                             flat
                           />
                         )

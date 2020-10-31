@@ -22,6 +22,7 @@ function Dashboard({ child: Child }) {
   const { userdata } = useSelector(state => state.User)
   const dispatch = useDispatch()
 
+  if (userdata.role !== "admin") history.replace("/dashboard")
   const _setMenu = () => {
     setMenu(!menu)
     setNotif(false)

@@ -3,19 +3,19 @@ import { ReceiverCard } from '../../../components/Cards'
 import { useParams, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { currency } from '../../../helpers'
-import { getHistoryId } from '../../../redux/actions/user'
+import { getHistoryTopup } from '../../../redux/actions/user'
 
 
 function TransferStatus() {
-  const { id } = useParams()
   const { token } = useSelector(state => state.Auth)
-  const { historyId, userdata } = useSelector(state => state.User)
+  const { historyId } = useSelector(state => state.User)
 
+  const params = new URLSearchParams(window.location.search);
   const dispatch = useDispatch()
   const history = useHistory()
   useEffect(() => {
-    dispatch(getHistoryId(token, id, history))
-  }, [dispatch, history, id, token])
+    dispatch(getHistoryTopup(token, history, params.get("order_id")))
+  }, [dispatch, history, token])
 
 
   return (
@@ -28,17 +28,31 @@ function TransferStatus() {
             width="50px"
             alt="success"
           />
-          <div className="font-weight-bold mt-3">Transfer Success</div>
+          <div className="font-weight-bold mt-3">Topup Success</div>
+        </div>
+
+        <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
+          <div className="small">No. Rek</div>
+          <div className="font-weight-bold text-dark">
+            {historyId.va_number}
+          </div>
+        </div>
+
+        <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
+          <div className="small">Transfer Bank</div>
+          <div className="font-weight-bold text-dark text-uppercase">
+            {historyId.va_type}
+          </div>
         </div>
 
         <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
           <div className="small">Amount</div>
-          <div className="font-weight-bold text-dark">Rp{currency(parseInt(historyId.amount))}</div>
+          <div className="font-weight-bold text-dark">Rp{currency(historyId?.amount_topup)}</div>
         </div>
 
         <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
-          <div className="small">Balance Left</div>
-          <div className="font-weight-bold text-dark">Rp{currency(parseInt(userdata.balance))}</div>
+          <div className="small">Status</div>
+          <div className="font-weight-bold text-dark">{historyId.status === 1 ? "Success" : "Pending"}</div>
         </div>
 
         <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
@@ -46,24 +60,14 @@ function TransferStatus() {
           <div className="font-weight-bold text-dark">{new Date(historyId?.created_at).toDateString()}</div>
         </div>
 
-        <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
-          <div className="small">Notes</div>
-          <div className="font-weight-bold text-dark">
-            {historyId.note}
-          </div>
-        </div>
-
-        <div className="d-flex justify-content-between align-items-center">
-          <div className="font-weight-bold">Transfer to</div>
-        </div>
-
-        <ReceiverCard
-          disabled
-          name={historyId.name}
-          phone={historyId.phone ? `+62 ${historyId.phone}` : "-"}
-          src={historyId.photo}
-          className="my-2 shadow-none"
-        />
+        {
+          historyId.paydate_at ?
+            <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
+              <div className="small">Date & Time Pay Transaction</div>
+              <div className="font-weight-bold text-dark">{new Date(historyId?.paydate_at).toDateString()}</div>
+            </div> :
+            null
+        }
 
         <div className="d-flex justify-content-end mt-4">
           <button

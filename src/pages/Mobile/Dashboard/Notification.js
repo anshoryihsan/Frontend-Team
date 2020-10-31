@@ -58,36 +58,35 @@ function History() {
         </div>
       </nav>
       <div className="rounded-14 my-2 mt-5">
-        {loading ? (
-          <div className="small text-center py-4">loading ...</div>
-        ) : error ? (
-          <div className="small text-center py-4">{error}</div>
-        ) : !history.length ? <div className="small text-center py-4">Data is empty</div> : (
-          <InfiniteScroll
-            initialLoad={false}
-            loadMore={loadMore}
-            hasMore={hasMore}
-            loader={
-              <div className="small text-center py-4" key={0}>
-                Loading ...
+        {loading ? <div className="small text-center py-4">loading ...</div> :
+          error ? <div className="small text-center py-4">{error}</div> :
+            !history.history.length ? <div className="small text-center py-4">Data is empty</div> :
+              <InfiniteScroll
+                initialLoad={false}
+                loadMore={loadMore}
+                hasMore={hasMore}
+                loader={
+                  <div className="small text-center py-4" key={0}>
+                    Loading ...
               </div>
-            }
-          >
-            {history.map((item, index) => {
-              return (
-                <div key={index} className="my-3">
-                  <HistoryCard
-                    src={item.from_photo}
-                    name={item.from_name}
-                    type="transfer"
-                    amount={item.total}
-                    isIncome={email !== item.from_email}
-                  />
-                </div>
-              );
-            })}
-          </InfiniteScroll>
-        )}
+                }
+              >
+                {history.history.map((item, index) => {
+                  return (
+                    <div key={index} className="my-3">
+                      <HistoryCard
+                        src={item.photo}
+                        key={index}
+                        name={item.name}
+                        type={item.type}
+                        amount={item.type === "transfer" ? item.amount : item.amount_topup}
+                        isIncome={item.is_income}
+                      />
+                    </div>
+                  );
+                })}
+              </InfiniteScroll>
+        }
       </div>
     </>
   );

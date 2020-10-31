@@ -66,7 +66,6 @@ const authReducer = (state = initState, action) => {
         }
       }
 
-
     case SETHISTORYDATA:
       return {
         ...state,
@@ -76,7 +75,7 @@ const authReducer = (state = initState, action) => {
     case ADDHISTORYDATA:
       return {
         ...state,
-        history: [...state.history, ...payload]
+        history: { ...state.history, history: [...state.history.history, ...payload.history] }
       }
 
     case SETTOPUPDATA:

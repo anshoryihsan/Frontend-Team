@@ -12,6 +12,7 @@ import ProfileManagePhone from "./ProfileManagePhone";
 import ProfileAddPhone from "./ProfileAddPhone";
 import ProfileChangePin from "./ProfileChangePin";
 import Logout from "./Logout";
+import TopupStatus from './TopupStatus'
 
 export {
   Main,
@@ -26,6 +27,7 @@ export {
   Logout,
   ProfileChangePass,
   ProfileManagePhone,
+  TopupStatus,
   ProfileAddPhone,
   ProfileChangePin
 };

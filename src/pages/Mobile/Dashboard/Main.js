@@ -94,17 +94,17 @@ function Main() {
 
       {
         error ? <div className="small text-center py-4">{error}</div> :
-          !history.length ? <div className="small text-center py-4">Data is empty</div> :
-            history.map((item, index) => {
+          !history.history.length ? <div className="small text-center py-4">Data is empty</div> :
+            history.history.map((item, index) => {
               return (
                 <div className="my-3" key={index}>
                   <HistoryCard
-                    src={item.from_photo}
-                    name={item.from_name}
-                    type="transfer"
-                    amount={item.total}
-                    isIncome={email !== item.from_email}
-                    flat={false}
+                    src={item.photo}
+                    key={index}
+                    name={item.name}
+                    type={item.type}
+                    amount={item.type === "transfer" ? item.amount : item.amount_topup}
+                    isIncome={item.is_income}
                   />
                 </div>
               )

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { getHistories } from "../../../redux/actions/user";
 import BarChart from '../../../components/Charts/BarChart'
+import { currency } from "../../../helpers";
 
 function Transaction() {
   const [loading, setLoading] = useState(false);
@@ -58,7 +59,7 @@ function Transaction() {
 
               <div className="small text-white my-1">Income</div>
 
-              <div className="font-weight-bold text-white">Rp2.120.000</div>
+              <div className="font-weight-bold text-white">Rp{currency(history?.income)}</div>
             </div>
 
             <div className="col-6">
@@ -74,7 +75,7 @@ function Transaction() {
 
               <div className="small text-white my-1">Expense</div>
 
-              <div className="font-weight-bold text-white">Rp1.560.000</div>
+              <div className="font-weight-bold text-white">Rp{currency(history?.expense)}</div>
             </div>
           </div>
         </div>
@@ -97,20 +98,19 @@ function Transaction() {
           <div className="font-weight-bold small">Transaction History</div>
           <Link to="/m/dashboard/history" className="text-primary small">See All</Link>
         </div>
-        {loading ? (
-          <div className="small text-center py-4">loading ...</div>
-        ) : error ? (
-          <div className="small text-center py-4">{error}</div>
-        ) : !history.length ? <div className="small text-center py-4">Data is empty</div> :
-              history.map((item, index) => {
+        {loading ? <div className="small text-center py-4">loading ...</div> :
+          error ? <div className="small text-center py-4">{error}</div> :
+            !history.history.length ? <div className="small text-center py-4">Data is empty</div> :
+              history.history.map((item, index) => {
                 return (
                   <div key={index} className="my-3">
                     <HistoryCard
-                      src={item.from_photo}
-                      name={item.from_name}
-                      type="transfer"
-                      amount={item.total}
-                      isIncome={email !== item.from_email}
+                      src={item.photo}
+                      key={index}
+                      name={item.name}
+                      type={item.type}
+                      amount={item.type === "transfer" ? item.amount : item.amount_topup}
+                      isIncome={item.is_income}
                     />
                   </div>
                 );

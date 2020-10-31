@@ -24,6 +24,7 @@ import {
   ProfileAddPhone,
   ProfileChangePin,
   Logout,
+  TopupStatus
 } from "./Desktop/Dashboard";
 
 // Mobile
@@ -90,6 +91,7 @@ export {
   ProfileAddPhone,
   ProfileChangePin,
   Logout,
+  TopupStatus,
   // Mobile
   LandingPageMobile,
   MainMobile,

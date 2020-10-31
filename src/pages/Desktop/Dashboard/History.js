@@ -62,6 +62,7 @@ function History() {
                             type={item.type}
                             amount={item.type === "transfer" ? item.amount : item.amount_topup}
                             isIncome={item.is_income}
+                            status={item.status}
                             flat
                           />
                         </div>
