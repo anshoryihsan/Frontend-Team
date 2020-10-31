@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getFindUsers } from "../../redux/actions/user";
 import InfiniteScroll from "react-infinite-scroller";
 import { AlertDimiss } from "../../redux/actions/admin";
+import {Link} from "react-router-dom"
 
 function Users() {
   const [name, setName] = useState("");
@@ -54,6 +55,7 @@ function Users() {
       <div className="p-4 bg-white rounded-14 shadow-sm vh-85">
         <div className="d-flex flex-row justify-content-between align-items-center">
           <div className="font-weight-bold">List Users</div>
+          <Link to="/admin/users/add">
           <div className="d-flex align-items-center bg-primary rounded-sm p-1 px-3 mr-2 text-white">
             <img
               src={
@@ -66,6 +68,7 @@ function Users() {
             />
             Add User
           </div>
+          </Link>
         </div>
         <Alert 
           type="alert-success"
@@ -109,6 +112,7 @@ function Users() {
                     name={item.name}
                     email={item.email}
                     phone={item.phone ? `+62 ${item.phone}` : "-"}
+                    id = {item.id}
                     to={`/admin/users/${item.id}/edit`}
                     className="my-2 mr-2 w-100 "
                   />

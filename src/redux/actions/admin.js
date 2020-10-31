@@ -1,5 +1,5 @@
 import axios from "../../helpers/axios";
-import { options, SETADMINERROR, SETFINDIDDATA, UPDATEUSER, SETALERTDIMISS } from "../constant";
+import { options, SETADMINERROR, SETFINDIDDATA, UPDATEUSER, SETALERTDIMISS, SETUSERADMIN, SETUSERADMINERROR, } from "../constant";
 
 const handleError = (err, dispatch) => {
   if (!err.response) return dispatch(options(SETADMINERROR, "Network Error"));
@@ -25,7 +25,7 @@ export const getFindId = (token, id) => dispatch => {
   export const updateUser = (token,id, data, history) => dispatch => {
     dispatch(options(SETADMINERROR, ""))
   
-    axios.patch(`/admin/users/${id}`, data, {
+    axios.patch(`/admin/user/${id}`, data, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -34,7 +34,47 @@ export const getFindId = (token, id) => dispatch => {
         dispatch(options(UPDATEUSER, res.data))
         history.replace(`/admin/users`)
       })
-      .catch(err => handleError(err, dispatch))
+      .catch(err => {
+        handleError(err, dispatch)
+      })
+  }
+
+  export const UserAdd = (data, token) => (dispatch) => {
+    dispatch(options(SETADMINERROR, ""))
+
+    axios.post("/admin/user", data, {
+        headers: {
+            Authorization: `Bearer ${token}`
+          }
+    })
+      .then(res => {
+        dispatch(options(SETUSERADMIN, res.data))
+        alert('Add Data Success')
+        window .location.reload();
+      })
+      .catch(err => {
+        handleError(err, dispatch)
+        alert('Add Data Failed')
+        window .location.reload();
+      })
+  }
+
+  export const deleteUser = (token, id) => (dispatch) => {
+    axios.delete(`/admin/user/${id}`,{
+      headers: {
+          Authorization: `Bearer ${token}`
+        }
+  })
+    .then(res => {
+      alert('Delete Success')
+      window .location.reload();
+    })
+    .catch(err => {
+      handleError(err, dispatch)
+      alert('Delete Failed')
+      console.log(err.message)
+      // window .location.reload();
+    })
   }
 
  
