@@ -88,7 +88,7 @@ function Register() {
           className="btn btn-primary w-100 py-3 rounded-14 d-block mt-4"
           disabled={name === '' || email === '' || password === ''}
         >
-          Login
+          Sign Up
         </button>
       </form>
 
