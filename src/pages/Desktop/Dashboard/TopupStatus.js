@@ -14,7 +14,7 @@ function TransferStatus() {
   const history = useHistory()
   useEffect(() => {
     dispatch(getHistoryTopup(token, history, params.get("order_id")))
-  }, [dispatch, history, token, params])
+  }, [dispatch, history, token])
 
   const date = new Date(historyId?.created_at)
   const paydate = new Date(historyId?.paydate_at)
