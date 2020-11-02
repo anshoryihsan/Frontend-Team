@@ -1,8 +1,8 @@
 import React from 'react';
-import { useHistory, Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom'
+import { useHistory, Switch, BrowserRouter as Router } from 'react-router-dom'
 import { PublicRoute, PrivateRoute } from './components/Router'
-import { Auth, AuthMobile, Dashboard, DashboardAdmin, DashboardMobile, LandingPage, LandingPageDesktop } from './layouts';
-import { AddPinMobile, Login, LoginMobile, Register, RegisterMobile, SuccessMobile } from './pages'
+import { Auth, AuthMobile, Dashboard, DashboardAdmin, DashboardMobile, LandingPageDesktop } from './layouts';
+import { AddPinMobile, Login, LoginMobile, Register, RegisterMobile, SuccessMobile, TopupStatusMobile, TransactionAdmin } from './pages'
 import {
   // Desktop
   Main,
@@ -53,9 +53,8 @@ import {
   MainAdmin,
   TopupAdmin,
   UsersAdmin,
-
+  TransactionsAdmin
   //landingpage
-  LandingPageMobile,
 } from "./pages"
 
 // import Admin from './pages/Desktop/Dashboard/Admin';
@@ -91,7 +90,8 @@ function App() {
         <PrivateRoute exact path="/logout" component={Logout} />
 
         {/* Admin */}
-        <PrivateRoute exact path="/admin" component={DashboardAdmin} child={MainAdmin} />
+        <PrivateRoute exact path="/admin" component={DashboardAdmin} child={Main} />
+        <PrivateRoute exact path="/admin/history" component={DashboardAdmin} child={TransactionAdmin} />
         <PrivateRoute exact path="/admin/users" component={DashboardAdmin} child={UsersAdmin} />
         <PrivateRoute exact path="/admin/users/add" component={DashboardAdmin} child={AddUserAdmin} />
         <PrivateRoute exact path="/admin/topup" component={DashboardAdmin} child={TopupAdmin} />
@@ -100,7 +100,6 @@ function App() {
         <PrivateRoute exact path="/admin/users/:id?/edit" component={DashboardAdmin} child={EditUserAdmin} />
 
         {/* Mobile */}
-        <PublicRoute restricted={true} exact path="/m" component={LandingPage} child={LandingPageMobile} />
         <PublicRoute restricted={true} exact path="/m/auth/signup" component={AuthMobile} child={RegisterMobile} />
         <PublicRoute restricted={true} exact path="/m/auth" component={AuthMobile} child={LoginMobile} />
         <PublicRoute restricted={true} exact path="/m/auth/reset-password" component={AuthMobile} child={ForgotPasswordMobile} />
@@ -116,6 +115,7 @@ function App() {
         <PrivateRoute exact path="/m/dashboard/transfer/:id?/confirm" component={DashboardMobile} child={TransferConfirmationMobile} />
         <PrivateRoute exact path="/m/dashboard/transfer/:id?/confirm-pin" component={DashboardMobile} child={TransferPinConfirmationMobile} />
         <PrivateRoute exact path="/m/dashboard/history" component={DashboardMobile} child={HistoryMobile} />
+        <PrivateRoute exact path="/m/dashboard/topup/status" component={DashboardMobile} child={TopupStatusMobile} />
         <PrivateRoute exact path="/m/dashboard/topup" component={DashboardMobile} child={TopupMobile} />
         <PrivateRoute exact path="/m/dashboard/profile" component={DashboardMobile} child={ProfileMobile} />
         <PrivateRoute exact path="/m/dashboard/profile/info" component={DashboardMobile} child={ProfileInfoMobile} />

@@ -10,8 +10,7 @@ function Transaction() {
   const [loading, setLoading] = useState(false);
 
   const { token } = useSelector((state) => state.Auth);
-  const { userdata, history, error } = useSelector((state) => state.User);
-  const { email } = userdata;
+  const { history, error } = useSelector((state) => state.User);
   const back = useHistory();
 
   console.log(back, "sdasdashdjahsd");
@@ -105,12 +104,14 @@ function Transaction() {
                 return (
                   <div key={index} className="my-3">
                     <HistoryCard
+                      id={item.type === "topup" ? item.order_id : item.id}
                       src={item.photo}
-                      key={index}
                       name={item.name}
                       type={item.type}
                       amount={item.type === "transfer" ? item.amount : item.amount_topup}
                       isIncome={item.is_income}
+                      status={item.status}
+                      mobile
                     />
                   </div>
                 );

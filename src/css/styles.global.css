@@ -18,3 +18,47 @@ a:hover {
 .object-cover {
   object-fit: cover;
 }
+
+/* @media (max-width: 768px) {
+  .landing {
+    position: relative;
+    top: -30px;
+  }
+} */
+
+.bg-landing {
+  position: absolute;
+  width: 42%;
+  height: 400px;
+  z-index: -1;
+  background: url(/assets/images/home-bg.webp);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  right: 0;
+  top: 0;
+}
+
+.phone-landing {
+  height: 550px;
+}
+
+.phone-landing2 {
+  width: 80%;
+}
+
+@media (min-width: 0) and (max-width: 992px) {
+  .phone-landing2 {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .bg-landing {
+    width: 45%;
+    height: 500px;
+  }
+
+  .phone-landing {
+    height: 800px;
+  }
+}

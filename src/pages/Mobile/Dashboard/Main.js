@@ -8,7 +8,7 @@ import { getHistories } from '../../../redux/actions/user'
 function Main() {
   const { token } = useSelector(state => state.Auth)
   const { userdata, history, error } = useSelector(state => state.User)
-  const { name, balance, phone, email, photo } = userdata
+  const { name, balance, phone, photo } = userdata
 
   const history1 = useHistory()
   const dispatch = useDispatch()
@@ -38,7 +38,6 @@ function Main() {
         <Link to="/m/dashboard/notification" className="btn">
           <img
             alt="notification"
-
             src={window.location.origin + "/assets/images/icons/bell.svg"}
             height="24px"
             width="24px"
@@ -99,12 +98,14 @@ function Main() {
               return (
                 <div className="my-3" key={index}>
                   <HistoryCard
+                    id={item.type === "topup" ? item.order_id : item.id}
                     src={item.photo}
-                    key={index}
                     name={item.name}
                     type={item.type}
                     amount={item.type === "transfer" ? item.amount : item.amount_topup}
                     isIncome={item.is_income}
+                    status={item.status}
+                    mobile
                   />
                 </div>
               )

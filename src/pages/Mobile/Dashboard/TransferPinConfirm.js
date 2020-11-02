@@ -59,7 +59,6 @@ function ProfileNewPhone() {
             >
               Transfer Now
             </button>
-           
           </div>
         </div>
       </div>

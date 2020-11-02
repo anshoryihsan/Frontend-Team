@@ -43,10 +43,11 @@ export const UserLoad = (token, history, mobile = false) => (dispatch) => {
     });
 };
 
-export const getHistories = (token, offset = 1, reset = true) => (dispatch) => {
+export const getHistories = (token, offset = 1, reset = true, param) => (dispatch) => {
   dispatch(options(SETUSERERROR, ""));
+  const query = new URLSearchParams(param).toString()
 
-  axios.get(`/users/histories?offset=${offset}&limit=4`, {
+  axios.get(`/users/histories?offset=${offset}&limit=5${!query ? "" : "&" + query}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -234,9 +235,8 @@ export const deleteTopup = (token, id, history) => (dispatch) => {
     headers: { Authorization: `Bearer ${token}` },
   })
     .then((res) => {
-      dispatch(options(SETPHONE, null));
       alert('Delete Top Up Successfully');
-      history.push(`/admin/topup/add`);
+      history.replace(`/admin`);
     })
     .catch((err) => handleError(err, dispatch));
 };
@@ -247,7 +247,6 @@ export const addTopup = (token, detail, history) => (dispatch) => {
     headers: { Authorization: `Bearer ${token}` },
   })
     .then((res) => {
-      dispatch(options(SETPHONE, null));
       alert('Add Top Up Successfully');
       history.replace(`/admin/topup`);
     })

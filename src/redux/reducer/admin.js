@@ -1,8 +1,9 @@
-import { UPDATEUSER, SETFINDIDDATA, SETALERTDIMISS, SETUSERADMIN, SETUSERADMINERROR } from "../constant";
+import { UPDATEUSER, SETFINDIDDATA, SETALERTDIMISS, SETUSERADMIN, SETUSERADMINERROR, SETADMINTRANSACTION, ADDADMINTRANSACTION } from "../constant";
 
 const initState = {
   updateUser: [],
-  UserAdd: []
+  UserAdd: [],
+  history: []
 };
 
 const adminReducer = (state = initState, action) => {
@@ -10,7 +11,18 @@ const adminReducer = (state = initState, action) => {
 
 
   switch (type) {
-    
+    case SETADMINTRANSACTION:
+      return {
+        ...state,
+        history: payload
+      }
+
+    case ADDADMINTRANSACTION:
+      return {
+        ...state,
+        history: [...state.history, ...payload]
+      }
+
     case SETFINDIDDATA:
       return {
         ...state,
@@ -27,16 +39,17 @@ const adminReducer = (state = initState, action) => {
         updateUser: "",
       };
 
-      case SETUSERADMIN:
-        return { 
-          ...state, 
-          UserAdd : payload 
-        }
-  
-      case SETUSERADMINERROR:
-        return { 
-          ...state, 
-          error: payload }
+    case SETUSERADMIN:
+      return {
+        ...state,
+        UserAdd: payload
+      }
+
+    case SETUSERADMINERROR:
+      return {
+        ...state,
+        error: payload
+      }
 
     default:
       return state;

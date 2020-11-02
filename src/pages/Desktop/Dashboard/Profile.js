@@ -23,10 +23,10 @@ function Profile() {
           <div className="mx-auto col-lg-7 d-flex align-items-center flex-column">
             <img
               alt="profile"
-              src={userdata.photo ? userdata.photo : window.location.origin + "/assets/images/profile-image.png"}
+              src={userdata.photo ? userdata.photo : "/assets/images/icons/default.svg"}
               width="80px"
               height="80px"
-              className="rounded-14"
+              className="rounded-14 object-cover"
             />
 
             <label className="text-black-50 my-3 small d-flex" style={{ cursor: "pointer" }}>
@@ -36,7 +36,7 @@ function Profile() {
             </label>
 
             <h5 className="font-weight-bold text-dark">{userdata.name}</h5>
-            <div className="small text-black-50 text-center mb-3">{userdata.phone ? userdata.phone : "-"}</div>
+            <div className="small text-black-50 text-center mb-3">{userdata.phone ? `+62 ${userdata.phone}` : "-"}</div>
 
             <Link className="d-block p-3 text-dark bg-grey w-100 rounded-14 mt-2" to="/dashboard/profile/info">
               <div className="d-flex justify-content-between">

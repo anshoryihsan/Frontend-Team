@@ -1,22 +1,54 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTopup } from "../../../redux/actions/user";
-import { Link } from 'react-router-dom'
 import { Row, Col } from 'react-bootstrap'
+import { Link, useHistory } from 'react-router-dom'
+import { getTopup, getPaymentToken, processPayment } from '../../../redux/actions/user'
+import TopupModal from '../../../components/Modal/Topup'
 
 function Topup() {
-  const { token } = useSelector(state => state.Auth)
   const [loading, setLoading] = useState(false);
+  const [modalTopup, setModalTopup] = useState(false)
+
+  const history = useHistory()
   const { topup } = useSelector((state) => state.User);
-  const dispatch = useDispatch();
+  const { token } = useSelector(state => state.Auth)
+
+  const dispatch = useDispatch()
   useEffect(() => {
+    const midtransSnap = document.createElement("script");
+    midtransSnap.setAttribute(
+      "src",
+      "https://app.sandbox.midtrans.com/snap/snap.js"
+    );
+    midtransSnap.setAttribute(
+      "data-client-key",
+      "SB-Mid-client-So_VRfD27r9md9vU"
+    );
+    document.head.appendChild(midtransSnap);
     setLoading(true);
     dispatch(getTopup(token));
     setLoading(false);
   }, [dispatch]);
 
+  const _onTopup = async (val) => {
+    setModalTopup(false)
+    getPaymentToken(token, val)
+      .then(tokenPay => {
+        window.snap.pay(tokenPay, {
+          onPending: function (result) {
+            processPayment(token, result)
+              .then(id => history.push(`/m/dashboard/topup/status?order_id=${id}`))
+          }
+        })
+      })
+  }
   return (
     <>
+      <TopupModal
+        onDismiss={() => setModalTopup(false)}
+        onContinue={_onTopup}
+        show={modalTopup}
+      />
       <div className="bg-secondary">
         <div className="rounded-14 mx-2 ">
           <nav className=" d-flex justify-content-between">
@@ -36,7 +68,7 @@ function Topup() {
           <div className="d-flex bg-white align-items-center justify-content-between shadow-sm rounded-14 pl-3 my-3 p-4" >
             <div className="small col">
               <Row className="align-items-center">
-                <button className="btn p-0 shadow-none">
+                <button onClick={() => setModalTopup(true)} className="btn p-0 shadow-none">
                   <div className="bg-secondary shadow-sm rounded-14 px-2 py-2">
                     <img
                       src="/assets/images/icons/plus-active.svg"
@@ -48,7 +80,7 @@ function Topup() {
                 </button>
                 <Col>
                   <div className="text-black-50">Virtual Account Number</div>
-                  <div className="font-weight-bold">111111111111111111111</div>
+                  <div className="font-weight-bold">1231 1231 1231 1231</div>
                 </Col>
               </Row>
             </div>

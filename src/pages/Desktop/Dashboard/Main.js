@@ -14,7 +14,7 @@ function Main() {
   const history1 = useHistory()
   const { token } = useSelector(state => state.Auth)
   const { userdata, history, error } = useSelector(state => state.User)
-  const { balance, phone, email } = userdata
+  const { balance, phone } = userdata
 
   const dispatch = useDispatch()
 
@@ -66,7 +66,8 @@ function Main() {
           <div
             className="d-flex justify-content-between mt-4 mt-md-0 d-md-block"
           >
-            <button
+            <Link
+              to="/dashboard/transfer"
               className="btn bg-white-outline py-3 mb-md-2 text-white d-flex overlay-1"
             >
               <img
@@ -76,7 +77,7 @@ function Main() {
                 alt="arrow"
               />
               <div className="font-weight-bold">Transfer</div>
-            </button>
+            </Link>
 
             <button
               className="btn bg-white-outline py-3 mb-md-2 px-3 text-white d-flex overlay-1"

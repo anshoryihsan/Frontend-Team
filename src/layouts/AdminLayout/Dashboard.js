@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Link, useLocation, useHistory } from "react-router-dom"
 import { Container, Row } from "react-bootstrap"
 import { useSelector, useDispatch } from 'react-redux'
-import { SideNavbar, TopNavbar } from "../../components/Navigations"
+import { SideNavbarAdmin, TopNavbar } from "../../components/Navigations"
 import { Notification } from "./components"
 import { navbarAdmin } from "../../helpers"
 import Footer from "../../components/Footer"
@@ -22,7 +22,6 @@ function Dashboard({ child: Child }) {
   const { userdata } = useSelector(state => state.User)
   const dispatch = useDispatch()
 
-  if (userdata.role !== "admin") history.replace("/dashboard")
   const _setMenu = () => {
     setMenu(!menu)
     setNotif(false)
@@ -33,6 +32,7 @@ function Dashboard({ child: Child }) {
   }
 
   useEffect(() => {
+    if (userdata.role !== "admin") history.replace("/dashboard")
     setLoading(true)
     dispatch(UserLoad(token, history, false))
     setLoading(false)
@@ -46,7 +46,7 @@ function Dashboard({ child: Child }) {
 
       <TopNavbar data={userdata} menuClick={() => _setMenu()} notifClick={() => _setNotif()} />
 
-      <SideNavbar
+      <SideNavbarAdmin
         active={menu}
         data={userdata}
         onClose={() => _setMenu()}
@@ -63,8 +63,7 @@ function Dashboard({ child: Child }) {
                 let routeActive = false
                 if (item.route === "/admin") {
                   if (
-                    pathName === "/admin" ||
-                    pathName === "/admin/history"
+                    pathName === "/admin"
                   )
                     routeActive = true
                 } else {

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./styles.css"
-import { navbarItem } from "../../../helpers"
+import { navbarAdmin } from "../../../helpers"
 import { useLocation, Link } from "react-router-dom"
 import Icons from "../../Icons"
 
@@ -49,12 +49,12 @@ function SideNavbar(props) {
           <hr className="my-3" />
 
           <ul className="p-0">
-            {navbarItem.map((item, index) => {
+            {navbarAdmin.map((item, index) => {
               let routeActive = false
-              if (item.route === "/dashboard") {
+              if (item.route === "/admin") {
                 if (
-                  pathName === "/dashboard" ||
-                  pathName === "/dashboard/history"
+                  pathName === "/admin" ||
+                  pathName === "/admin/history"
                 )
                   routeActive = true
               } else {

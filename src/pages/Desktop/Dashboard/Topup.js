@@ -12,7 +12,7 @@ function Transfer() {
     setLoading(true);
     dispatch(getTopup(token));
     setLoading(false);
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   return (
     <>

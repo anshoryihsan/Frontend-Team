@@ -55,6 +55,7 @@ import {
   Notification as NotificationMobile,
   TransferPinConfirmation as TransferPinConfirmationMobile,
   Transaction as TransactionMobile,
+  TopupStatus as TopupStatusMobile
 } from "./Mobile/Dashboard";
 
 // Admin
@@ -66,6 +67,7 @@ import {
   AddUser as AddUserAdmin,
   Topup as TopupAdmin,
   AddTopup as AddTopupAdmin,
+  Transaction as TransactionAdmin
 } from "./Admin";
 
 export {
@@ -116,6 +118,7 @@ export {
   SuccessMobile,
   ForgotPasswordMobile,
   NewPasswordMobile,
+  TopupStatusMobile,
   // Admin
   MainAdmin,
   TopupAdmin,
@@ -124,4 +127,5 @@ export {
   AddUserAdmin,
   DetailUserAdmin,
   EditUserAdmin,
+  TransactionAdmin
 };

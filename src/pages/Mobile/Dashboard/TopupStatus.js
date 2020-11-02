@@ -21,7 +21,7 @@ function TransferStatus() {
 
   return (
     <>
-      <div className="p-4 bg-white rounded-14 shadow-sm vh-85">
+      <div className="bg-secondary mx-2 vh-100">
         <div className="d-flex align-items-center flex-column my-3">
           <img
             src={window.location.origin + "/assets/images/icons/success-circle.svg"}
@@ -70,41 +70,13 @@ function TransferStatus() {
             null
         }
 
-        <div className="d-flex justify-content-end mt-4">
-          <button
-            className="py-2 px-2 rounded-14 btn bg-grey mr-3"
-            data-toggle="modal"
-            data-target="#staticBackdrop"
-          >
-            <img
-              src={window.location.origin + "/assets/images/icons/share-2.svg"}
-              height="22px"
-              width="22px"
-              alt="share"
-            />
-          </button>
-
-          <button
-            className="py-2 px-lg-4 px-2 align-items-center rounded-14 btn bg-grey d-flex mr-3"
-            data-toggle="modal"
-            data-target="#staticBackdrop"
-          >
-            <img
-              src={window.location.origin + "/assets/images/icons/download.svg"}
-              height="22px"
-              width="22px"
-              alt="download"
-            />
-
-            <div className="text-primary ml-2">Download PDF</div>
-          </button>
-
+        <div className="d-flex justify-content-center my-4">
           <Link
-            to="/dashboard"
-            className="py-2 px-lg-4 px-2 rounded-14 btn btn-primary"
+            to="/m/dashboard"
+            className="py-3 lg-6 px-5 rounded-14 btn btn-primary w-100" width="200px"
           >
             Back to Home
-              </Link>
+          </Link>
         </div>
       </div>
     </>

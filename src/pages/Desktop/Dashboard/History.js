@@ -13,8 +13,7 @@ function History() {
 
 
   const { token } = useSelector(state => state.Auth)
-  const { userdata, history, error } = useSelector(state => state.User)
-  const { email } = userdata
+  const { history, error } = useSelector(state => state.User)
 
   const dispatch = useDispatch()
 
@@ -57,6 +56,7 @@ function History() {
                       return (
                         <div key={index} className="my-3">
                           <HistoryCard
+                            id={item.type === "topup" ? item.order_id : item.id}
                             src={item.photo}
                             name={item.name}
                             type={item.type}

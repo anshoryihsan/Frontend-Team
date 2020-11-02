@@ -23,6 +23,9 @@ export const SETALERTDIMISS = "SETALERTDIMISS"
 export const SETUSERADMIN = "SETUSERADMIN"
 export const SETUSERADMINERROR = "SETUSERADMINERROR"
 
+export const SETADMINTRANSACTION = "SETADMINTRANSACTION"
+export const ADDADMINTRANSACTION = "ADDADMINTRANSACTION"
+
 export const options = (constant, payload = null) => ({
   type: constant,
   payload: payload

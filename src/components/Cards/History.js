@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import { currency } from '../../helpers'
 
 function History(props) {
-  const { id, flat, className, name, type, src, amount, isIncome, status } = props
+  const { id, flat, className, name, type, src, amount, isIncome, status, mobile } = props
 
-  const linkDirect = type === "topup" ? `/dashboard/topup/status?order_id=${id}` : `/dashboard/transfer/status/${id}`
+  const isMobile = mobile ? "/m" : ""
+
+  const linkDirect = type === "topup" ? `${isMobile}/dashboard/topup/status?order_id=${id}` : `${isMobile}/dashboard/transfer/status/${id}`
   return (
     <div className={`d-flex align-items-center justify-content-between py-3 bg-white rounded-14 ${flat ? '' : 'shadow-sm px-3'} ${className}`}>
       <div className="d-flex align-items-center">

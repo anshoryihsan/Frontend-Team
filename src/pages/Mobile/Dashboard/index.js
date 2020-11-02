@@ -11,6 +11,7 @@ import TransferPinConfirmation from "./TransferPinConfirm";
 import TransferStatus from "./TransferStatus";
 import Notification from "./Notification";
 import Topup from "./Topup";
+import TopupStatus from "./TopupStatus";
 import Profile from "./Profile";
 import ProfileChangePass from "./ProfileChangePass";
 import ProfileManagePhone from "./ProfileManagePhone";
@@ -35,5 +36,6 @@ export {
   ProfileManagePhone,
   ProfileAddPhone,
   ProfileChangePin,
-  ForgotPassword
+  ForgotPassword,
+  TopupStatus
 };

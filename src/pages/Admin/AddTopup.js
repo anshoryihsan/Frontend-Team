@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from 'react';
-import {useHistory} from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux';
-import {getTopup, deleteTopup, addTopup} from '../../redux/actions/user';
-import {InputBorderedBottom} from '../../components/Inputs';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { addTopup } from '../../redux/actions/user';
+import { InputBorderedBottom } from '../../components/Inputs';
 
 
 function AddTopup() {
   const [detail, setDetail] = useState('');
   const [detailFocus, setDetailFocus] = useState(false);
-  const {token} = useSelector((state) => state.Auth);
+  const { token } = useSelector((state) => state.Auth);
 
   const _addTopup = (e) => setDetail(e.target.value);
 
@@ -26,8 +26,8 @@ function AddTopup() {
         <div className="font-weight-bold">Add Topup</div>
       </div>
 
-      <form onSubmit={_onSubmit} className="row">
-        <div className="col-lg-6 m-auto">
+      <form onSubmit={_onSubmit} className="row justify-content-center">
+        <div className="col-lg-6 mt-4">
           <div className="mt-3">
             <InputBorderedBottom
               iconName="edit-admin"

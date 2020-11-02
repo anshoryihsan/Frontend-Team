@@ -1,76 +1,88 @@
 import React, { useState, useEffect } from "react";
-import { ListUsers } from "../../components/Cards";
-import { InputBordered } from "../../components/Inputs";
-import { Alert } from "../../components/Alert";
 import { useDispatch, useSelector } from "react-redux";
-import { getFindUsers } from "../../redux/actions/user";
 import InfiniteScroll from "react-infinite-scroller";
-import { AlertDimiss } from "../../redux/actions/admin";
-import { Link } from "react-router-dom"
+import { getTransaction } from "../../redux/actions/admin";
+import moment from "moment"
+import "moment/locale/id"
+moment.locale("id")
 
 function Users() {
-  const [name, setName] = useState("");
-  const [nameFocus, setNameFocus] = useState(false);
   const [loading, setLoading] = useState(false);
   const [hasMore, setMore] = useState(true);
   const [offset, setOffset] = useState(2);
   const [isScrolling, setScrolling] = useState(false);
-  const [isShow, setShow] = useState(true);
 
   const { token } = useSelector((state) => state.Auth);
-  const { findUser, error } = useSelector((state) => state.User);
-  const { message } = useSelector((state) => state.Admin.updateUser);
+  const { history } = useSelector((state) => state.Admin);
   const dispatch = useDispatch();
 
   useEffect(() => {
     setLoading(true);
-    dispatch(getFindUsers(token, 1, name));
+    dispatch(getTransaction(token, 1));
     setLoading(false);
-  }, [dispatch, name, token]);
+  }, [dispatch, token]);
 
   const loadMore = () => {
     if (isScrolling) return false;
     setScrolling(true);
     setOffset(offset + 1);
     setTimeout(() => {
-      dispatch(getFindUsers(token, offset, name, false));
+      dispatch(getTransaction(token, offset, false));
       setScrolling(false);
-      if (findUser.length < (offset - 1) * 4) return setMore(false);
+      if (history.length < (offset - 1) * 4) return setMore(false);
     }, 1500);
   };
-
-  const _changeName = (e) => {
-    setName(e.target.value);
-    setOffset(2);
-    setMore(true);
-  };
-
-  const _handleShow = () => {
-    setShow(!isShow);
-    dispatch(AlertDimiss())
-  }
 
   return (
     <>
       <div className="p-4 bg-white rounded-14 shadow-sm vh-85">
         <div className="d-flex flex-row justify-content-between align-items-center">
           <div className="font-weight-bold">List Users</div>
-          <Link to="/admin/users/add">
-            <div className="d-flex align-items-center bg-primary rounded-sm p-1 px-3 mr-2 text-white">
-              <img
-                src={
-                  window.location.origin + "/assets/images/icons/plus-white.svg"
-                }
-                height="24px"
-                width="24px"
-                alt="arrow"
-                className="mx-1"
-              />
-            Add User
-          </div>
-          </Link>
         </div>
-        <Alert
+
+        {loading ? <div className="small text-center py-4">loading ...</div> :
+          !history.length ? <div className="small text-center py-4">History isn't available for now</div> :
+            <InfiniteScroll
+              initialLoad={false}
+              loadMore={loadMore}
+              hasMore={hasMore}
+              loader={
+                <div className="small text-center py-4" key={0}>
+                  Loading ...
+                </div>
+              }
+            >
+              <div className="table-responsive">
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Name</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Transaction Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {
+                      history.map((item, index) => {
+                        return (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{item.name}</td>
+                            <td>{item.type === "topup" ? item.amount_topup : item.amount}</td>
+                            <td className="text-capitalize">{item.type === "topup" ? item.status === 1 ? "Success" : "Pending" : "Success"}</td>
+                            <td>{moment(item.created_at).format("LLL")}</td>
+                          </tr>
+                        )
+                      })
+                    }
+                  </tbody>
+                </table>
+              </div>
+            </InfiniteScroll>
+        }
+        {/* <Alert
           type="alert-success"
           show={isShow}
           message={message}
@@ -120,7 +132,7 @@ function Users() {
                   ))}
                 </div>
               </InfiniteScroll>
-            )}
+            )} */}
       </div>
     </>
   );

@@ -32,21 +32,16 @@ function AddUser() {
     dispatch(UserAdd(data, token));
   };
 
-  
+
 
   return (
     <>
       <div className="p-4 bg-white rounded-14 shadow-sm vh-85">
+        <div className="font-weight-bold">Add User</div>
         <Row
           className="justify-content-md-center"
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
         >
-          <form onSubmit={_onSubmit}>
+          <form onSubmit={_onSubmit} className="col-lg-6 mt-4">
             <div className="mt-3">
               <InputBorderedBottom
                 iconName="user-50"

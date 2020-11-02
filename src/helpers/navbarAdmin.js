@@ -5,6 +5,11 @@ export default [
     icon: "grid",
   },
   {
+    name: "History Users",
+    route: "/admin/history",
+    icon: "search",
+  },
+  {
     name: "Manage Users",
     route: "/admin/users",
     icon: "user"

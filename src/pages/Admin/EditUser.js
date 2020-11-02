@@ -17,19 +17,19 @@ function EditUser() {
   const history = useHistory();
   const { id } = useParams();
   const { token } = useSelector((state) => state.Auth);
-  const { userdata, findId } = useSelector((state) => state.User);
+  const { findId } = useSelector((state) => state.User);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getFindId(token, id));
-  }, [token, id, dispatch]);
-
-  useEffect(() => {
-    setName(findId.name);
-    setEmail(findId.email);
-    setPhone(findId.phone);
+    setTimeout(() => {
+      setName(findId.name);
+      setEmail(findId.email);
+      setPhone(findId.phone);
+    }, 300)
   }, []);
+
 
   const _onSubmit = async (e) => {
     e.preventDefault();
@@ -51,8 +51,8 @@ function EditUser() {
           className="my-2 shadow-sm rounded-0"
         />
 
-        <div className="d-flex justify-content-center mt-3">
-          <form onSubmit={_onSubmit} className="w-50">
+        <div className="row flex-column align-items-center mt-3">
+          <form onSubmit={_onSubmit} className="col-lg-6">
             <InputBorderedBottom
               iconName="user"
               label="Enter your fullname"

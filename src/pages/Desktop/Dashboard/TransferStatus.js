@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { ReceiverCard } from '../../../components/Cards'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { currency } from '../../../helpers'
 import { getHistoryId } from '../../../redux/actions/user'
@@ -9,7 +9,7 @@ import { getHistoryId } from '../../../redux/actions/user'
 function TransferStatus() {
   const { id } = useParams()
   const { token } = useSelector(state => state.Auth)
-  const { historyId, userdata } = useSelector(state => state.User)
+  const { historyId } = useSelector(state => state.User)
 
   const dispatch = useDispatch()
   const history = useHistory()
@@ -17,7 +17,7 @@ function TransferStatus() {
     dispatch(getHistoryId(token, id, history))
   }, [dispatch, history, id, token])
 
-
+  const date = new Date(historyId?.created_at)
   return (
     <>
       <div className="p-4 bg-white rounded-14 shadow-sm vh-85">
@@ -38,12 +38,12 @@ function TransferStatus() {
 
         <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
           <div className="small">Balance Left</div>
-          <div className="font-weight-bold text-dark">Rp{currency(parseInt(userdata.balance))}</div>
+          <div className="font-weight-bold text-dark">Rp{currency(parseInt(historyId.balance))}</div>
         </div>
 
         <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
           <div className="small">Date & Time</div>
-          <div className="font-weight-bold text-dark">{new Date(historyId?.created_at).toDateString()}</div>
+          <div className="font-weight-bold text-dark">{date.toDateString()} {date.toLocaleTimeString()}</div>
         </div>
 
         <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
@@ -94,12 +94,12 @@ function TransferStatus() {
             <div className="text-primary ml-2">Download PDF</div>
           </button>
 
-          <a
-            href="/dashboard.html"
+          <Link
+            to="/dashboard"
             className="py-2 px-lg-4 px-2 rounded-14 btn btn-primary"
           >
             Back to Home
-              </a>
+              </Link>
         </div>
       </div>
     </>

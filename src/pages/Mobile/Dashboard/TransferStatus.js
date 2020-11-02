@@ -9,7 +9,7 @@ import { getHistoryId } from '../../../redux/actions/user'
 function TransferStatus() {
   const { id } = useParams()
   const { token } = useSelector(state => state.Auth)
-  const { historyId, userdata } = useSelector(state => state.User)
+  const { historyId } = useSelector(state => state.User)
 
   const dispatch = useDispatch()
   const history = useHistory()
@@ -17,6 +17,7 @@ function TransferStatus() {
     dispatch(getHistoryId(token, id, history))
   }, [dispatch, history, id, token])
 
+  const date = new Date(historyId?.created_at)
   return (
     <>
       <div className="bg-secondary mx-2 vh-100">
@@ -36,17 +37,17 @@ function TransferStatus() {
 
         <div className="bg-white shadow-sm rounded-14 pl-3 my-4 py-3">
           <div className="small">Amount</div>
-          <div className="font-weight-bold text-dark">Rp{currency(parseInt(historyId.total))}</div>
+          <div className="font-weight-bold text-dark">Rp{currency(parseInt(historyId.amount))}</div>
         </div>
 
         <div className="bg-white shadow-sm rounded-14 pl-3 my-4 py-3">
           <div className="small">Balance Left</div>
-          <div className="font-weight-bold text-dark">Rp{currency(parseInt(userdata.balance))}</div>
+          <div className="font-weight-bold text-dark">Rp{currency(parseInt(historyId.balance))}</div>
         </div>
 
         <div className="bg-white shadow-sm rounded-14 pl-3 my-4 py-3">
           <div className="small">Date & Time</div>
-          <div className="font-weight-bold text-dark">{historyId.created_at?.split("T")[0]}</div>
+          <div className="font-weight-bold text-dark">{date.toDateString()} {date.toLocaleTimeString()}</div>
         </div>
 
         <div className="bg-white shadow-sm rounded-14 pl-3 my-4 py-3">
