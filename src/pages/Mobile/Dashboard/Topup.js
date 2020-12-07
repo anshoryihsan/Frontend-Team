@@ -36,7 +36,7 @@ function Topup() {
       .then(tokenPay => {
         window.snap.pay(tokenPay, {
           onPending: function (result) {
-            processPayment(token, result)
+            return processPayment(token, result)
               .then(id => history.push(`/m/dashboard/topup/status?order_id=${id}`))
           }
         })
