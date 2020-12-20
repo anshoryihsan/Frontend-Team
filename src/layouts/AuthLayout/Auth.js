@@ -1,31 +1,31 @@
-import React, { useEffect } from 'react'
-import { Row, Col, Container } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
-import { Link, useHistory } from "react-router-dom"
-import { options, SETAUTHERROR } from '../../redux/constant'
+import React, { useEffect } from "react";
+import { Row, Col, Container } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { options, SETAUTHERROR } from "../../redux/constant";
 
-import "./styles.css"
-
+import "./styles.css";
 
 function Auth({ child: Child }) {
-  const history = useHistory()
-  const dispatch = useDispatch()
+  const history = useHistory();
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(options(SETAUTHERROR, ""))
-    if (window.innerWidth <= 500) return history.replace("/m/auth")
-  }, [dispatch, history])
+    dispatch(options(SETAUTHERROR, ""));
+    if (window.innerWidth <= 500) return history.replace("/m/auth");
+  }, [dispatch, history]);
 
   return (
     <Container fluid>
       <Row>
         <Col lg={7} className="bg-side-auth px-5 d-none d-lg-block">
           <div className="px-5 mx-5 my-4">
-            <h4 className="text-white font-weight-bold">
-              ZWallet
-            </h4>
+            <h4 className="text-white font-weight-bold">ZWallet</h4>
 
             <img
-              src={window.location.origin + "/assets/images/phone-auth.webp"}
+              src={
+                window.location.origin +
+                "/zwallet/assets/images/phone-auth.webp"
+              }
               className="phone-auth-image"
               alt="Phone Auth Images"
             />
@@ -34,9 +34,10 @@ function Auth({ child: Child }) {
               App that Covering Banking Needs.
             </h5>
             <div className="text-white">
-              Zwallet is an application that focussing in banking needs for all users in the world.
-              Always updated and always following world trends.
-              5000+ users registered in Zwallet everyday with worldwide users coverage.
+              Zwallet is an application that focussing in banking needs for all
+              users in the world. Always updated and always following world
+              trends. 5000+ users registered in Zwallet everyday with worldwide
+              users coverage.
             </div>
           </div>
         </Col>
@@ -48,9 +49,7 @@ function Auth({ child: Child }) {
         >
           <div className="mx-lg-3">
             <h4 className="text-primary font-weight-bold d-lg-none mb-4">
-              <Link to="/">
-                ZWallet
-              </Link>
+              <Link to="/">ZWallet</Link>
             </h4>
 
             <Child />
@@ -58,7 +57,7 @@ function Auth({ child: Child }) {
         </Col>
       </Row>
     </Container>
-  )
+  );
 }
 
-export default Auth
+export default Auth;

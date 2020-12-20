@@ -48,7 +48,7 @@ function Transfer() {
           <img
             src={
               window.location.origin +
-              "/assets/images/icons/arrow-left.svg"
+              "/zwallet/assets/images/icons/arrow-left.svg"
             }
             height="24px"
             width="24px"
@@ -78,28 +78,28 @@ function Transfer() {
         ) : error ? (
           <div className="small text-center py-4">{error}</div>
         ) : (
-              <InfiniteScroll
-                initialLoad={false}
-                loadMore={loadMore}
-                hasMore={hasMore}
-                loader={
-                  <div className="small text-center py-4" key={0}>
-                    Loading ...
+          <InfiniteScroll
+            initialLoad={false}
+            loadMore={loadMore}
+            hasMore={hasMore}
+            loader={
+              <div className="small text-center py-4" key={0}>
+                Loading ...
               </div>
-                }
-              >
-                {findUser.map((item, index) => (
-                  <ReceiverCard
-                    key={index}
-                    src={item.photo}
-                    name={item.name}
-                    phone={item.phone ? `+62 ${item.phone}` : "-"}
-                    to={`/m/dashboard/transfer/${item.id}`}
-                    className="my-2"
-                  />
-                ))}
-              </InfiniteScroll>
-            )}
+            }
+          >
+            {findUser.map((item, index) => (
+              <ReceiverCard
+                key={index}
+                src={item.photo}
+                name={item.name}
+                phone={item.phone ? `+62 ${item.phone}` : "-"}
+                to={`/m/dashboard/transfer/${item.id}`}
+                className="my-2"
+              />
+            ))}
+          </InfiniteScroll>
+        )}
       </div>
     </div>
   );

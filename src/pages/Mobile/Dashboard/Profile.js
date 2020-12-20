@@ -45,7 +45,7 @@ function Profile() {
               src={
                 userdata?.photo
                   ? userdata.photo
-                  : "/assets/images/icons/default.svg"
+                  : "/zwallet/assets/images/icons/default.svg"
               }
             />
 

@@ -49,7 +49,7 @@ function Transaction() {
               <img
                 src={
                   window.location.origin +
-                  "/assets/images/icons/arrow-up-green.svg"
+                  "/zwallet/assets/images/icons/arrow-up-green.svg"
                 }
                 height="24px"
                 width="24px"
@@ -67,7 +67,7 @@ function Transaction() {
               <img
                 src={
                   window.location.origin +
-                  "/assets/images/icons/arrow-up-red.svg"
+                  "/zwallet/assets/images/icons/arrow-up-red.svg"
                 }
                 height="24px"
                 width="24px"

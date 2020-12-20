@@ -1,29 +1,31 @@
-import React, { useEffect } from 'react'
-import { ReceiverCard } from '../../../components/Cards'
-import { useParams, useHistory, Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { currency } from '../../../helpers'
-import { getHistoryId } from '../../../redux/actions/user'
-
+import React, { useEffect } from "react";
+import { ReceiverCard } from "../../../components/Cards";
+import { useParams, useHistory, Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { currency } from "../../../helpers";
+import { getHistoryId } from "../../../redux/actions/user";
 
 function TransferStatus() {
-  const { id } = useParams()
-  const { token } = useSelector(state => state.Auth)
-  const { historyId } = useSelector(state => state.User)
+  const { id } = useParams();
+  const { token } = useSelector((state) => state.Auth);
+  const { historyId } = useSelector((state) => state.User);
 
-  const dispatch = useDispatch()
-  const history = useHistory()
+  const dispatch = useDispatch();
+  const history = useHistory();
   useEffect(() => {
-    dispatch(getHistoryId(token, id, history))
-  }, [dispatch, history, id, token])
+    dispatch(getHistoryId(token, id, history));
+  }, [dispatch, history, id, token]);
 
-  const date = new Date(historyId?.created_at)
+  const date = new Date(historyId?.created_at);
   return (
     <>
       <div className="p-4 bg-white rounded-14 shadow-sm vh-85">
         <div className="d-flex align-items-center flex-column my-3">
           <img
-            src={window.location.origin + "/assets/images/icons/success-circle.svg"}
+            src={
+              window.location.origin +
+              "/zwallet/assets/images/icons/success-circle.svg"
+            }
             height="50px"
             width="50px"
             alt="success"
@@ -33,24 +35,28 @@ function TransferStatus() {
 
         <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
           <div className="small">Amount</div>
-          <div className="font-weight-bold text-dark">Rp{currency(parseInt(historyId.amount))}</div>
+          <div className="font-weight-bold text-dark">
+            Rp{currency(parseInt(historyId.amount))}
+          </div>
         </div>
 
         <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
           <div className="small">Balance Left</div>
-          <div className="font-weight-bold text-dark">Rp{currency(parseInt(historyId.balance))}</div>
+          <div className="font-weight-bold text-dark">
+            Rp{currency(parseInt(historyId.balance))}
+          </div>
         </div>
 
         <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
           <div className="small">Date & Time</div>
-          <div className="font-weight-bold text-dark">{date.toDateString()} {date.toLocaleTimeString()}</div>
+          <div className="font-weight-bold text-dark">
+            {date.toDateString()} {date.toLocaleTimeString()}
+          </div>
         </div>
 
         <div className="shadow-sm rounded-14 pl-3 my-4 py-3">
           <div className="small">Notes</div>
-          <div className="font-weight-bold text-dark">
-            {historyId.note}
-          </div>
+          <div className="font-weight-bold text-dark">{historyId.note}</div>
         </div>
 
         <div className="d-flex justify-content-between align-items-center">
@@ -72,7 +78,10 @@ function TransferStatus() {
             data-target="#staticBackdrop"
           >
             <img
-              src={window.location.origin + "/assets/images/icons/share-2.svg"}
+              src={
+                window.location.origin +
+                "/zwallet/assets/images/icons/share-2.svg"
+              }
               height="22px"
               width="22px"
               alt="share"
@@ -85,7 +94,10 @@ function TransferStatus() {
             data-target="#staticBackdrop"
           >
             <img
-              src={window.location.origin + "/assets/images/icons/download.svg"}
+              src={
+                window.location.origin +
+                "/zwallet/assets/images/icons/download.svg"
+              }
               height="22px"
               width="22px"
               alt="download"
@@ -99,11 +111,11 @@ function TransferStatus() {
             className="py-2 px-lg-4 px-2 rounded-14 btn btn-primary"
           >
             Back to Home
-              </Link>
+          </Link>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default TransferStatus
+export default TransferStatus;

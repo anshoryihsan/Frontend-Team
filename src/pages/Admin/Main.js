@@ -1,44 +1,46 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { HistoryCard } from '../../components/Cards'
-import { useSelector, useDispatch } from 'react-redux'
-import { currency } from '../../helpers'
-import { getHistories } from '../../redux/actions/user'
-import BarChart from '../../components/Charts/BarChart'
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { HistoryCard } from "../../components/Cards";
+import { useSelector, useDispatch } from "react-redux";
+import { currency } from "../../helpers";
+import { getHistories } from "../../redux/actions/user";
+import BarChart from "../../components/Charts/BarChart";
 
 function Main() {
+  const [loading, setLoading] = useState(true);
 
-  const [loading, setLoading] = useState(true)
+  const { token } = useSelector((state) => state.Auth);
+  const { userdata, history, error } = useSelector((state) => state.User);
+  const { balance, phone, email } = userdata;
 
-  const { token } = useSelector(state => state.Auth)
-  const { userdata, history, error } = useSelector(state => state.User)
-  const { balance, phone, email } = userdata
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
-    setLoading(true)
-    dispatch(getHistories(token))
-    setLoading(false)
-  }, [dispatch, token])
+    setLoading(true);
+    dispatch(getHistories(token));
+    setLoading(false);
+  }, [dispatch, token]);
 
   return (
-    <div className={`vh-85 ${loading ? 'd-none' : null}`}>
+    <div className={`vh-85 ${loading ? "d-none" : null}`}>
       <div className="bg-primary side-nav-right p-4 shadow-sm rounded-14">
         <div className="d-md-flex justify-content-between">
           <div>
             <div className="text-white">Balance</div>
-            <h2 className="my-3 text-white font-weight-bold">Rp {currency(parseInt(balance))}</h2>
-            <div className="small text-white">{phone ? `+62 ${phone}` : '-'}</div>
+            <h2 className="my-3 text-white font-weight-bold">
+              Rp {currency(parseInt(balance))}
+            </h2>
+            <div className="small text-white">
+              {phone ? `+62 ${phone}` : "-"}
+            </div>
           </div>
 
-          <div
-            className="d-flex justify-content-between mt-4 mt-md-0 d-md-block"
-          >
-            <button
-              className="btn bg-white-outline py-3 mb-md-2 text-white d-flex overlay-1"
-            >
+          <div className="d-flex justify-content-between mt-4 mt-md-0 d-md-block">
+            <button className="btn bg-white-outline py-3 mb-md-2 text-white d-flex overlay-1">
               <img
-                src={window.location.origin + "/assets/images/icons/arrow-up-white.svg"}
+                src={
+                  window.location.origin +
+                  "/zwallet/assets/images/icons/arrow-up-white.svg"
+                }
                 height="24px"
                 width="24px"
                 alt="arrow"
@@ -46,11 +48,12 @@ function Main() {
               <div className="font-weight-bold">Transfer</div>
             </button>
 
-            <button
-              className="btn bg-white-outline py-3 mb-md-2 px-3 text-white d-flex overlay-1"
-            >
+            <button className="btn bg-white-outline py-3 mb-md-2 px-3 text-white d-flex overlay-1">
               <img
-                src={window.location.origin + "/assets/images/icons/plus-white.svg"}
+                src={
+                  window.location.origin +
+                  "/zwallet/assets/images/icons/plus-white.svg"
+                }
                 height="24px"
                 width="24px"
                 alt="plus"
@@ -68,7 +71,10 @@ function Main() {
               <div className="row">
                 <div className="col-6">
                   <img
-                    src={window.location.origin + "/assets/images/icons/arrow-up-green.svg"}
+                    src={
+                      window.location.origin +
+                      "/zwallet/assets/images/icons/arrow-up-green.svg"
+                    }
                     height="24px"
                     width="24px"
                     alt="arrow"
@@ -81,7 +87,10 @@ function Main() {
 
                 <div className="col-6">
                   <img
-                    src={window.location.origin + "/assets/images/icons/arrow-up-red.svg"}
+                    src={
+                      window.location.origin +
+                      "/zwallet/assets/images/icons/arrow-up-red.svg"
+                    }
                     height="24px"
                     width="24px"
                     alt="arrow"
@@ -94,9 +103,7 @@ function Main() {
               </div>
 
               <div className="mt-4 d-flex flex-column align-items-center">
-                <div
-                  className="bg-white shadow-sm rounded-14 px-4 py-2 text-success font-weight-bold"
-                >
+                <div className="bg-white shadow-sm rounded-14 px-4 py-2 text-success font-weight-bold">
                   +Rp65.000
                 </div>
                 <BarChart />
@@ -106,39 +113,47 @@ function Main() {
 
           <div className="col-lg-5 col-12 pt-3 pt-lg-0">
             <div className="p-3 bg-white rounded-14 shadow-sm">
-              <div
-                className="d-flex justify-content-between align-items-center"
-              >
+              <div className="d-flex justify-content-between align-items-center">
                 <div className="font-weight-bold">Transaction History</div>
 
-                <Link to="/dashboard/history" className="small">See all</Link>
+                <Link to="/dashboard/history" className="small">
+                  See all
+                </Link>
               </div>
 
-              {
-                loading ? <div className="small text-center py-4">Loading ...</div> :
-                  error ? <div className="small text-center py-4">{error}</div> :
-                    !history.history.length ? <div className="small text-center py-4">You don't have any transactions</div> :
-                      history.history.map((item, index) => {
-                        return (
-                          <HistoryCard
-                            src={item.photo}
-                            key={index}
-                            name={item.name}
-                            type={item.type}
-                            amount={item.type === "transfer" ? item.amount : item.amount_topup}
-                            isIncome={item.is_income}
-                            flat
-                          />
-                        )
-                      })
-              }
+              {loading ? (
+                <div className="small text-center py-4">Loading ...</div>
+              ) : error ? (
+                <div className="small text-center py-4">{error}</div>
+              ) : !history.history.length ? (
+                <div className="small text-center py-4">
+                  You don't have any transactions
+                </div>
+              ) : (
+                history.history.map((item, index) => {
+                  return (
+                    <HistoryCard
+                      src={item.photo}
+                      key={index}
+                      name={item.name}
+                      type={item.type}
+                      amount={
+                        item.type === "transfer"
+                          ? item.amount
+                          : item.amount_topup
+                      }
+                      isIncome={item.is_income}
+                      flat
+                    />
+                  );
+                })
+              )}
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-
-export default Main
+export default Main;

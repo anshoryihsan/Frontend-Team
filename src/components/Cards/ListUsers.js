@@ -9,11 +9,11 @@ function ListUsers(props) {
   const { token } = useSelector((state) => state.Auth);
 
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
 
   let actDel = () => {
     dispatch(deleteUser(token, id, history));
-  }
+  };
 
   return (
     <div className={className}>
@@ -23,7 +23,7 @@ function ListUsers(props) {
         <div className="d-flex align-items-center">
           <img
             className="rounded-14 object-cover"
-            src={src ? src : "/assets/images/icons/default.svg"}
+            src={src ? src : "/zwallet/assets/images/icons/default.svg"}
             height="56px"
             width="56px"
             alt="images"
@@ -31,12 +31,10 @@ function ListUsers(props) {
 
           <div className="pl-3">
             {!disabled ? (
-              <div className="font-weight-bold text-dark">
-                {name}
-              </div>
+              <div className="font-weight-bold text-dark">{name}</div>
             ) : (
-                <div className="font-weight-bold text-dark">{name}</div>
-              )}
+              <div className="font-weight-bold text-dark">{name}</div>
+            )}
             <div className="small">{email}</div>
             <div className="small">{phone}</div>
           </div>

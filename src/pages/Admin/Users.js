@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getFindUsers } from "../../redux/actions/user";
 import InfiniteScroll from "react-infinite-scroller";
 import { AlertDimiss } from "../../redux/actions/admin";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function Users() {
   const [name, setName] = useState("");
@@ -47,8 +47,8 @@ function Users() {
 
   const _handleShow = () => {
     setShow(!isShow);
-    dispatch(AlertDimiss())
-  }
+    dispatch(AlertDimiss());
+  };
 
   return (
     <>
@@ -59,15 +59,16 @@ function Users() {
             <div className="d-flex align-items-center bg-primary rounded-sm p-1 px-3 mr-2 text-white">
               <img
                 src={
-                  window.location.origin + "/assets/images/icons/plus-white.svg"
+                  window.location.origin +
+                  "/zwallet/assets/images/icons/plus-white.svg"
                 }
                 height="24px"
                 width="24px"
                 alt="arrow"
                 className="mx-1"
               />
-            Add User
-          </div>
+              Add User
+            </div>
           </Link>
         </div>
         <Alert
@@ -94,33 +95,33 @@ function Users() {
         ) : error ? (
           <div className="small text-center py-4">{error}</div>
         ) : (
-              <InfiniteScroll
-                initialLoad={false}
-                loadMore={loadMore}
-                hasMore={hasMore}
-                loader={
-                  <div className="small text-center py-4" key={0}>
-                    Loading ...
+          <InfiniteScroll
+            initialLoad={false}
+            loadMore={loadMore}
+            hasMore={hasMore}
+            loader={
+              <div className="small text-center py-4" key={0}>
+                Loading ...
               </div>
-                }
-              >
-                <div className="row">
-                  {findUser.map((item, index) => (
-                    <div className="col-lg-6" key={index}>
-                      <ListUsers
-                        src={item.photo}
-                        name={item.name}
-                        email={item.email}
-                        phone={item.phone ? `+62 ${item.phone}` : "-"}
-                        id={item.id}
-                        to={`/admin/users/${item.id}/edit`}
-                        className="my-2 mr-2 w-100 "
-                      />
-                    </div>
-                  ))}
+            }
+          >
+            <div className="row">
+              {findUser.map((item, index) => (
+                <div className="col-lg-6" key={index}>
+                  <ListUsers
+                    src={item.photo}
+                    name={item.name}
+                    email={item.email}
+                    phone={item.phone ? `+62 ${item.phone}` : "-"}
+                    id={item.id}
+                    to={`/admin/users/${item.id}/edit`}
+                    className="my-2 mr-2 w-100 "
+                  />
                 </div>
-              </InfiniteScroll>
-            )}
+              ))}
+            </div>
+          </InfiniteScroll>
+        )}
       </div>
     </>
   );

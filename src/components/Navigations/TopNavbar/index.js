@@ -1,10 +1,10 @@
-import React from 'react'
-import { Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function index(props) {
-  const { menuClick, notifClick, data } = props
-  const { name, phone, photo } = data
+  const { menuClick, notifClick, data } = props;
+  const { name, phone, photo } = data;
   return (
     <nav className="bg-white py-4 shadow-sm">
       <Container>
@@ -13,9 +13,15 @@ function index(props) {
             <h4 className="font-weight-bold text-primary">ZWallet</h4>
           </Link>
 
-          <button className="btn bg-primary py-2 px-2 d-lg-none" onClick={menuClick}>
+          <button
+            className="btn bg-primary py-2 px-2 d-lg-none"
+            onClick={menuClick}
+          >
             <img
-              src={window.location.origin + "/assets/images/icons/more-vert.svg"}
+              src={
+                window.location.origin +
+                "/zwallet/assets/images/icons/more-vert.svg"
+              }
               height="24px"
               width="24px"
               alt="More"
@@ -26,20 +32,25 @@ function index(props) {
             <img
               alt="profile"
               className="rounded-14 object-cover"
-              src={photo ? photo : "/assets/images/icons/default.svg"}
+              src={photo ? photo : "/zwallet/assets/images/icons/default.svg"}
               width="52px"
               height="52px"
             />
 
             <div className="mx-3">
               <div className="font-weight-bold text-dark">{name}</div>
-              <span className="small text-black-50">{phone ? `+62 ${phone}` : '-'}</span>
+              <span className="small text-black-50">
+                {phone ? `+62 ${phone}` : "-"}
+              </span>
             </div>
 
             <button className="btn" onClick={notifClick}>
               <img
                 alt="notification"
-                src={window.location.origin + "/assets/images/icons/bell.svg"}
+                src={
+                  window.location.origin +
+                  "/zwallet/assets/images/icons/bell.svg"
+                }
                 height="24px"
                 width="24px"
               />
@@ -48,7 +59,7 @@ function index(props) {
         </div>
       </Container>
     </nav>
-  )
+  );
 }
 
-export default index
+export default index;

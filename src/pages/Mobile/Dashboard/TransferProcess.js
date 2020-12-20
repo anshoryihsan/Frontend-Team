@@ -39,7 +39,7 @@ function TransferProcess() {
           <img
             src={
               window.location.origin +
-              "/assets/images/icons/arrow-left.svg"
+              "/zwallet/assets/images/icons/arrow-left.svg"
             }
             height="24px"
             width="24px"
@@ -62,7 +62,6 @@ function TransferProcess() {
       </div>
 
       <div className="rounded-14 shadow-none vh-85">
-
         <div className="text-center font-weight-bold mb-1">
           Rp{currency(parseInt(userdata.balance))} Available
         </div>
@@ -77,8 +76,6 @@ function TransferProcess() {
           fontSize={36}
           fontColor="primary"
         />
-
-
 
         <div className="d-flex justify-content-center">
           <div className="w-100">
@@ -103,11 +100,14 @@ function TransferProcess() {
             }
             // color="primary"
             // className="py-2 px-4 w-100"
-            className={`w-100 btn  py-3 mt-3 rounded-14  ${userdata.balance === 0 ||
+            className={`w-100 btn  py-3 mt-3 rounded-14  ${
+              userdata.balance === 0 ||
               userdata.balance < amount ||
               amount === "" ||
-              note === "" ? "bg-gray" : "btn-primary"}`
-            }
+              note === ""
+                ? "bg-gray"
+                : "btn-primary"
+            }`}
             disabled={
               userdata.balance === 0 ||
               userdata.balance < amount ||
