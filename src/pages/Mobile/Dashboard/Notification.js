@@ -37,7 +37,6 @@ function History() {
     }, 1500);
   };
 
-
   return (
     <>
       <nav className="d-flex justify-content-between">
@@ -47,7 +46,7 @@ function History() {
             onClick={() => back.goBack()}
           >
             <img
-              src="/assets/images/icons/arrow-left.svg"
+              src="/zwallet/assets/images/icons/arrow-left.svg"
               height="24px"
               width="24px"
               alt="arrow"
@@ -57,37 +56,43 @@ function History() {
         </div>
       </nav>
       <div className="rounded-14 my-2 mt-5">
-        {loading ? <div className="small text-center py-4">loading ...</div> :
-          error ? <div className="small text-center py-4">{error}</div> :
-            !history.history.length ? <div className="small text-center py-4">Data is empty</div> :
-              <InfiniteScroll
-                initialLoad={false}
-                loadMore={loadMore}
-                hasMore={hasMore}
-                loader={
-                  <div className="small text-center py-4" key={0}>
-                    Loading ...
+        {loading ? (
+          <div className="small text-center py-4">loading ...</div>
+        ) : error ? (
+          <div className="small text-center py-4">{error}</div>
+        ) : !history.history.length ? (
+          <div className="small text-center py-4">Data is empty</div>
+        ) : (
+          <InfiniteScroll
+            initialLoad={false}
+            loadMore={loadMore}
+            hasMore={hasMore}
+            loader={
+              <div className="small text-center py-4" key={0}>
+                Loading ...
               </div>
-                }
-              >
-                {history.history.map((item, index) => {
-                  return (
-                    <div key={index} className="my-3">
-                      <HistoryCard
-                        id={item.type === "topup" ? item.order_id : item.id}
-                        src={item.photo}
-                        name={item.name}
-                        type={item.type}
-                        amount={item.type === "transfer" ? item.amount : item.amount_topup}
-                        isIncome={item.is_income}
-                        status={item.status}
-                        mobile
-                      />
-                    </div>
-                  );
-                })}
-              </InfiniteScroll>
-        }
+            }
+          >
+            {history.history.map((item, index) => {
+              return (
+                <div key={index} className="my-3">
+                  <HistoryCard
+                    id={item.type === "topup" ? item.order_id : item.id}
+                    src={item.photo}
+                    name={item.name}
+                    type={item.type}
+                    amount={
+                      item.type === "transfer" ? item.amount : item.amount_topup
+                    }
+                    isIncome={item.is_income}
+                    status={item.status}
+                    mobile
+                  />
+                </div>
+              );
+            })}
+          </InfiniteScroll>
+        )}
       </div>
     </>
   );

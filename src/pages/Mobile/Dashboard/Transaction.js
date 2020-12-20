@@ -3,7 +3,7 @@ import { HistoryCard } from "../../../components/Cards";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { getHistories } from "../../../redux/actions/user";
-import BarChart from '../../../components/Charts/BarChart'
+import BarChart from "../../../components/Charts/BarChart";
 import { currency } from "../../../helpers";
 
 function Transaction() {
@@ -32,7 +32,7 @@ function Transaction() {
             onClick={() => back.goBack()}
           >
             <img
-              src="/assets/images/icons/arrow-left.svg"
+              src="/zwallet/assets/images/icons/arrow-left.svg"
               height="24px"
               width="24px"
               alt="arrow"
@@ -58,7 +58,9 @@ function Transaction() {
 
               <div className="small text-white my-1">Income</div>
 
-              <div className="font-weight-bold text-white">Rp{currency(history?.income)}</div>
+              <div className="font-weight-bold text-white">
+                Rp{currency(history?.income)}
+              </div>
             </div>
 
             <div className="col-6">
@@ -74,7 +76,9 @@ function Transaction() {
 
               <div className="small text-white my-1">Expense</div>
 
-              <div className="font-weight-bold text-white">Rp{currency(history?.expense)}</div>
+              <div className="font-weight-bold text-white">
+                Rp{currency(history?.expense)}
+              </div>
             </div>
           </div>
         </div>
@@ -95,28 +99,36 @@ function Transaction() {
       <div className="rounded-14 my-2 mt-3">
         <div className="d-flex justify-content-between align-items-center">
           <div className="font-weight-bold small">Transaction History</div>
-          <Link to="/m/dashboard/history" className="text-primary small">See All</Link>
+          <Link to="/m/dashboard/history" className="text-primary small">
+            See All
+          </Link>
         </div>
-        {loading ? <div className="small text-center py-4">loading ...</div> :
-          error ? <div className="small text-center py-4">{error}</div> :
-            !history.history.length ? <div className="small text-center py-4">Data is empty</div> :
-              history.history.map((item, index) => {
-                return (
-                  <div key={index} className="my-3">
-                    <HistoryCard
-                      id={item.type === "topup" ? item.order_id : item.id}
-                      src={item.photo}
-                      name={item.name}
-                      type={item.type}
-                      amount={item.type === "transfer" ? item.amount : item.amount_topup}
-                      isIncome={item.is_income}
-                      status={item.status}
-                      mobile
-                    />
-                  </div>
-                );
-              })
-        }
+        {loading ? (
+          <div className="small text-center py-4">loading ...</div>
+        ) : error ? (
+          <div className="small text-center py-4">{error}</div>
+        ) : !history.history.length ? (
+          <div className="small text-center py-4">Data is empty</div>
+        ) : (
+          history.history.map((item, index) => {
+            return (
+              <div key={index} className="my-3">
+                <HistoryCard
+                  id={item.type === "topup" ? item.order_id : item.id}
+                  src={item.photo}
+                  name={item.name}
+                  type={item.type}
+                  amount={
+                    item.type === "transfer" ? item.amount : item.amount_topup
+                  }
+                  isIncome={item.is_income}
+                  status={item.status}
+                  mobile
+                />
+              </div>
+            );
+          })
+        )}
       </div>
     </>
   );

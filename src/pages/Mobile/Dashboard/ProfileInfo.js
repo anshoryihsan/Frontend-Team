@@ -16,7 +16,7 @@ function ProfileInfo() {
             onClick={() => history.goBack()}
           >
             <img
-              src="/assets/images/icons/arrow-left.svg"
+              src="/zwallet/assets/images/icons/arrow-left.svg"
               height="24px"
               width="24px"
               alt="arrow"
@@ -49,13 +49,13 @@ function ProfileInfo() {
             </div>
           </>
         ) : (
-            <div className="shadow-sm bg-white rounded-14 pl-3 my-4 py-3 mx-2">
-              <div className="small">Name</div>
-              <div className="font-weight-bold text-dark">
-                {name ? name : null}
-              </div>
+          <div className="shadow-sm bg-white rounded-14 pl-3 my-4 py-3 mx-2">
+            <div className="small">Name</div>
+            <div className="font-weight-bold text-dark">
+              {name ? name : null}
             </div>
-          )
+          </div>
+        )
       ) : null}
 
       <div className="shadow-sm bg-white rounded-14 pl-3 my-4 py-3 mx-2">

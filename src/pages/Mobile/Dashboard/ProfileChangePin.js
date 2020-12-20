@@ -32,7 +32,7 @@ function ProfileNewPhone() {
                 onClick={() => history.goBack()}
               >
                 <img
-                  src="/assets/images/icons/arrow-left.svg"
+                  src="/zwallet/assets/images/icons/arrow-left.svg"
                   height="24px"
                   width="24px"
                   alt="arrow"
@@ -44,7 +44,6 @@ function ProfileNewPhone() {
           </nav>
 
           <div className="rounded-14 shadow-none mx-2 my-3">
-
             <div className="small text-black-50">
               <p>Type your new 6 digits security PIN to use in Zwallet.</p>
             </div>
@@ -58,7 +57,7 @@ function ProfileNewPhone() {
                     onChange={(value) => setPin(value)}
                   />
                 </Row>
-                <div className='fixed-bottom mb-4 p-3'>
+                <div className="fixed-bottom mb-4 p-3">
                   <button
                     className="w-100 btn btn-primary py-3 mt-3 rounded-14"
                     onClick={_onSubmit}

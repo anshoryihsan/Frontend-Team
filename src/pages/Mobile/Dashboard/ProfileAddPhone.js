@@ -32,7 +32,7 @@ function ProfileNewPhone() {
             <div className="d-flex align-items-center">
               <Link to="/m/dashboard/profile">
                 <img
-                  src="/assets/images/icons/arrow-left.svg"
+                  src="/zwallet/assets/images/icons/arrow-left.svg"
                   height="24px"
                   width="24px"
                   alt="arrow"
@@ -62,21 +62,24 @@ function ProfileNewPhone() {
                     onFocus={() => setPhoneFocus(true)}
                     onBlur={() => setPhoneFocus(false)}
                     isFocused={phoneFocus}
-                    value={phone} />
+                    value={phone}
+                  />
                 </div>
 
-
-                <div className="fixed-bottom ml-3" style={{
-                  bottom: "15px",
-                  width: "90%"
-                }}>
+                <div
+                  className="fixed-bottom ml-3"
+                  style={{
+                    bottom: "15px",
+                    width: "90%",
+                  }}
+                >
                   <button
-                    className="w-100 btn bg-primary py-3 mt-3 rounded-14 text-white" disabled={!phone}>
+                    className="w-100 btn bg-primary py-3 mt-3 rounded-14 text-white"
+                    disabled={!phone}
+                  >
                     Submit
-                </button>
+                  </button>
                 </div>
-
-
               </div>
             </div>
           </div>

@@ -49,7 +49,7 @@ function LandingPageDesktop() {
           <div className="col-md-6 d-flex justify-content-center">
             <img
               className="phone-landing"
-              src="/assets/images/png-phone.webp"
+              src="/zwallet/assets/images/png-phone.webp"
             />
           </div>
 
@@ -97,7 +97,7 @@ function LandingPageDesktop() {
                 <div className="card-body">
                   <div className="d-flex align-items-center flex-column">
                     <img
-                      src="assets/images/icons/phone-border.svg"
+                      src="/zwallet/assets/images/icons/phone-border.svg"
                       height="60px"
                       width="60px"
                     />
@@ -116,7 +116,7 @@ function LandingPageDesktop() {
                 <div className="card-body">
                   <div className="d-flex align-items-center flex-column">
                     <img
-                      src="assets/images/icons/lock2.svg"
+                      src="/zwallet/assets/images/icons/lock2.svg"
                       height="60px"
                       width="60px"
                     />
@@ -135,7 +135,7 @@ function LandingPageDesktop() {
                 <div className="card-body">
                   <div className="d-flex align-items-center flex-column">
                     <img
-                      src="assets/images/icons/download2.svg"
+                      src="/zwallet/assets/images/icons/download2.svg"
                       height="60px"
                       width="60px"
                     />
@@ -166,7 +166,7 @@ function LandingPageDesktop() {
           </div>
 
           <div className="col-md-7 d-flex justify-content-center mt-lg-0 mt-4">
-            <img src="assets/images/icons/partner.svg" width="100%" />
+            <img src="/zwallet/assets/images/icons/partner.svg" width="100%" />
           </div>
         </div>
       </section>
@@ -177,7 +177,7 @@ function LandingPageDesktop() {
             <div className="col-lg-5 d-flex justify-content-center">
               <img
                 className="phone-landing2"
-                src="assets/images/png-phone2.webp"
+                src="/zwallet/assets/images/png-phone2.webp"
               />
             </div>
 
@@ -244,7 +244,7 @@ function LandingPageDesktop() {
               <div className="card-body">
                 <div className="d-flex align-items-center flex-column">
                   <img
-                    src="assets/images/cristine.png"
+                    src="/zwallet/assets/images/cristine.png"
                     height="60px"
                     width="60px"
                   />
@@ -263,7 +263,7 @@ function LandingPageDesktop() {
               <div className="card-body">
                 <div className="d-flex align-items-center flex-column">
                   <img
-                    src="assets/images/jessica.png"
+                    src="/zwallet/assets/images/jessica.png"
                     height="60px"
                     width="60px"
                   />
@@ -282,7 +282,7 @@ function LandingPageDesktop() {
               <div className="card-body">
                 <div className="d-flex align-items-center flex-column">
                   <img
-                    src="assets/images/momo.png"
+                    src="/zwallet/assets/images/momo.png"
                     height="60px"
                     width="60px"
                   />

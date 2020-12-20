@@ -46,7 +46,7 @@ function ProfileChangePass() {
               onClick={() => history.goBack()}
             >
               <img
-                src="/assets/images/icons/arrow-left.svg"
+                src="/zwallet/assets/images/icons/arrow-left.svg"
                 height="24px"
                 width="24px"
                 alt="arrow"
@@ -57,7 +57,6 @@ function ProfileChangePass() {
           </div>
         </nav>
         <div className="rounded-14 shadow-none mx-2 my-3">
-
           <div className="small text-black-50">
             <p>
               You must enter your current password and then type your new
