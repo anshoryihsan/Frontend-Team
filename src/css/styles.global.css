@@ -31,7 +31,7 @@ a:hover {
   width: 42%;
   height: 400px;
   z-index: -1;
-  background: url(/assets/images/home-bg.webp);
+  background: url(/zwallet/assets/images/home-bg.webp);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   right: 0;
