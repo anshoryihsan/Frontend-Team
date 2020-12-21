@@ -35,7 +35,8 @@ Saat ini <strong>ZWallet</strong> dibuat dengan <strong>React JS</strong> dan <s
 Download the projects:
 
 ```
-~$ git clone https://github.com/userexynos/Frontend-Team
+$ git clone https://github.com/userexynos/Frontend-Team
+$ yarn
 ```
 
 
