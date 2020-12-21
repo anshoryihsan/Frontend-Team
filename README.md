@@ -21,7 +21,14 @@ Halo, kami dari <strong>Team Semicolon</strong> mempersembahkan.
 
 Project yang Kami buat kali ini bernama <strong>ZWallet</strong> yang mempunyai tujuan untuk menyimpan uang dalam keadaan virtual tanpa harus menaruh uang di dalam dompet. <strong>ZWallet</strong> juga dibekali dengan fitur transfer saldo, top up game dan lainnya yang berhubungan dengan virtual.
 
-Saat ini <strong>ZWallet</strong> dibuat dengan <strong>React JS</strong> dan <strong>Bootstrap</strong>,
+Saat ini <strong>ZWallet</strong> dibuat dengan <strong>React JS</strong> dan <strong>Bootstrap</strong>.
+
+
+### LINKS
+
+- Demo Zwallet: [Click Here](http://apibang.ga/zwallet)
+- Backend: [Click Here](https://github.com/userexynos/Backend-Team)
+- Zwallet Mobile (New): [Click Here](https://github.com/userexynos/zwallet-mobile-apps)
 
 ### HOW TO INSTALL
 
@@ -31,7 +38,8 @@ Download the projects:
 ~$ git clone https://github.com/userexynos/Frontend-Team
 ```
 
-### Preview
+
+### SCREENSHOTS
 
 Landing:
 <img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/1.png" />
