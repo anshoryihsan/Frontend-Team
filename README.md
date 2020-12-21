@@ -1,6 +1,6 @@
 <h1 align="center">
 	<a href="http://apibang.ga/zwallet/">
-		ZWallet App
+		ZWallet
 	</a>
 </h1>
 
@@ -36,6 +36,7 @@ Download the projects:
 
 ```
 $ git clone https://github.com/userexynos/Frontend-Team
+$ cd Frontend-Team
 $ yarn
 ```
 
