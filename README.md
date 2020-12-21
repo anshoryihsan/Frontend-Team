@@ -1,5 +1,5 @@
 <h1 align="center">
-	<a href="https://zwallet-project.netlify.app/">
+	<a href="http://apibang.ga/zwallet/">
 		ZWallet App
 	</a>
 </h1>
@@ -15,7 +15,7 @@
   </a>
 </p>
 
-### # ABOUT
+# ABOUT
 
 Halo, kami dari <strong>Team Semicolon</strong> mempersembahkan.
 
@@ -23,10 +23,36 @@ Project yang Kami buat kali ini bernama <strong>ZWallet</strong> yang mempunyai 
 
 Saat ini <strong>ZWallet</strong> dibuat dengan <strong>React JS</strong> dan <strong>Bootstrap</strong>,
 
-### # HOW TO INSTALL
+### HOW TO INSTALL
 
 Download the projects:
 
 ```
 ~$ git clone https://github.com/userexynos/Frontend-Team
 ```
+
+### Preview
+
+Landing:
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/1.png" />
+
+Auth:
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/2.png" />
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/3.png" />
+
+Dashboard:
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/4.png" />
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/10.png" />
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/11.png" />
+
+Dashboard Transfer:
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/5.png" />
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/6.png" />
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/7.png" />
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/8.png" />
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/9.png" />
+
+Dashboard Topup:
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/12.png" />
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/13.png" />
+<img src="https://raw.githubusercontent.com/userexynos/Frontend-Team/master/public/assets/mockup/14.png" />
